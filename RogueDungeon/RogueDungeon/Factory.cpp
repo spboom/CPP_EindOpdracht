@@ -1,6 +1,9 @@
 #include "stdafx.h"
 #include "Factory.h"
+#include "Directions.h"
+#include <vector>
 
+using namespace std;
 
 Factory::Factory()
 {
@@ -18,9 +21,21 @@ Room createDungeon(int width, int height)
 	for (int x = 0; x < width; x++)
 	{
 		rooms[x] = new Room[height];
-		for (int y = 0; y < height; y++)
-		{
-
-		}
 	}
+
+	int connected = 0;
+	vector<Room> notConnectedRooms = vector<Room>();
+
+	while (connected < width*height)
+	{
+		rooms[0][0].connected = true;
+		connected++;
+
+	}
+}
+
+Room linkRoom(Room* connected, Room* room, Directions direction)
+{
+	Hallway* hall = new Hallway();
+
 }

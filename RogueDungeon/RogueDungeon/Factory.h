@@ -7,6 +7,6 @@ public:
 	Factory();
 	~Factory();
 
-	Room createDungeon(int width, int height)
+	Room createDungeon(int width, int height);
 };
 

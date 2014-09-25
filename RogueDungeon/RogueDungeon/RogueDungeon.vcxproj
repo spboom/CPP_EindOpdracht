@@ -87,6 +87,7 @@
     <ClInclude Include="FollowingEnemy.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Hallway.h" />
+    <ClInclude Include="Directions.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="Location.h" />
     <ClInclude Include="Player.h" />
