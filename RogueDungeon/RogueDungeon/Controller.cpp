@@ -1,23 +1,41 @@
-#include "stdafx.h"
-#include "Controller.h"
+#ifdef _WIN32
+#endif
 
+#ifdef __unix__
+#endif
+
+//
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <vector>
+#include "stdafx.h"
+#include <fstream>
+
+//
+#include "Controller.h"
+#include "Game.h"
+
+//
+Controller* Controller::s_pInstance;
 using namespace std;
 
-Controller::Controller()
-{
-}
-
-
-Controller::~ Controller()
-{
-}
-
-void save()
+void Controller::loadFile() 
 {
 
 }
 
-void load()
+void Controller::saveFile() 
+{
+
+}
+
+void Controller::readFile()
+{
+	
+}
+
+void Controller::writeFile()
 {
 
 }

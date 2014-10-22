@@ -19,7 +19,7 @@ public:
 	int attack;
 	int defence;
 	int attraction;
-	vector<Item> items;
+	vector<Item*> items;
 
 
 private:

@@ -14,7 +14,7 @@ Factory::~Factory()
 {
 }
 
-Room createDungeon(int width, int height)
+Room* createDungeon(int width, int height)
 {
 	Room **rooms = new Room*[width];
 
@@ -23,19 +23,19 @@ Room createDungeon(int width, int height)
 		rooms[x] = new Room[height];
 	}
 
-	int connected = 0;
+	/*int connected = 0;
 	vector<Room> notConnectedRooms = vector<Room>();
 
 	while (connected < width*height)
 	{
 		rooms[0][0].connected = true;
 		connected++;
+	}*/
 
-	}
+	return nullptr;
 }
 
-Room linkRoom(Room* connected, Room* room, Directions direction)
-{
-	Hallway* hall = new Hallway();
-
-}
+//Room linkRoom(Room* connected, Room* room, Directions direction)
+//{
+//	Hallway* hall = new Hallway();
+//}
