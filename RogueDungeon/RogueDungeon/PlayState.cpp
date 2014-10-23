@@ -13,18 +13,12 @@
 //
 #include "Game.h"
 #include "PlayState.h"
+#include "InputHandler.h"
 
 
-void PlayState::update(int dt)
-{
-	
-}
+void PlayState::update(int dt) {}
 
-void PlayState::render()
-{
-	
-
-}
+void PlayState::render() {}
 
 bool PlayState::onEnter()
 {

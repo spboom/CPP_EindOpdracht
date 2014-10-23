@@ -25,27 +25,26 @@
 #include "MainMenuState.h"
 #include "Game.h"
 #include "InputHandler.h"
+#include "Controller.h"
 
 //
 using namespace std;
 
 void MainMenuState::update(int dt) 
 {
-	
 }
 
 void MainMenuState::render()
 {
-	TheInputHandler::Instance()->userInputHandler();
 }
 
 bool MainMenuState::onEnter() {
 	
-	cout << "entering MenuState\n";
+	TheController::Instance()->txtFileController("test.txt");
 
-	cout << "Choose your option:\n>";
-	TheInputHandler::Instance()->userInputHandler();
-
+	TheInputHandler::Instance()->setCommandLine("entering MenuState");
+	TheInputHandler::Instance()->setCommandLine("Choose your option:");
+	TheInputHandler::Instance()->setCommandNewLine(">");
 	return true;
 }
 

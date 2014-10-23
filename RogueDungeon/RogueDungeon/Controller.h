@@ -22,12 +22,9 @@ public:
 		}
 		return s_pInstance;
 	}
-
-	void loadFile();
+	void txtFileController(string txtPath);
 	void saveFile();
-	void readFile();
 	void writeFile();
-
 private:
 	Controller() {}
 	~Controller();

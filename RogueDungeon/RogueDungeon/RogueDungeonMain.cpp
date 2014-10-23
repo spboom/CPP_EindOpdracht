@@ -18,6 +18,7 @@
 
 //
 #include "Game.h"
+#include "InputHandler.h"
 
 using namespace std;
 
@@ -43,6 +44,7 @@ int main(int argc, char* argv[])
 			TheGame::Instance()->handleEvents();
 			TheGame::Instance()->update();
 			TheGame::Instance()->render();
+			TheInputHandler::Instance()->readLine();
 		}
 	}
 	else
