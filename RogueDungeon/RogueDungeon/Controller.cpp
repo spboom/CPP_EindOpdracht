@@ -23,17 +23,18 @@ using namespace std;
 
 void Controller::txtFileController(string txtPath)
 {
-	fstream textfile(txtPath);
-
-	char item;
-	while (!textfile.eof())
-	{
-		textfile.get(item);
-		//TheInputHandler::Instance()->setCommandLine(item);
-		cout << item;
+	// Read from file
+	ifstream fin(txtPath.c_str());  
+	if (!fin) {
+		cerr << "error: open file for input failed!" << endl;
+		abort();
 	}
-
-	textfile.close();
+	char ch;
+	while (fin.get(ch)) {  
+		std::string str(1, ch);
+		TheInputHandler::Instance()->setCommandNewLine(str);
+	}
+	fin.close();
 }
 
 void Controller::saveFile() 

@@ -40,16 +40,12 @@ void MainMenuState::render()
 
 bool MainMenuState::onEnter() {
 	
-	TheController::Instance()->txtFileController("test.txt");
-
-	TheInputHandler::Instance()->setCommandLine("entering MenuState");
-	TheInputHandler::Instance()->setCommandLine("Choose your option:");
+	TheController::Instance()->txtFileController("../Inputfiles/main_menu_art.txt");
+	TheInputHandler::Instance()->setCommandLine("SELECT FROM MENU");
 	TheInputHandler::Instance()->setCommandNewLine(">");
 	return true;
 }
 
 bool MainMenuState::onExit() {
-	
-	//std::cout << "exiting MenuState\n";
 	return true;
 }

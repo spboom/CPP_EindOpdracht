@@ -35,7 +35,7 @@ bool Game::init(string title, int width, int height)
 	// attempt to initialize SDL
 	setWindowTitle(title);
 	setWindowSize(width, height);
-	setWindowCenterScreen();
+	setWindowCenterScreen(width, height);
 
 	m_bRunning = true; // everything inited successfully, start the main loop
 
@@ -119,24 +119,24 @@ void Game::setWindowTitle(string title)
 	}
 }
 
-void Game::setWindowSize(int Width, int Height)
+void Game::setWindowSize(int width, int height)
 {
 	_COORD coord;
-	coord.X = Width;
-	coord.Y = Height;
+	coord.X = width;
+	coord.Y = height;
 
 	_SMALL_RECT Rect;
 	Rect.Top = 0;
 	Rect.Left = 0;
-	Rect.Bottom = Height - 1;
-	Rect.Right = Width - 1;
+	Rect.Bottom = height - 1;
+	Rect.Right = width - 1;
 
 	HANDLE Handle = GetStdHandle(STD_OUTPUT_HANDLE);      // Get Handle
 	SetConsoleScreenBufferSize(Handle, coord);            // Set Buffer Size
 	SetConsoleWindowInfo(Handle, TRUE, &Rect);            // Set Window Size
 }
 
-void Game::setWindowCenterScreen()
+void Game::setWindowCenterScreen(int width, int height)
 {
 	//Get the window console handle(isn't the right code but works for these sample
 	HWND ConsoleWindow;
@@ -149,7 +149,7 @@ void Game::setWindowCenterScreen()
 	GetWindowRect(hwndScreen, &rectScreen);
 
 	//Set windows size(see the width problem)
-	SetWindowPos(ConsoleWindow, NULL, 0, 0, 1000, 500, SWP_SHOWWINDOW);
+	SetWindowPos(ConsoleWindow, NULL, 0, 0, width, height, SWP_SHOWWINDOW);
 
 	// Get the current width and height of the console
 	RECT rConsole;

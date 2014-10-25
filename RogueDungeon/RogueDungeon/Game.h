@@ -42,8 +42,8 @@ private:
 	bool m_bRunning;
 	GameStateMachine* m_pGameStateMachine;
 	void setWindowTitle(string title);
-	void setWindowSize(int Width, int Height);
-	void setWindowCenterScreen();
+	void setWindowSize(int width, int height);
+	void setWindowCenterScreen(int width, int height);
 };
 typedef Game TheGame;
 #endif /* defined(GAME_H_) */

@@ -27,9 +27,9 @@ Game* g_game = 0;
 
 // game constants
 const string TITLE = "Rogue & Dungeon";
-const string VERSION = "v0.1";
-const int SCREEN_WIDTH = 100;;
-const int SCREEN_HEIGHT = 50;
+const string VERSION = "v0.3";
+const int SCREEN_WIDTH = 1044;
+const int SCREEN_HEIGHT = 768;
 
 // MAIN point for the console application
 int main(int argc, char* argv[])
