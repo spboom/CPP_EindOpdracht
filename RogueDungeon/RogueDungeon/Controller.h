@@ -22,6 +22,7 @@ public:
 		return s_pInstance;
 	}
 	void txtFileController(string txtPath);
+	void xmlFileController(string xmlPath);
 	void saveFile();
 	void writeFile();
 private:

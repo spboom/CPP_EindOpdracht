@@ -40,6 +40,7 @@ bool MainMenuState::onEnter() {
 
 	// 
 	TheController::Instance()->txtFileController("../Inputfiles/states/mainmenustate.txt");
+	//TheController::Instance()->xmlFileController("../Inputfiles/example1.xml");
 
 	//
 	TheInputHandler::Instance()->setCommandLine("SELECT FROM MENU");

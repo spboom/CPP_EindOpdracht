@@ -25,12 +25,6 @@
     <Filter Include="Header Files\States">
       <UniqueIdentifier>{61f11257-3c44-4a36-9f3c-ac2b7e72492c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Bin">
-      <UniqueIdentifier>{43a8e4e7-caf1-4aee-8c12-f6f0631f3aea}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Bin">
-      <UniqueIdentifier>{8c33d68c-0653-4db7-b180-9d23f95b2d81}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Model">
       <UniqueIdentifier>{0c2e9225-4aba-480e-8953-915263e91508}</UniqueIdentifier>
     </Filter>
@@ -54,6 +48,12 @@
     </Filter>
     <Filter Include="Source Files\Model\Location">
       <UniqueIdentifier>{7d299c3f-491f-4384-9d3e-af781aa79035}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Library">
+      <UniqueIdentifier>{43a8e4e7-caf1-4aee-8c12-f6f0631f3aea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Library">
+      <UniqueIdentifier>{8c33d68c-0653-4db7-b180-9d23f95b2d81}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -121,10 +121,10 @@
       <Filter>Header Files\Model\Location</Filter>
     </ClInclude>
     <ClInclude Include="stdafx.h">
-      <Filter>Header Files\Bin</Filter>
+      <Filter>Header Files\Library</Filter>
     </ClInclude>
     <ClInclude Include="targetver.h">
-      <Filter>Header Files\Bin</Filter>
+      <Filter>Header Files\Library</Filter>
     </ClInclude>
     <ClInclude Include="Directions.h">
       <Filter>Header Files\Model\Location</Filter>
@@ -210,7 +210,7 @@
       <Filter>Source Files\Controller</Filter>
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
-      <Filter>Source Files\Bin</Filter>
+      <Filter>Source Files\Library</Filter>
     </ClCompile>
     <ClCompile Include="Trap.cpp">
       <Filter>Source Files\Model\Location</Filter>

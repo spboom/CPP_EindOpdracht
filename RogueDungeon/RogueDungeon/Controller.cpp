@@ -11,6 +11,8 @@
 #include <vector>
 #include "stdafx.h"
 #include <fstream>
+#include "Tinyxml\tinystr.h"
+#include "Tinyxml\tinyxml.h"
 
 //
 #include "Controller.h"
@@ -34,6 +36,21 @@ void Controller::txtFileController(string txtPath) {
 		TheInputHandler::Instance()->setCommandNewLine(str);
 	}
 	fin.close();
+}
+
+void Controller::xmlFileController(string xmlPath) {
+	// Read from file
+	TiXmlDocument doc(xmlPath.c_str());
+	bool loadOkay = doc.LoadFile();
+	if (!loadOkay)
+	{
+		cerr << "error: open file for input failed!" << endl;
+		abort();
+	}
+	else
+	{
+		printf("\n%s:\n", xmlPath);
+	}
 }
 
 void Controller::saveFile() {
