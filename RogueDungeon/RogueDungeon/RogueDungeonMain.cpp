@@ -32,8 +32,7 @@ const int SCREEN_WIDTH = 1044;
 const int SCREEN_HEIGHT = 768;
 
 // MAIN point for the console application
-int main(int argc, char* argv[])
-{
+int main(int argc, char* argv[]) {
 	// Checking for memory leaks!
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 	

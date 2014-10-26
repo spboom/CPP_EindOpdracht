@@ -7,6 +7,7 @@
 //
 #include "GameStateMachine.h"
 
+//
 using namespace std;
 
 class Game
@@ -21,7 +22,6 @@ public:
 		}
 		return s_pInstance;
 	}
-
 	// simply set the running variable to true
 	bool init(string title, int width, int height); //{ m_bRunning = true; }
 	void render();
@@ -29,10 +29,10 @@ public:
 	void handleEvents();
 	void quitGame(int exitcode);
 	void clean();
-
 	GameStateMachine* getStateMachine();
 	void goToPlay();
-
+	void goToMainMenu();
+	void goToCredits();
 	// a function to access the private running variable
 	bool running() { return m_bRunning; }
 private:

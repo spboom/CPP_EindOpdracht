@@ -83,6 +83,7 @@
     <ClInclude Include="Character.h" />
     <ClInclude Include="ConsumableItem.h" />
     <ClInclude Include="Controller.h" />
+    <ClInclude Include="CreditsState.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Factory.h" />
     <ClInclude Include="FollowingEnemy.h" />
@@ -114,6 +115,7 @@
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="ConsumableItem.cpp" />
     <ClCompile Include="Controller.cpp" />
+    <ClCompile Include="CreditsState.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Factory.cpp" />
     <ClCompile Include="FollowingEnemy.cpp" />

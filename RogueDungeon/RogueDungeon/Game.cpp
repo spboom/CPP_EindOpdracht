@@ -24,14 +24,14 @@
 #include "GameStateMachine.h"
 #include "MainMenuState.h"
 #include "PlayState.h"
+#include "CreditsState.h"
 #include "InputHandler.h"
 
 // 
 Game* Game::s_pInstance;
 using namespace std;
 
-bool Game::init(string title, int width, int height)
-{
+bool Game::init(string title, int width, int height) {
 	// attempt to initialize SDL
 	setWindowTitle(title);
 	setWindowSize(width, height);
@@ -45,12 +45,7 @@ bool Game::init(string title, int width, int height)
 	return true;
 }
 
-void Game::update() {
-	/*Uint32 newTime = SDL_GetTicks();
-	Uint32 dt = newTime - time;
-	time = newTime;
-	m_pGameStateMachine->update(dt);*/
-}
+void Game::update() {}
 
 void Game::render() {
 	m_pGameStateMachine->render();
@@ -61,30 +56,18 @@ void Game::clean() {
 	system("cls");
 }
 
-void Game::handleEvents() {
-
-	//InputHandler::Instance()->update();
-
-	/*if(TheInputHandler::Instance().isKeyDown(SDL_SCANCODE_RETURN))
-	m_pGameStateMachine->changeState(new PlayState());*/
-
-	//SDL_Event event;
-	//if (SDL_PollEvent(&event) && event.type == SDL_QUIT)
-	//	m_bRunning = false;
-}
+void Game::handleEvents() {}
 
 GameStateMachine* Game::getStateMachine() {
 
 	return m_pGameStateMachine;
 }
 
-void Game::quitGame(int exitcode) 
-{
+void Game::quitGame(int exitcode)  {
 	exit(exitcode);
 }
 
-std::wstring s2ws(const std::string& s)
-{
+std::wstring s2ws(const std::string& s) {
 	int len;
 	int slength = (int)s.length() + 1;
 	len = MultiByteToWideChar(CP_ACP, 0, s.c_str(), slength, 0, 0);
@@ -95,8 +78,7 @@ std::wstring s2ws(const std::string& s)
 	return r;
 }
 
-void Game::setWindowTitle(string title)
-{
+void Game::setWindowTitle(string title) {
 	std::wstring stemp = s2ws(title);
 	LPCWSTR result = stemp.c_str();
 
@@ -119,8 +101,7 @@ void Game::setWindowTitle(string title)
 	}
 }
 
-void Game::setWindowSize(int width, int height)
-{
+void Game::setWindowSize(int width, int height) {
 	_COORD coord;
 	coord.X = width;
 	coord.Y = height;
@@ -136,8 +117,7 @@ void Game::setWindowSize(int width, int height)
 	SetConsoleWindowInfo(Handle, TRUE, &Rect);            // Set Window Size
 }
 
-void Game::setWindowCenterScreen(int width, int height)
-{
+void Game::setWindowCenterScreen(int width, int height) {
 	//Get the window console handle(isn't the right code but works for these sample
 	HWND ConsoleWindow;
 	ConsoleWindow = GetForegroundWindow();
@@ -166,6 +146,13 @@ void Game::setWindowCenterScreen(int width, int height)
 }
 
 void Game::goToPlay() {
-
 	getStateMachine()->changeState(new PlayState());
+}
+
+void Game::goToMainMenu() {
+	getStateMachine()->changeState(new MainMenuState());
+}
+
+void Game::goToCredits() {
+	getStateMachine()->changeState(new CreditsState());
 }

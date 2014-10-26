@@ -10,8 +10,7 @@
 //
 using namespace std;
 
-class Controller
-{
+class Controller {
 public:
 	static Controller* Instance()
 	{

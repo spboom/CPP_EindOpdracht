@@ -30,22 +30,45 @@
 //
 using namespace std;
 
-void MainMenuState::update(int dt) 
-{
-}
+void MainMenuState::update(int dt) {}
 
-void MainMenuState::render()
-{
+void MainMenuState::render() {
+	OutputHandler(TheInputHandler::Instance()->getOutput());
 }
 
 bool MainMenuState::onEnter() {
-	
-	TheController::Instance()->txtFileController("../Inputfiles/main_menu_art.txt");
+
+	// 
+	TheController::Instance()->txtFileController("../Inputfiles/states/mainmenustate.txt");
+
+	//
 	TheInputHandler::Instance()->setCommandLine("SELECT FROM MENU");
 	TheInputHandler::Instance()->setCommandNewLine(">");
+
 	return true;
 }
 
-bool MainMenuState::onExit() {
-	return true;
+bool MainMenuState::onExit() { return true; }
+
+void MainMenuState::OutputHandler(string input)
+{
+	if (input != "")
+	{
+		if (input == "PLAY") {
+			TheGame::Instance()->clean();
+			TheGame::Instance()->goToPlay();
+		}
+		else if (input == "CREDITS") {
+			TheGame::Instance()->clean();
+			TheGame::Instance()->goToCredits();
+		}
+		else if (input == "QUIT") {
+			TheInputHandler::Instance()->setCommandLine("Thank you for playing Rogue and Dungeon!");
+			TheGame::Instance()->quitGame(0);
+		}
+		else {
+			TheInputHandler::Instance()->setCommandLine("Caution! Do you have chosen the correct menu item?");
+			TheInputHandler::Instance()->setCommandNewLine(">");
+		}
+	}
 }

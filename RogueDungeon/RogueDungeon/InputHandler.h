@@ -13,8 +13,6 @@ using namespace std;
 class InputHandler
 {
 public:
-	void update();
-	void clean();
 	static InputHandler* Instance()
 	{
 		if (s_pInstance == 0)
@@ -24,10 +22,12 @@ public:
 		}
 		return s_pInstance;
 	}
+	void update();
+	void clean();
 	void readLine();
-	void userOutputHandler(string input);
 	void setCommandLine(string input);
 	void setCommandNewLine(string input);
+	string getOutput();
 private:
 	InputHandler() {}
 	~InputHandler();

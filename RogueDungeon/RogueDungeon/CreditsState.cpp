@@ -12,20 +12,20 @@
 
 //
 #include "Game.h"
-#include "PlayState.h"
+#include "CreditsState.h"
 #include "InputHandler.h"
 #include "Controller.h"
 
-void PlayState::update(int dt) {}
+void CreditsState::update(int dt) {}
 
-void PlayState::render() {
+void CreditsState::render() {
 	OutputHandler(TheInputHandler::Instance()->getOutput());
 }
 
-bool PlayState::onEnter() {
-	
+bool CreditsState::onEnter() {
+
 	// 
-	TheController::Instance()->txtFileController("../Inputfiles/states/playstate.txt");
+	TheController::Instance()->txtFileController("../Inputfiles/states/creditsstate.txt");
 
 	//
 	TheInputHandler::Instance()->setCommandLine("SELECT FROM MENU");
@@ -34,9 +34,9 @@ bool PlayState::onEnter() {
 	return true;
 }
 
-bool PlayState::onExit() { return true; }
+bool CreditsState::onExit() { return true; }
 
-void PlayState::OutputHandler(string input)
+void CreditsState::OutputHandler(string input)
 {
 	if (input != "")
 	{
@@ -44,9 +44,9 @@ void PlayState::OutputHandler(string input)
 			TheGame::Instance()->clean();
 			TheGame::Instance()->goToMainMenu();
 		}
-		else if (input == "CREDITS") {
+		else if (input == "PLAY") {
 			TheGame::Instance()->clean();
-			TheGame::Instance()->goToCredits();
+			TheGame::Instance()->goToPlay();
 		}
 		else if (input == "QUIT") {
 			TheInputHandler::Instance()->setCommandLine("Thank you for playing Rogue and Dungeon!");

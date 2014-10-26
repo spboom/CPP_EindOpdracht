@@ -21,8 +21,7 @@
 Controller* Controller::s_pInstance;
 using namespace std;
 
-void Controller::txtFileController(string txtPath)
-{
+void Controller::txtFileController(string txtPath) {
 	// Read from file
 	ifstream fin(txtPath.c_str());  
 	if (!fin) {
@@ -37,12 +36,10 @@ void Controller::txtFileController(string txtPath)
 	fin.close();
 }
 
-void Controller::saveFile() 
-{
+void Controller::saveFile() {
 
 }
 
-void Controller::writeFile()
-{
+void Controller::writeFile() {
 
 }

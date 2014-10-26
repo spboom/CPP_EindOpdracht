@@ -18,6 +18,7 @@
 //
 InputHandler* InputHandler::s_pInstance;
 using namespace std;
+string user_output;
 
 void InputHandler::update() {}
 
@@ -27,35 +28,17 @@ void InputHandler::readLine()
 {	
 	string input = "";
 	getline(cin, input);
-	userOutputHandler(input);
+	user_output = input;
 }
 
-void InputHandler::setCommandLine(string input)
-{
+void InputHandler::setCommandLine(string input) {
 	cout << input << endl;
 }
 
-void InputHandler::setCommandNewLine(string input)
-{
+void InputHandler::setCommandNewLine(string input) {
 	cout << input;
 }
 
-void InputHandler::userOutputHandler(string input)
-{
-	// Check for Main Menu options
-	if (input == "Play" || input == "play" || input == "PLAY") {
-		setCommandLine("Let's play Roque and Dungeon!");
-		TheGame::Instance()->clean();
-		TheGame::Instance()->goToPlay();
-	}
-	else if (input == "Quit" || input == "quit" || input == "QUIT") {
-		setCommandLine("Thank you for playing Rogue and Dungeon!");
-		TheGame::Instance()->quitGame(0);
-	}
-	else {
-		setCommandLine("Chosen option don't exist! Is your input right?");
-		setCommandNewLine(">");
-	}
-
-	//
+string InputHandler::getOutput() {
+	return user_output;
 }
