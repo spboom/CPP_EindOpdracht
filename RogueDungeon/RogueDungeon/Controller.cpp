@@ -11,8 +11,8 @@
 #include <vector>
 #include "stdafx.h"
 #include <fstream>
-#include "Tinyxml\tinystr.h"
-#include "Tinyxml\tinyxml.h"
+//#include "Tinyxml\tinystr.h"
+//#include "Tinyxml\tinyxml.h"
 
 //
 #include "Controller.h"
@@ -40,7 +40,7 @@ void Controller::txtFileController(string txtPath) {
 
 void Controller::xmlFileController(string xmlPath) {
 	// Read from file
-	TiXmlDocument doc(xmlPath.c_str());
+	/*TiXmlDocument doc(xmlPath.c_str());
 	bool loadOkay = doc.LoadFile();
 	if (!loadOkay)
 	{
@@ -50,7 +50,7 @@ void Controller::xmlFileController(string xmlPath) {
 	else
 	{
 		printf("\n%s:\n", xmlPath);
-	}
+	}*/
 }
 
 void Controller::saveFile() {

@@ -39,7 +39,7 @@ void MainMenuState::render() {
 bool MainMenuState::onEnter() {
 
 	// 
-	TheController::Instance()->txtFileController("../Inputfiles/states/mainmenustate.txt");
+	TheController::Instance()->txtFileController("Inputfiles/states/mainmenustate.txt");
 	//TheController::Instance()->xmlFileController("../Inputfiles/example1.xml");
 
 	//

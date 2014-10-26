@@ -25,7 +25,7 @@ void CreditsState::render() {
 bool CreditsState::onEnter() {
 
 	// 
-	TheController::Instance()->txtFileController("../Inputfiles/states/creditsstate.txt");
+	TheController::Instance()->txtFileController("Inputfiles/states/creditsstate.txt");
 
 	//
 	TheInputHandler::Instance()->setCommandLine("SELECT FROM MENU");
