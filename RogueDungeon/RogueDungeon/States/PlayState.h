@@ -1,23 +1,23 @@
-#ifndef _CREDITSSTATE_H_
-#define _CREDITSSTATE_H_
+#ifndef _PLAYSTATE_H_
+#define _PLAYSTATE_H_
 
 //
 #include <iostream>
 #include <string>
 #include <sstream>
-#include "stdafx.h"
+#include "../Library/stdafx.h"
 
 //
 #include "GameState.h"
 
-class CreditsState : public GameState {
+class PlayState : public GameState {
 public:
 	virtual void update(int dt);
 	virtual void render();
 	virtual bool onEnter();
 	virtual bool onExit();
-	virtual std::string getStateID() const { return "CREDITS"; };
+	virtual std::string getStateID() const { return "PLAY"; };
 private:
 	void OutputHandler(string input);
 };
-#endif /* _CREDITSSTATE_H_ */
+#endif /* _PLAYSTATE_H_ */

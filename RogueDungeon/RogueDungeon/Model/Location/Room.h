@@ -4,7 +4,7 @@
 //
 #include "Location.h"
 #include "Hallway.h"
-#include "Item.h"
+#include "../Item/Item.h"
 #include "Directions.h"
 #include <map>
 

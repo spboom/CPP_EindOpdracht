@@ -11,10 +11,10 @@
 #include "stdafx.h"
 
 //
-#include "Game.h"
+#include "../Controller/Game.h"
 #include "PlayState.h"
-#include "InputHandler.h"
-#include "Controller.h"
+#include "../Controller/InputHandler.h"
+#include "../Controller/Controller.h"
 
 void PlayState::update(int dt) {}
 
@@ -38,23 +38,34 @@ bool PlayState::onExit() { return true; }
 
 void PlayState::OutputHandler(string input)
 {
+	// MENU
 	if (input != "")
 	{
-		if (input == "MAIN MENU") {
+		if (input == "MAIN MENU" || input == "Main Menu" || input == "main menu") {
 			TheGame::Instance()->clean();
 			TheGame::Instance()->goToMainMenu();
 		}
-		else if (input == "CREDITS") {
+		else if (input == "CREDITS" || input == "Credits" || input == "credits") {
 			TheGame::Instance()->clean();
 			TheGame::Instance()->goToCredits();
 		}
-		else if (input == "QUIT") {
+		else if (input == "QUIT" || input == "Quit" || input == "quit") {
+			TheInputHandler::Instance()->setCommandLine("Are you sure? Yes or No!");
+			TheInputHandler::Instance()->setCommandNewLine(">");
+		}
+		else if (input == "Yes") {
 			TheInputHandler::Instance()->setCommandLine("Thank you for playing Rogue and Dungeon!");
 			TheGame::Instance()->quitGame(0);
 		}
+		else if (input == "No") {
+			TheInputHandler::Instance()->setCommandLine("Ok! You're still in the game!");
+			TheInputHandler::Instance()->setCommandNewLine(">");
+		}
 		else {
-			TheInputHandler::Instance()->setCommandLine("Caution! Do you have chosen the correct menu item?");
+			TheInputHandler::Instance()->setCommandLine("Caution! Wrong input!");
 			TheInputHandler::Instance()->setCommandNewLine(">");
 		}
 	}
+
+	//
 }

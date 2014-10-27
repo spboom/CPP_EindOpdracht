@@ -17,8 +17,8 @@
 #include <sstream>
 
 //
-#include "Game.h"
-#include "InputHandler.h"
+#include "Controller/Game.h"
+#include "Controller/InputHandler.h"
 
 using namespace std;
 

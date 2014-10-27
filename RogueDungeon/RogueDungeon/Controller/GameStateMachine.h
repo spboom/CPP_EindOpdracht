@@ -2,7 +2,7 @@
 #define _GAMESTATEMACHINE_H_
 
 //
-#include "GameState.h"
+#include "../States/GameState.h"
 
 //
 #include <vector>

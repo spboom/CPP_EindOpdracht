@@ -1,7 +1,7 @@
 #pragma once
 
 //
-#include "Room.h";
+#include "../Model/Location/Room.h";
 
 class Factory
 {

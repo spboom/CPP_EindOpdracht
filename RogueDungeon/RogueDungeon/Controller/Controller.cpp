@@ -11,8 +11,8 @@
 #include <vector>
 #include "stdafx.h"
 #include <fstream>
-//#include "Tinyxml\tinystr.h"
-//#include "Tinyxml\tinyxml.h"
+#include "../Tinyxml\tinystr.h"
+#include "../Tinyxml\tinyxml.h"
 
 //
 #include "Controller.h"

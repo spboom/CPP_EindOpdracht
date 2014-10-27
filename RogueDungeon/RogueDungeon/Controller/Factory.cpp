@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "Factory.h"
-#include "Directions.h"
+#include "../Model/Location/Directions.h"
 #include <vector>
 
 using namespace std;

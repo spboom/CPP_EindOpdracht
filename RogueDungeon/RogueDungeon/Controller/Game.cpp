@@ -22,9 +22,9 @@
 //
 #include "Game.h"
 #include "GameStateMachine.h"
-#include "MainMenuState.h"
-#include "PlayState.h"
-#include "CreditsState.h"
+#include "../States/MainMenuState.h"
+#include "../States/PlayState.h"
+#include "../States/CreditsState.h"
 #include "InputHandler.h"
 
 // 
