@@ -5,8 +5,9 @@
 #endif
 
 //
+#include <tchar.h>
+#include <strsafe.h>
 #include <stdio.h>
-#include "stdafx.h"
 
 //
 #include "GameState.h"

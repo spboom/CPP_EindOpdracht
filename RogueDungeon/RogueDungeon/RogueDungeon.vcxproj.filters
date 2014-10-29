@@ -58,6 +58,13 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
+    <Text Include="Inputfiles\enemies.txt" />
+    <Text Include="Inputfiles\items.txt" />
+    <Text Include="Inputfiles\room_description.txt" />
+    <Text Include="Inputfiles\traps.txt" />
+    <Text Include="Inputfiles\States\creditsstate.txt" />
+    <Text Include="Inputfiles\States\mainmenustate.txt" />
+    <Text Include="Inputfiles\States\playstate.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Controller\Controller.h">
@@ -152,9 +159,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="RogueDungeonMain.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Controller\Controller.cpp">
       <Filter>Source Files\Controller</Filter>
     </ClCompile>
@@ -242,5 +246,14 @@
     <ClCompile Include="Model\Location\Directions.cpp">
       <Filter>Source Files\Model\Location</Filter>
     </ClCompile>
+    <ClCompile Include="RogueDungeonMain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="Inputfiles\example1.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

@@ -5,10 +5,11 @@
 #endif
 
 //
+#include <tchar.h>
+#include <strsafe.h>
 #include <iostream>
 #include <string>
 #include <sstream>
-#include "stdafx.h"
 
 //
 #include "../Controller/Game.h"

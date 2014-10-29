@@ -1,4 +1,8 @@
-#include "stdafx.h"
+//
+#include <tchar.h>
+#include <strsafe.h>
+
+//
 #include "Factory.h"
 #include "../Model/Location/Directions.h"
 #include <vector>

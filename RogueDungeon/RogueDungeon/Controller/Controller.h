@@ -2,7 +2,6 @@
 #define _CONTROLLER_H_
 
 //
-#include "../Library/stdafx.h"
 #include <iostream>
 #include <string>
 #include <sstream>

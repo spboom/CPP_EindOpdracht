@@ -5,11 +5,12 @@
 #endif
 
 //
+#include <tchar.h>
+#include <strsafe.h>
 #include <iostream>
 #include <string>
 #include <sstream>
 #include <vector>
-#include "stdafx.h"
 
 //
 #include "InputHandler.h"

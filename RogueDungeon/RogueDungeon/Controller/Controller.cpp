@@ -5,14 +5,14 @@
 #endif
 
 //
+#include <tchar.h>
+#include <strsafe.h>
 #include <iostream>
 #include <string>
 #include <sstream>
 #include <vector>
-#include "stdafx.h"
 #include <fstream>
-#include "../Tinyxml\tinystr.h"
-#include "../Tinyxml\tinyxml.h"
+#include "tinyxml2.h"
 
 //
 #include "Controller.h"
@@ -22,6 +22,7 @@
 //
 Controller* Controller::s_pInstance;
 using namespace std;
+using namespace tinyxml2;
 
 void Controller::txtFileController(string txtPath) {
 	// Read from file
@@ -50,7 +51,14 @@ void Controller::xmlFileController(string xmlPath) {
 	else
 	{
 		printf("\n%s:\n", xmlPath);
-	}*/
+	}*/ 
+	XMLDocument xmlDoc;
+	xmlDoc.LoadFile(xmlPath.c_str());
+
+	XMLDocument dxml;
+	//Parse the xml sxml 
+	int rslt = dxml.Parse(xmlPath.c_str());
+	XMLNode *rootnode = dxml.FirstChild();
 }
 
 void Controller::saveFile() {

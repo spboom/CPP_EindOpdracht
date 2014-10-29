@@ -1,4 +1,8 @@
-#include "stdafx.h"
+//
+#include <tchar.h>
+#include <strsafe.h>
+
+//
 #include "FollowingEnemy.h"
 
 
