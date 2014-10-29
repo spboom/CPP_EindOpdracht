@@ -6,11 +6,13 @@
 #include "Factory.h"
 #include "../Model/Location/Directions.h"
 #include <vector>
+#include <random>
 
 using namespace std;
 
 Factory::Factory()
 {
+	dre = default_random_engine(dev());
 }
 
 
@@ -18,13 +20,26 @@ Factory::~Factory()
 {
 }
 
-Room* createDungeon(int width, int height)
+Room** Factory::createDungeonFloor(int entranceXpos, int entranceYpos, int width, int height)
 {
-	Room **rooms = new Room*[width];
-
-	for (int x = 0; x < width; x++)
+	Room** floor = new Room*[height];
+	for (int y = 0; y < height; y++)
 	{
-		rooms[x] = new Room[height];
+		floor[y] = new Room[width];
+	}
+}
+
+Room* Factory::createDungeon(int width, int height, int depth)
+{
+	widthDist = uniform_int_distribution<int>(0, width);
+	heightDist = uniform_int_distribution<int>(0, height);
+	depthDist = uniform_int_distribution<int>(0, depth);
+
+	Room ***rooms = new Room**[depth];
+
+	for (int z = 0; z < depth; z++)
+	{
+		rooms[z] = createDungeonFloor(widthDist(dre), heightDist(dre), width, height);
 	}
 
 	/*int connected = 0;
@@ -32,8 +47,8 @@ Room* createDungeon(int width, int height)
 
 	while (connected < width*height)
 	{
-		rooms[0][0].connected = true;
-		connected++;
+	rooms[0][0].connected = true;
+	connected++;
 	}*/
 
 	return nullptr;

@@ -30,7 +30,6 @@ bool CreditsState::onEnter() {
 
 	//
 	TheInputHandler::Instance()->setCommandLine("SELECT FROM MENU");
-	TheInputHandler::Instance()->setCommandNewLine(">");
 
 	return true;
 }
@@ -42,23 +41,23 @@ void CreditsState::OutputHandler(string input)
 	// MENU
 	if (input != "")
 	{
-		if (input == "MAIN MENU" || input == "Main Menu" || input == "main menu") {
+		if (input == "main menu") {
 			TheGame::Instance()->clean();
 			TheGame::Instance()->goToMainMenu();
 		}
-		else if (input == "PLAY" || input == "Play" || input == "play") {
+		else if (input == "play") {
 			TheGame::Instance()->clean();
 			TheGame::Instance()->goToPlay();
 		}
-		else if (input == "QUIT" || input == "Quit" || input == "quit") {
+		else if (input == "quit") {
 			TheInputHandler::Instance()->setCommandLine("Are you sure? Yes or No!");
 			TheInputHandler::Instance()->setCommandNewLine(">");
 		}
-		else if (input == "Yes") {
+		else if (input == "yes") {
 			TheInputHandler::Instance()->setCommandLine("Thank you for playing Rogue and Dungeon!");
 			TheGame::Instance()->quitGame(0);
 		}
-		else if (input == "No") {
+		else if (input == "no") {
 			TheInputHandler::Instance()->setCommandLine("Ok! You're still in the game!");
 			TheInputHandler::Instance()->setCommandNewLine(">");
 		}
@@ -67,6 +66,10 @@ void CreditsState::OutputHandler(string input)
 			TheInputHandler::Instance()->setCommandNewLine(">");
 		}
 	}
-	
+	else
+	{
+		TheInputHandler::Instance()->setCommandNewLine(">");
+	}
+
 	//
 }

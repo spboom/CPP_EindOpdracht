@@ -26,9 +26,15 @@ void InputHandler::update() {}
 void InputHandler::clean() {}
 
 void InputHandler::readLine()
-{	
+{
 	string input = "";
 	getline(cin, input);
+	int i = 0;
+	while (input[i])
+	{
+		input[i] = tolower(input[i]);
+		++i;
+	}
 	user_output = input;
 }
 

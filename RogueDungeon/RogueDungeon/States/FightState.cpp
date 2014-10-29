@@ -28,7 +28,6 @@ bool FightState::onEnter() {
 
 	//
 	TheInputHandler::Instance()->setCommandLine("SELECT FROM MENU");
-	TheInputHandler::Instance()->setCommandNewLine(">");
 
 	return true;
 }
@@ -40,6 +39,10 @@ void FightState::OutputHandler(string input)
 	// MENU
 	if (input != "")
 	{
+	}
+	else
+	{
+		TheInputHandler::Instance()->setCommandNewLine(">");
 	}
 
 	//
