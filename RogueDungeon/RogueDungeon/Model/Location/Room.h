@@ -21,6 +21,7 @@ public:
 	bool visited;
 	void link(Room* room, Directions direction);
 	void setItems(Item *items);
+
 private:
 	
 };

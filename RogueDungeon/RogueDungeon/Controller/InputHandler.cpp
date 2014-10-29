@@ -36,7 +36,7 @@ void InputHandler::setCommandLine(string input) {
 	cout << input << endl;
 }
 
-void InputHandler::setCommandNewLine(string input) {
+void InputHandler::appendCommandLine(string input) {
 	cout << input;
 }
 

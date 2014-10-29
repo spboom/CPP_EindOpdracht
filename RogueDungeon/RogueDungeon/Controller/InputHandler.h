@@ -25,7 +25,7 @@ public:
 	void clean();
 	void readLine();
 	void setCommandLine(string input);
-	void setCommandNewLine(string input);
+	void appendCommandLine(string input);
 	string getOutput();
 private:
 	InputHandler() {}

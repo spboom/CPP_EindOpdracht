@@ -25,6 +25,7 @@
 #include "../Controller/Game.h"
 #include "../Controller/InputHandler.h"
 #include "../Controller/Controller.h"
+#include "../Controller/Factory.h"
 
 //
 using namespace std;
@@ -39,11 +40,15 @@ bool MainMenuState::onEnter() {
 
 	// 
 	TheController::Instance()->txtFileController("Inputfiles/states/mainmenustate.txt");
-	TheController::Instance()->xmlFileController("Inputfiles/example1.xml");
 
 	//
 	TheInputHandler::Instance()->setCommandLine("SELECT FROM MENU");
-	TheInputHandler::Instance()->setCommandNewLine(">");
+	TheInputHandler::Instance()->appendCommandLine(">");
+
+	// test
+	//TheController::Instance()->xmlFileController("Inputfiles/size.xml");
+	TheFactory::Instance()->roomCharacteristics();
+
 
 	return true;
 }
@@ -65,7 +70,7 @@ void MainMenuState::OutputHandler(string input)
 		}
 		else if (input == "QUIT" || input == "Quit" || input == "quit") {
 			TheInputHandler::Instance()->setCommandLine("Are you sure? Yes or No!");
-			TheInputHandler::Instance()->setCommandNewLine(">");
+			TheInputHandler::Instance()->appendCommandLine(">");
 		}
 		else if (input == "Yes") {
 			TheInputHandler::Instance()->setCommandLine("Thank you for playing Rogue and Dungeon!");
@@ -73,11 +78,11 @@ void MainMenuState::OutputHandler(string input)
 		}
 		else if (input == "No") {
 			TheInputHandler::Instance()->setCommandLine("Ok! You're still in the game!");
-			TheInputHandler::Instance()->setCommandNewLine(">");
+			TheInputHandler::Instance()->appendCommandLine(">");
 		}
 		else {
 			TheInputHandler::Instance()->setCommandLine("Caution! Wrong input!");
-			TheInputHandler::Instance()->setCommandNewLine(">");
+			TheInputHandler::Instance()->appendCommandLine(">");
 		}
 	}
 

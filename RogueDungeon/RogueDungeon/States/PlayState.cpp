@@ -30,7 +30,7 @@ bool PlayState::onEnter() {
 
 	//
 	TheInputHandler::Instance()->setCommandLine("SELECT FROM MENU");
-	TheInputHandler::Instance()->setCommandNewLine(">");
+	TheInputHandler::Instance()->appendCommandLine(">");
 
 	return true;
 }
@@ -52,7 +52,7 @@ void PlayState::OutputHandler(string input)
 		}
 		else if (input == "QUIT" || input == "Quit" || input == "quit") {
 			TheInputHandler::Instance()->setCommandLine("Are you sure? Yes or No!");
-			TheInputHandler::Instance()->setCommandNewLine(">");
+			TheInputHandler::Instance()->appendCommandLine(">");
 		}
 		else if (input == "Yes") {
 			TheInputHandler::Instance()->setCommandLine("Thank you for playing Rogue and Dungeon!");
@@ -60,11 +60,11 @@ void PlayState::OutputHandler(string input)
 		}
 		else if (input == "No") {
 			TheInputHandler::Instance()->setCommandLine("Ok! You're still in the game!");
-			TheInputHandler::Instance()->setCommandNewLine(">");
+			TheInputHandler::Instance()->appendCommandLine(">");
 		}
 		else {
 			TheInputHandler::Instance()->setCommandLine("Caution! Wrong input!");
-			TheInputHandler::Instance()->setCommandNewLine(">");
+			TheInputHandler::Instance()->appendCommandLine(">");
 		}
 	}
 

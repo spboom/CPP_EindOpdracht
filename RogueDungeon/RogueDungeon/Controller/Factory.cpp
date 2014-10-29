@@ -1,21 +1,25 @@
 //
 #include <tchar.h>
 #include <strsafe.h>
+#include <vector>
 
 //
 #include "Factory.h"
 #include "../Model/Location/Directions.h"
-#include <vector>
+#include "../Controller/Controller.h"
 
+//
+Factory* Factory::s_pInstance;
 using namespace std;
 
 Factory::Factory()
 {
+	characteristics = new vector<string>();
 }
-
 
 Factory::~Factory()
 {
+	delete characteristics;
 }
 
 Room* createDungeon(int width, int height)
@@ -43,3 +47,15 @@ Room* createDungeon(int width, int height)
 //{
 //	Hallway* hall = new Hallway();
 //}
+
+// Room
+void Factory::roomCharacteristics()
+{
+	TheController::Instance()->xmlFileController("Inputfiles/characteristics.xml", Factory::characteristics);
+
+	std::cout << "The contents are:";
+	for (std::vector<string>::iterator it = characteristics->begin(); it != characteristics->end(); ++it)
+		std::cout << ' ' << *it;
+		std::cout << '\n';
+}
+
