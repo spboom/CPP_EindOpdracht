@@ -5,7 +5,6 @@
 #endif
 
 //
-#include "stdafx.h"
 #include "Room.h"
 #include "Directions.h"
 #include <map>

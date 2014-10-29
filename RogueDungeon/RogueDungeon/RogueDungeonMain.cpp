@@ -7,12 +7,12 @@
 #endif
 
 //
-#include "stdafx.h"
+#include <tchar.h>
+#include <strsafe.h>
 #include <stdlib.h>
 #include <crtdbg.h>
 #include <iostream>
 #include <windows.h>
-#include <strsafe.h>
 #include <string>
 #include <sstream>
 

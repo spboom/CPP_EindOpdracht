@@ -2,7 +2,6 @@
 #define _INPUTHANDLER_H_
 
 //
-#include "../Library/stdafx.h"
 #include <iostream>
 #include <string>
 #include <sstream>

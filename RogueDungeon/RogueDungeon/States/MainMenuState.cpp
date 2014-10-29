@@ -5,13 +5,12 @@
 #endif
 
 //
-#include "stdafx.h"
+#include <tchar.h>
+#include <strsafe.h>
 #include <stdlib.h>
 #include <crtdbg.h>
 #include <iostream>
 #include <windows.h>
-#include <strsafe.h>
-#include <tchar.h>
 #include <string>
 #include <wincon.h>
 #include <conio.h>
@@ -40,7 +39,7 @@ bool MainMenuState::onEnter() {
 
 	// 
 	TheController::Instance()->txtFileController("Inputfiles/states/mainmenustate.txt");
-	//TheController::Instance()->xmlFileController("../Inputfiles/example1.xml");
+	TheController::Instance()->xmlFileController("Inputfiles/example1.xml");
 
 	//
 	TheInputHandler::Instance()->setCommandLine("SELECT FROM MENU");

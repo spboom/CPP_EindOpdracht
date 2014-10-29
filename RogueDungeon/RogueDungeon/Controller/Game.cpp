@@ -8,13 +8,12 @@
 #endif
 
 //
-#include "stdafx.h"
+#include <tchar.h>
+#include <strsafe.h>
 #include <stdlib.h>
 #include <crtdbg.h>
 #include <iostream>
 #include <windows.h>
-#include <strsafe.h>
-#include <tchar.h>
 #include <string>
 #include <wincon.h>
 #include <conio.h>
