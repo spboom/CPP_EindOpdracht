@@ -150,6 +150,9 @@
     <ClInclude Include="States\PlayState.h">
       <Filter>Header Files\States</Filter>
     </ClInclude>
+    <ClInclude Include="States\FightState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="RogueDungeonMain.cpp">
@@ -241,6 +244,9 @@
     </ClCompile>
     <ClCompile Include="Model\Location\Directions.cpp">
       <Filter>Source Files\Model\Location</Filter>
+    </ClCompile>
+    <ClCompile Include="States\FightState.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

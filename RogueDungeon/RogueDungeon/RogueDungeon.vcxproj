@@ -89,6 +89,7 @@
     <ClInclude Include="Model\Character\FollowingEnemy.h" />
     <ClInclude Include="Controller\Game.h" />
     <ClInclude Include="Model\Item\GameObject.h" />
+    <ClInclude Include="States\FightState.h" />
     <ClInclude Include="States\GameState.h" />
     <ClInclude Include="Controller\GameStateMachine.h" />
     <ClInclude Include="Model\Location\Hallway.h" />
@@ -121,6 +122,7 @@
     <ClCompile Include="Controller\Factory.cpp" />
     <ClCompile Include="Model\Character\FollowingEnemy.cpp" />
     <ClCompile Include="Model\Item\GameObject.cpp" />
+    <ClCompile Include="States\FightState.cpp" />
     <ClCompile Include="States\GameState.cpp" />
     <ClCompile Include="Controller\GameStateMachine.cpp" />
     <ClCompile Include="Model\Location\Hallway.cpp" />
