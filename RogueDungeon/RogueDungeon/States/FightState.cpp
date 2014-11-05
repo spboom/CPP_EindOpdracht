@@ -32,7 +32,10 @@ bool FightState::onEnter() {
 	return true;
 }
 
-bool FightState::onExit() { return true; }
+bool FightState::onExit() {
+	GameState::onExit();
+	return true;
+}
 
 void FightState::OutputHandler(string input)
 {

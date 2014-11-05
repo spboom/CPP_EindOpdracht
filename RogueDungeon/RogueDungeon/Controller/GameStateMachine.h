@@ -17,6 +17,7 @@ public:
 	void popState();
 	void update(int dt);
 	void render();
+	~GameStateMachine();
 private:
 	std::vector<GameState*> m_gameStates;
 };

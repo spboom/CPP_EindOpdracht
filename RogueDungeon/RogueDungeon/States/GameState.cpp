@@ -11,3 +11,9 @@
 
 //
 #include "GameState.h"
+
+bool GameState::onExit()
+{
+	delete this;
+	return true;
+}

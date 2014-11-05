@@ -34,7 +34,10 @@ bool CreditsState::onEnter() {
 	return true;
 }
 
-bool CreditsState::onExit() { return true; }
+bool CreditsState::onExit() {
+	GameState::onExit();
+	return true;
+}
 
 void CreditsState::OutputHandler(string input)
 {
@@ -42,11 +45,11 @@ void CreditsState::OutputHandler(string input)
 	if (input != "")
 	{
 		if (input == "main menu") {
-			TheGame::Instance()->clean();
+			TheGame::Instance()->cleanScreen();
 			TheGame::Instance()->goToMainMenu();
 		}
 		else if (input == "play") {
-			TheGame::Instance()->clean();
+			TheGame::Instance()->cleanScreen();
 			TheGame::Instance()->goToPlay();
 		}
 		else if (input == "quit") {

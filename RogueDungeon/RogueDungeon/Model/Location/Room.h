@@ -15,13 +15,15 @@ class Room : public Location
 {
 public:
 	Room();
-	Room(map<Directions, Hallway> doors, Item *items) : connected() {}
-	~Room();
+	Room(map<Directions, Hallway> doors, Item *items);
+	virtual ~Room();
 	bool connected;
 	bool visited;
-	void link(Room* room, Directions direction);
+	void addHallway(Hallway* hallway, Directions direction);
 	void setItems(Item *items);
+	void delHallway(Hallway* hall);
 private:
-	
+	map<Directions, Hallway*> Doors;
+	Item* Items;
 };
 #endif /* defined(_ROOM_H_) */

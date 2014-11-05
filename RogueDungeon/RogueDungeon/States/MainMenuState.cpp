@@ -47,7 +47,10 @@ bool MainMenuState::onEnter() {
 	return true;
 }
 
-bool MainMenuState::onExit() { return true; }
+bool MainMenuState::onExit(){
+	GameState::onExit();
+	return true;
+}
 
 void MainMenuState::OutputHandler(string input)
 {
@@ -55,11 +58,11 @@ void MainMenuState::OutputHandler(string input)
 	if (input != "")
 	{
 		if (input == "play") {
-			TheGame::Instance()->clean();
+			TheGame::Instance()->cleanScreen();
 			TheGame::Instance()->goToPlay();
 		}
 		else if (input == "credits") {
-			TheGame::Instance()->clean();
+			TheGame::Instance()->cleanScreen();
 			TheGame::Instance()->goToCredits();
 		}
 		else if (input == "quit") {

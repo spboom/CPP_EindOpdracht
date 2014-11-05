@@ -19,7 +19,6 @@ void GameStateMachine::pushState(GameState *pState) {
 void GameStateMachine::popState() {
 	if (!m_gameStates.empty()) {
 		if (m_gameStates.back()->onExit()) {
-			delete m_gameStates.back();
 			m_gameStates.pop_back();
 		}
 	}
@@ -33,7 +32,6 @@ void GameStateMachine::changeState(GameState *pState) {
 
 		if (m_gameStates.back()->onExit()) {
 
-			delete m_gameStates.back();
 			m_gameStates.pop_back();
 		}
 	}
@@ -51,5 +49,13 @@ void GameStateMachine::update(int dt) {
 void GameStateMachine::render() {
 	if (!m_gameStates.empty()) {
 		m_gameStates.back()->render();
+	}
+}
+
+GameStateMachine::~GameStateMachine()
+{
+	while (!m_gameStates.empty())
+	{
+		popState();
 	}
 }

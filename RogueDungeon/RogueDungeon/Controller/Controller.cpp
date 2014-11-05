@@ -26,13 +26,13 @@ using namespace tinyxml2;
 
 void Controller::txtFileController(string txtPath) {
 	// Read from file
-	ifstream fin(txtPath.c_str());  
+	ifstream fin(txtPath.c_str());
 	if (!fin) {
 		cerr << "error: open file for input failed!" << endl;
 		abort();
 	}
 	char ch;
-	while (fin.get(ch)) {  
+	while (fin.get(ch)) {
 		std::string str(1, ch);
 		TheInputHandler::Instance()->setCommandNewLine(str);
 	}
@@ -45,13 +45,13 @@ void Controller::xmlFileController(string xmlPath) {
 	bool loadOkay = doc.LoadFile();
 	if (!loadOkay)
 	{
-		cerr << "error: open file for input failed!" << endl;
-		abort();
+	cerr << "error: open file for input failed!" << endl;
+	abort();
 	}
 	else
 	{
-		printf("\n%s:\n", xmlPath);
-	}*/ 
+	printf("\n%s:\n", xmlPath);
+	}*/
 	XMLDocument xmlDoc;
 	xmlDoc.LoadFile(xmlPath.c_str());
 
@@ -68,3 +68,11 @@ void Controller::saveFile() {
 void Controller::writeFile() {
 
 }
+
+void Controller::clean()
+{
+	delete this;
+}
+
+Controller::~Controller()
+{}

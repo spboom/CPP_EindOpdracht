@@ -24,6 +24,8 @@ public:
 	void xmlFileController(string xmlPath);
 	void saveFile();
 	void writeFile();
+	void clean();
+
 private:
 	Controller() {}
 	~Controller();

@@ -15,6 +15,7 @@
 #include "../Controller/Game.h"
 #include "PlayState.h"
 #include "../Controller/InputHandler.h"
+#include "../Controller/Factory.h"
 #include "../Controller/Controller.h"
 
 void PlayState::update(int dt) {}
@@ -31,10 +32,29 @@ bool PlayState::onEnter() {
 	//
 	TheInputHandler::Instance()->setCommandLine("SELECT FROM MENU");
 
+	Factory factory;
+	vector<vector<vector<Room*>>> dungeon = factory.createDungeon(2, 2, 2);
+
+	for (int z = 0; z < dungeon.size(); z++)
+	{
+		for (int y = 0; y < dungeon[z].size(); y++)
+		{
+			for (int x = 0; x < dungeon[z][y].size(); x++)
+			{
+				delete dungeon[z][y][x];
+			}
+		}
+		//delete[] floor;
+	}
+	//delete[] dungeon;
+
 	return true;
 }
 
-bool PlayState::onExit() { return true; }
+bool PlayState::onExit() {
+	GameState::onExit();
+	return true;
+}
 
 void PlayState::OutputHandler(string input)
 {
@@ -42,11 +62,11 @@ void PlayState::OutputHandler(string input)
 	if (input != "")
 	{
 		if (input == "main menu") {
-			TheGame::Instance()->clean();
+			TheGame::Instance()->cleanScreen();
 			TheGame::Instance()->goToMainMenu();
 		}
 		else if (input == "credits") {
-			TheGame::Instance()->clean();
+			TheGame::Instance()->cleanScreen();
 			TheGame::Instance()->goToCredits();
 		}
 		else if (input == "quit") {

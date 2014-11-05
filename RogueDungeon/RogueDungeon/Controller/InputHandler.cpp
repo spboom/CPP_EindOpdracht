@@ -23,7 +23,9 @@ string user_output;
 
 void InputHandler::update() {}
 
-void InputHandler::clean() {}
+void InputHandler::clean() {
+	delete this;
+}
 
 void InputHandler::readLine()
 {
@@ -49,3 +51,6 @@ void InputHandler::setCommandNewLine(string input) {
 string InputHandler::getOutput() {
 	return user_output;
 }
+
+InputHandler::~InputHandler()
+{}

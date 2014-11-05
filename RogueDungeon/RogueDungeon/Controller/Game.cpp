@@ -25,6 +25,7 @@
 #include "../States/PlayState.h"
 #include "../States/CreditsState.h"
 #include "InputHandler.h"
+#include "Controller.h"
 
 // 
 Game* Game::s_pInstance;
@@ -52,6 +53,15 @@ void Game::render() {
 
 void Game::clean() {
 	//std::cout << "cleaning game\n";
+
+	Controller::Instance()->clean();
+	InputHandler::Instance()->clean();
+	delete m_pGameStateMachine;
+	delete this;
+}
+
+void Game::cleanScreen()
+{
 	system("cls");
 }
 
@@ -63,7 +73,7 @@ GameStateMachine* Game::getStateMachine() {
 }
 
 void Game::quitGame(int exitcode)  {
-	exit(exitcode);
+	m_bRunning = false;
 }
 
 std::wstring s2ws(const std::string& s) {

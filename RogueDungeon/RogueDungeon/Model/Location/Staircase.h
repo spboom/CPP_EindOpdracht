@@ -4,7 +4,7 @@ class Staircase :
 	public Hallway
 {
 public:
-	Staircase();
-	~Staircase();
+	Staircase(Room* from, Room* to);
+	virtual  ~Staircase();
 };
 
