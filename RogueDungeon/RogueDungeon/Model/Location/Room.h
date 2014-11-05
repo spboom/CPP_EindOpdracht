@@ -22,6 +22,8 @@ public:
 	void addHallway(Hallway* hallway, Directions direction);
 	void setItems(Item *items);
 	void delHallway(Hallway* hall);
+	char getSymbol();
+	bool hasHallway(Directions direction);
 private:
 	map<Directions, Hallway*> Doors;
 	Item* Items;

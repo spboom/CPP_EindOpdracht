@@ -26,6 +26,7 @@
 #include "../States/CreditsState.h"
 #include "InputHandler.h"
 #include "Controller.h"
+#include "Factory.h"
 
 // 
 Game* Game::s_pInstance;
@@ -45,7 +46,9 @@ bool Game::init(string title, int width, int height) {
 	return true;
 }
 
-void Game::update() {}
+void Game::update() {
+	m_pGameStateMachine->update();
+}
 
 void Game::render() {
 	m_pGameStateMachine->render();
@@ -56,6 +59,7 @@ void Game::clean() {
 
 	Controller::Instance()->clean();
 	InputHandler::Instance()->clean();
+	Factory::Instance()->clean();
 	delete m_pGameStateMachine;
 	delete this;
 }

@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+#include <vector>
 
 //
 using namespace std;
@@ -21,7 +22,7 @@ public:
 		return s_pInstance;
 	}
 	void txtFileController(string txtPath);
-	void xmlFileController(string xmlPath);
+	void xmlFileController(string xmlPath, vector<string> *objects);
 	void saveFile();
 	void writeFile();
 	void clean();

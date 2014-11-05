@@ -7,7 +7,7 @@
 #endif
 
 //
-#include <vld.h>
+#include <vld.h> //Memory leak spotter
 
 //
 #include <tchar.h>
@@ -46,6 +46,7 @@ int main(int argc, char* argv[]) {
 			TheGame::Instance()->handleEvents();
 			TheGame::Instance()->update();
 			TheGame::Instance()->render();
+			TheInputHandler::Instance()->appendCommandLine(">");
 			TheInputHandler::Instance()->readLine();
 		}
 	}

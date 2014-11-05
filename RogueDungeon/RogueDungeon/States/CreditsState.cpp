@@ -17,10 +17,11 @@
 #include "../Controller/InputHandler.h"
 #include "../Controller/Controller.h"
 
-void CreditsState::update(int dt) {}
+void CreditsState::update() {
+	OutputHandler(TheInputHandler::Instance()->getOutput());
+}
 
 void CreditsState::render() {
-	OutputHandler(TheInputHandler::Instance()->getOutput());
 }
 
 bool CreditsState::onEnter() {
@@ -52,27 +53,10 @@ void CreditsState::OutputHandler(string input)
 			TheGame::Instance()->cleanScreen();
 			TheGame::Instance()->goToPlay();
 		}
-		else if (input == "quit") {
-			TheInputHandler::Instance()->setCommandLine("Are you sure? Yes or No!");
-			TheInputHandler::Instance()->setCommandNewLine(">");
-		}
-		else if (input == "yes") {
-			TheInputHandler::Instance()->setCommandLine("Thank you for playing Rogue and Dungeon!");
-			TheGame::Instance()->quitGame(0);
-		}
-		else if (input == "no") {
-			TheInputHandler::Instance()->setCommandLine("Ok! You're still in the game!");
-			TheInputHandler::Instance()->setCommandNewLine(">");
-		}
-		else {
-			TheInputHandler::Instance()->setCommandLine("Caution! Wrong input!");
-			TheInputHandler::Instance()->setCommandNewLine(">");
-		}
-	}
-	else
-	{
-		TheInputHandler::Instance()->setCommandNewLine(">");
-	}
 
-	//
+
+		else {
+			GameState::OutputHandler(input);
+		}
+	}
 }

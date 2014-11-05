@@ -1,23 +1,28 @@
 //
 #include <tchar.h>
 #include <strsafe.h>
+#include <vector>
 
 //
 #include "Factory.h"
 #include "../Model/Location/Directions.h"
 #include "../Model/Location/Staircase.h"
 #include <vector>
+#include "../Controller/Controller.h"
 
+//
+Factory* Factory::s_pInstance;
 using namespace std;
 
 Factory::Factory()
 {
 	dre = default_random_engine(dev());
+	characteristics = new vector<string>();
 }
-
 
 Factory::~Factory()
 {
+	delete characteristics;
 }
 
 int Factory::moveOneToGoal(int* current, int goal)
@@ -170,3 +175,20 @@ vector<vector<vector<Room*>>> Factory::createDungeon(int width, int height, int 
 //{
 //	Hallway* hall = new Hallway();
 //}
+
+// Room
+void Factory::roomCharacteristics()
+{
+	TheController::Instance()->xmlFileController("Inputfiles/Room/room_characteristics.xml", Factory::characteristics);
+
+	std::cout << "The contents are:";
+	for (std::vector<string>::iterator it = characteristics->begin(); it != characteristics->end(); ++it)
+		std::cout << ' ' << *it;
+	std::cout << '\n';
+}
+
+void Factory::clean()
+{
+	delete this;
+}
+

@@ -34,31 +34,28 @@ void Controller::txtFileController(string txtPath) {
 	char ch;
 	while (fin.get(ch)) {
 		std::string str(1, ch);
-		TheInputHandler::Instance()->setCommandNewLine(str);
+		TheInputHandler::Instance()->appendCommandLine(str);
 	}
 	fin.close();
 }
 
-void Controller::xmlFileController(string xmlPath) {
+void Controller::xmlFileController(string xmlPath, vector<string> *objects) {
 	// Read from file
-	/*TiXmlDocument doc(xmlPath.c_str());
-	bool loadOkay = doc.LoadFile();
-	if (!loadOkay)
+	XMLDocument doc;
+	doc.LoadFile(xmlPath.c_str());
+	const char* title;
+	// Text is just another Node to TinyXML-2. The more
+	// general way to get to the XMLText:
+	XMLNode *node = doc.FirstChildElement()->FirstChildElement()->FirstChildElement();
+	while (node != NULL)
 	{
-	cerr << "error: open file for input failed!" << endl;
-	abort();
-	}
-	else
-	{
-	printf("\n%s:\n", xmlPath);
-	}*/
-	XMLDocument xmlDoc;
-	xmlDoc.LoadFile(xmlPath.c_str());
 
-	XMLDocument dxml;
-	//Parse the xml sxml 
-	int rslt = dxml.Parse(xmlPath.c_str());
-	XMLNode *rootnode = dxml.FirstChild();
+		title = node->FirstChild()->ToText()->Value();
+		// add to array
+		objects->push_back(title);
+		node = node->NextSibling();
+	}
+	doc.Clear();
 }
 
 void Controller::saveFile() {

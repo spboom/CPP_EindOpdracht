@@ -41,9 +41,9 @@ void GameStateMachine::changeState(GameState *pState) {
 	m_gameStates.back()->onEnter();
 }
 
-void GameStateMachine::update(int dt) {
+void GameStateMachine::update() {
 	if (!m_gameStates.empty())
-		m_gameStates.back()->update(dt);
+		m_gameStates.back()->update();
 }
 
 void GameStateMachine::render() {
