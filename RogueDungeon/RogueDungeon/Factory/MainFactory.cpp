@@ -17,9 +17,6 @@
 #include "../Model/Location/StartRoom.h"
 
 //
-MainFactory* MainFactory::s_pInstance;
-
-//
 using namespace std;
 using namespace tinyxml2;
 
