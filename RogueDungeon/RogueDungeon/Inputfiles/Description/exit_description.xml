@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <description>
-	<exit description="is de uitgang uit de kerker"/>
+	<exit description="is een gammele deur"/>
 	<exit description="is een stevige deur"/>
 	<exit description="is een gang"/>
+	<exit description="is een klein gat in de muur"/>
+	<exit description="is een doek aan de wand"/>
+	<exit description="is een open hek"/>
+	<exit description="is geen muur"/>
+	<exit description="is een deur uit zijn frame"/>
+	<exit description="is een donkere gang"/>
+	<exit description="is een smalle gang"/>
 </description>

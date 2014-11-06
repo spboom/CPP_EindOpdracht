@@ -9,11 +9,12 @@
 //
 #include "Hallway.h"
 #include  "Room.h"
+#include "../../Factory/LocationFactory.h"
 
 //
-
 Hallway::Hallway(Room* from, Room* to, Directions::Direction direction)
 {
+	TheLocationFactory::Instance()->fillHallway(this);
 	if (from == to)
 	{
 		throw exception("Can't create Hallway to and from the same room");

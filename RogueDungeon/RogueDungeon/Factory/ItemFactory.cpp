@@ -75,3 +75,8 @@ vector<Item*> ItemFactory::parseXML(string xmlPath) {
 	}
 	return items;
 }
+
+void TheItemFactory::fillRoom(Room* room)
+{
+
+}

@@ -1,11 +1,16 @@
 #ifndef _HALLWAY_H_
 #define _HALLWAY_H_
 
+//
 #include "Location.h"
 #include "Directions.h"
 
-class Room;
+//
 
+//
+using namespace std;
+
+class Room;
 class Hallway : public Location
 {
 public:
@@ -14,6 +19,9 @@ public:
 	virtual ~Hallway();
 	void changeRoom(Room* from, Room* to);
 
+	//
+	string trap;
+	
 private:
 	Room* room1;
 	Room* room2;

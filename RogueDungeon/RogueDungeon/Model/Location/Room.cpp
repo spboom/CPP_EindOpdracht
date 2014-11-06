@@ -8,13 +8,16 @@
 #include "Room.h"
 #include "Directions.h"
 #include <map>
+#include <string>
+#include <sstream>
+#include "../../Factory/MainFactory.h"
 
 //
 using namespace std;
 
-
 Room::Room()
 {
+	TheFactory::Instance()->fillRoom(this);
 	connected = false;
 	visited = true;
 }
@@ -113,4 +116,11 @@ Directions::Direction Room::getDirection(Hallway* hallway)
 	return (Directions::Direction)0;
 }
 
+string Room::getDescription()
+{
+	stringstream description;
 
+	description << "Beschrijving: Je staat in een " << characteristic << " " << state << " kamer met in het midden een " << object << ". Het wordt verlicht door een " << feature;
+
+	return description.str();
+}

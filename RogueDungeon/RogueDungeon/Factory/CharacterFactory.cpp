@@ -47,3 +47,8 @@ vector<Character*> CharacterFactory::parseXML(string xmlPath) {
 	}
 	return characters;
 }
+
+void CharacterFactory::fillRoom(Room* room)
+{
+
+}

@@ -8,6 +8,8 @@
 #include "../Model/Character/Character.h"
 #include "MainFactory.h"
 #include "tinyxml2.h"
+#include "../Model/Location/Room.h"
+#include "../Model/Location/Hallway.h"
 
 //
 using namespace std;
@@ -30,10 +32,12 @@ public:
 	}
 
 	//
-	vector<string>* room_characteristics;
-	vector<string>* room_feature;
-	vector<string>* room_state;
-	vector<string>* room_trap;
+	vector<string> room_characteristics;
+	vector<string> room_feature;
+	vector<string> room_state;
+	vector<string> room_trap;
+	vector<string> exits;
+	vector<string> room_items;
 
 	//
 	string type;
@@ -42,6 +46,7 @@ public:
 	/*Factory Method*/
 	vector<Location*> parseXML(string xmlPath);
 	void fillRoom(Room* room);
+	void fillHallway(Hallway* hallway);
 private:
 	static LocationFactory* s_pInstance;
 };

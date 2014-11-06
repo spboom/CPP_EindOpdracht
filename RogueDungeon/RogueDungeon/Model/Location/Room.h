@@ -27,6 +27,12 @@ public:
 	void MoveHallwaysTo(Room* room);
 	Directions::Direction getDirection(Hallway* hallway);
 
+	//
+	string characteristic;
+	string feature;
+	string state;
+	string object;
+	string getDescription();
 private:
 	map<Directions::Direction, Hallway*> Doors;
 	Item* Items;

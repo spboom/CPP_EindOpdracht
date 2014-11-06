@@ -6,6 +6,7 @@
 
 //
 #include "../Model/Location/Room.h";
+#include "../Model/Location/Hallway.h"
 #include "tinyxml2.h"
 #include "../Model/Dungeon.h"
 
@@ -32,6 +33,8 @@ public:
 	Dungeon* createDungeon(int width, int height, int depth);
 	void clean();
 	void fillRoom(Room* room);
+	default_random_engine dre;
+
 private:
 	static MainFactory* s_pInstance;
 
@@ -41,7 +44,6 @@ private:
 	Directions::Direction moveYOneToGoal(int* current, int goal);
 
 	random_device dev;
-	default_random_engine dre;
 	uniform_int_distribution<int> widthDist;
 	uniform_int_distribution<int> heightDist;
 	uniform_int_distribution<int> depthDist;

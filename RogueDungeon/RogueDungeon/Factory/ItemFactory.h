@@ -31,7 +31,7 @@ public:
 
 	/*Factory Method*/
 	vector<Item*> parseXML(string xmlPath);
-
+	void fillRoom(Room* room);
 private:
 	static ItemFactory* s_pInstance;
 };

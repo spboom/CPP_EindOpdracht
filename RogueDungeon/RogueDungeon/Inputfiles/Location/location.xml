@@ -13,4 +13,26 @@
 	<location type="trap" name="open luik"/>
 	<location type="trap" name="negatieve energie"/>
 	<location type="trap" name="kogels uit de muren"/>
+	<location type="exit" name="is een gammele deur"/>
+	<location type="exit" name="is een stevige deur"/>
+	<location type="exit" name="is een gang"/>
+	<location type="exit" name="is een klein gat in de muur"/>
+	<location type="exit" name="is een doek aan de wand"/>
+	<location type="exit" name="is een open hek"/>
+	<location type="exit" name="is geen muur"/>
+	<location type="exit" name="is een deur uit zijn frame"/>
+	<location type="exit" name="is een donkere gang"/>
+	<location type="exit" name="is een smalle gang"/>
+	<location name="tafel" type="item"/>
+	<location name="stoel" type="item"/>
+	<location name="bed" type="item"/>
+	<location name="lamp" type="item"/>
+	<location name="kist" type="item"/>
+	<location name="kast" type="item"/>
+	<location name="tv" type="item"/>
+	<location name="vaas" type="item"/>
+	<location name="laptop" type="item"/>
+	<location name="plant" type="item"/>
+	<location name="skelet" type="item"/>
+	<location name="schat" type="item"/>
 </locations>

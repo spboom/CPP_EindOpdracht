@@ -14,6 +14,7 @@
 //
 #include "LocationFactory.h"
 #include "../Model/Location/Location.h"
+#include "../Model/Location/Hallway.h"
 #include "../Enum/Enum.h"
 
 //
@@ -25,18 +26,16 @@ using namespace tinyxml2;
 
 LocationFactory::LocationFactory()
 {
-	room_characteristics = new vector<string>();
-	room_feature = new vector<string>();
-	room_state = new vector<string>();
-	room_trap = new vector<string>();
+	room_characteristics = vector<string>();
+	room_feature = vector<string>();
+	room_state = vector<string>();
+	room_trap = vector<string>();
+	exits = vector<string>();
+	room_items = vector<string>();
 }
 
 LocationFactory::~LocationFactory()
 {
-	delete room_feature;
-	delete room_characteristics;
-	delete room_state;
-	delete room_trap;
 }
 
 vector<Location*> LocationFactory::parseXML(string xmlPath) {
@@ -56,19 +55,27 @@ vector<Location*> LocationFactory::parseXML(string xmlPath) {
 
 		if ("characteristic" == type)
 		{
-			room_characteristics->push_back(name);
+			room_characteristics.push_back(name);
 		}
 		else if ("feature" == type)
 		{
-			room_feature->push_back(name);
+			room_feature.push_back(name);
 		}
 		else if ("state" == type)
 		{
-			room_state->push_back(name);
+			room_state.push_back(name);
 		}
 		else if ("trap" == type)
 		{
-			room_trap->push_back(name);
+			room_trap.push_back(name);
+		}
+		else if ("exit" == type)
+		{
+			exits.push_back(name);
+		}
+		else if ("item" == type)
+		{
+			room_items.push_back(name);
 		}
 
 		location->parseXMLElement(node);
@@ -79,5 +86,21 @@ vector<Location*> LocationFactory::parseXML(string xmlPath) {
 
 void LocationFactory::fillRoom(Room* room)
 {
+	uniform_int_distribution<int> arrayDist(0, room_characteristics.size() - 1);
+	room->characteristic = room_characteristics[arrayDist(TheFactory::Instance()->dre)];
 
+	arrayDist = uniform_int_distribution<int>(0, room_feature.size() - 1);
+	room->feature = room_feature[arrayDist(TheFactory::Instance()->dre)];
+
+	arrayDist = uniform_int_distribution<int>(0, room_state.size() - 1);
+	room->state = room_state[arrayDist(TheFactory::Instance()->dre)];
+
+	arrayDist = uniform_int_distribution<int>(0, room_items.size() - 1);
+	room->object = room_items[arrayDist(TheFactory::Instance()->dre)];
+}
+
+void LocationFactory::fillHallway(Hallway* room)
+{
+	uniform_int_distribution<int> arrayDist(0, room_trap.size() - 1);
+	room->trap = room_trap[arrayDist(TheFactory::Instance()->dre)];
 }
