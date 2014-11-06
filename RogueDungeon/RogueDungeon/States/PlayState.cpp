@@ -23,7 +23,6 @@ void PlayState::update() {
 }
 
 void PlayState::render() {
-	drawMap();
 }
 
 bool PlayState::onEnter() {
@@ -50,13 +49,12 @@ void PlayState::OutputHandler(string input)
 	// MENU
 	if (input != "")
 	{
-		if (input == "main menu") {
+		if (input == "show map") {
 			TheGame::Instance()->cleanScreen();
-			TheGame::Instance()->goToMainMenu();
+			drawMap();
 		}
-		else if (input == "credits") {
+		else if (input == "") {
 			TheGame::Instance()->cleanScreen();
-			TheGame::Instance()->goToCredits();
 		}
 
 		else {
@@ -69,21 +67,12 @@ PlayState::PlayState() {}
 
 PlayState::~PlayState()
 {
-	for (int z = 0; z < dungeon.size(); z++)
-	{
-		for (int y = 0; y < dungeon[z].size(); y++)
-		{
-			for (int x = 0; x < dungeon[z][y].size(); x++)
-			{
-				delete dungeon[z][y][x];
-			}
-		}
-	}
+	delete dungeon;
 }
 
 void PlayState::drawMap()
 {
-	vector<vector<Room*>> floor = dungeon[level];
+	vector<vector<Room*>> floor = dungeon->getFloor(level);
 	InputHandler::Instance()->setCommandLine("Kerker Kaart:");
 	for (int y = 0; y < floor.size(); y++)
 	{
@@ -95,7 +84,7 @@ void PlayState::drawMap()
 		{
 			Room* room = floor[y][x];
 			roomLine << room->getSymbol();
-			if (room->hasHallway(Directions::East))
+			if (room->visited && room->hasHallway(Directions::East))
 			{
 				roomLine << "-";
 			}
@@ -104,7 +93,7 @@ void PlayState::drawMap()
 				roomLine << " ";
 			}
 
-			if (room->hasHallway(Directions::South))
+			if (room->hasHallway(Directions::South) && room->getHallway(Directions::South)->connectedToVisited())
 			{
 				hallLine << "| ";
 			}

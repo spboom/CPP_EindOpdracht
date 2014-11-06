@@ -13,6 +13,8 @@
 #include "../Factory/LocationFactory.h"
 #include "../Factory/ItemFactory.h"
 #include "../Factory/CharacterFactory.h"
+#include "../Model/Dungeon.h"
+#include "../Model/Location/StartRoom.h"
 
 //
 MainFactory* MainFactory::s_pInstance;
@@ -20,6 +22,8 @@ MainFactory* MainFactory::s_pInstance;
 //
 using namespace std;
 using namespace tinyxml2;
+
+MainFactory* MainFactory::s_pInstance;
 
 MainFactory::MainFactory()
 {
@@ -81,11 +85,11 @@ Directions::Direction MainFactory::moveYOneToGoal(int* current, int goal)
 	int result = moveOneToGoal(current, goal);
 	if (result == 1)
 	{
-		return Directions::North;
+		return Directions::South;
 	}
 	else if (result == -1)
 	{
-		return Directions::South;
+		return Directions::North;
 	}
 	return (Directions::Direction)0;
 }
@@ -118,13 +122,13 @@ vector<vector<Room*>> MainFactory::createDungeonFloor(int* entranceXpos, int* en
 		}
 	}
 
-	int x = *entranceXpos;
-	int y = *entranceYpos;
-	Room* currentRoom = floor[y][x];
+	int xPos = *entranceXpos;
+	int yPos = *entranceYpos;
 	Directions::Direction direction;
+
+	int tempX = xPos, tempY = yPos;
 	do
 	{
-		int tempX = x, tempY = y;
 		if (exitXpos == tempX)
 		{
 			direction = moveYOneToGoal(&tempY, exitYpos);
@@ -144,15 +148,15 @@ vector<vector<Room*>> MainFactory::createDungeonFloor(int* entranceXpos, int* en
 				direction = moveXOneToGoal(&tempX, exitXpos);
 			}
 		}
-		if (x != tempX || y != tempY)
+		if (xPos != tempX || yPos != tempY)
 		{
-			new Hallway(floor[y][x], floor[tempY][tempX], direction);
+			new Hallway(floor[yPos][xPos], floor[tempY][tempX], direction);
 
-			x = tempX;
-			y = tempY;
+			xPos = tempX;
+			yPos = tempY;
 
 		}
-	} while (x != exitXpos&&y != exitYpos);
+	} while (xPos != exitXpos || yPos != exitYpos);
 
 	//TODO fill floor Random!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -163,7 +167,7 @@ vector<vector<Room*>> MainFactory::createDungeonFloor(int* entranceXpos, int* en
 
 }
 
-vector<vector<vector<Room*>>> MainFactory::createDungeon(int width, int height, int depth)
+Dungeon* MainFactory::createDungeon(int width, int height, int depth)
 {
 	if (width < 2 || height < 2 || depth < 2)
 	{
@@ -180,18 +184,28 @@ vector<vector<vector<Room*>>> MainFactory::createDungeon(int width, int height, 
 
 	int xpos = startXPos;
 	int ypos = startYPos;
+	//depth = 1;
 	for (int z = 0; z < depth; z++)
 	{
 
 		rooms.push_back(createDungeonFloor(&xpos, &ypos, width, height));
 		if (z > 0)
 		{
-			new Staircase(rooms[z - 1][ypos][xpos], rooms[z][ypos][xpos]);
+			new Staircase(rooms[z - 1][startYPos][startXPos], rooms[z][startYPos][startXPos]);
 		}
+		else
+		{
+			Room* start = new StartRoom();
+			rooms[z][startYPos][startXPos]->MoveHallwaysTo(start);
+			delete rooms[z][startYPos][startXPos];
+			rooms[z][startYPos][startXPos] = start;
+		}
+		startYPos = ypos;
+		startXPos = xpos;
 
 	}
 
-	return rooms;
+	return new Dungeon(rooms);
 }
 
 void MainFactory::clean()

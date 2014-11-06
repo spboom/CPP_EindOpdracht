@@ -7,6 +7,7 @@
 //
 #include "../Model/Location/Room.h";
 #include "tinyxml2.h"
+#include "../Model/Dungeon.h"
 
 //
 using namespace std;
@@ -28,7 +29,7 @@ public:
 	}
 	void fillAllVectors();
 	string getRandomVectorItems(vector<string> *random);
-	vector<vector<vector<Room*>>> createDungeon(int width, int height, int depth);
+	Dungeon* createDungeon(int width, int height, int depth);
 	void clean();
 	void fillRoom(Room* room);
 private:

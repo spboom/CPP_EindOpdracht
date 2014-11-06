@@ -16,13 +16,8 @@ using namespace std;
 Room::Room()
 {
 	connected = false;
+	visited = true;
 }
-
-//Room::Room(map<Directions, Hallway> doors, Item *items) : connected(false)
-//{
-//	Doors = doors;
-//	Items = items;
-//}
 
 void Room::setItems(Item *items)
 {
@@ -59,7 +54,22 @@ void Room::addHallway(Hallway* hallway, Directions::Direction direction)
 
 char Room::getSymbol()
 {
-	return 'N';
+	if (!visited)
+	{
+		return '.';
+	}
+	else
+	{
+		if (hasHallway(Directions::Down))
+		{
+			return 'L';
+		}
+		else if (hasHallway(Directions::Up))
+		{
+			return 'H';
+		}
+		return 'N';
+	}
 }
 
 bool Room::hasHallway(Directions::Direction direction)
@@ -72,3 +82,35 @@ bool Room::hasHallway(Directions::Direction direction)
 	}
 	return false;
 }
+
+Hallway* Room::getHallway(Directions::Direction direction)
+{
+	for (auto iterator = Doors.begin(); iterator != Doors.end(); iterator++) {
+		if (iterator->first == direction)
+		{
+			return iterator->second;
+		}
+	}
+	return NULL;
+}
+
+void Room::MoveHallwaysTo(Room* room)
+{
+	for (auto iterator = Doors.begin(); iterator != Doors.end(); iterator++) {
+		iterator->second->changeRoom(this, room);
+		iterator->second = NULL;
+	}
+}
+
+Directions::Direction Room::getDirection(Hallway* hallway)
+{
+	for (auto iterator = Doors.begin(); iterator != Doors.end(); iterator++) {
+		if (iterator->second == hallway)
+		{
+			return iterator->first;
+		}
+	}
+	return (Directions::Direction)0;
+}
+
+

@@ -9,8 +9,11 @@ class Room;
 class Hallway : public Location
 {
 public:
+	bool Hallway::connectedToVisited();
 	Hallway(Room* from, Room* to, Directions::Direction direction);
 	virtual ~Hallway();
+	void changeRoom(Room* from, Room* to);
+
 private:
 	Room* room1;
 	Room* room2;

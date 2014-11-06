@@ -10,6 +10,7 @@
 
 //
 #include "GameState.h"
+#include "../Model/Dungeon.h"
 
 class PlayState : public GameState {
 public:
@@ -23,7 +24,7 @@ public:
 private:
 	void drawMap();
 	void OutputHandler(string input);
-	vector<vector<vector<Room*>>> dungeon;
+	Dungeon* dungeon;
 	int level;
 };
 #endif /* _PLAYSTATE_H_ */

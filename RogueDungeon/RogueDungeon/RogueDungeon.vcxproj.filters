@@ -14,7 +14,6 @@
     <ClCompile Include="Model\Item\Item.cpp" />
     <ClCompile Include="Model\Location\Location.cpp" />
     <ClCompile Include="States\MainMenuState.cpp" />
-    <ClCompile Include="Model\Location\Map.cpp" />
     <ClCompile Include="Model\Character\Player.cpp" />
     <ClCompile Include="Controller\Game.cpp" />
     <ClCompile Include="States\PlayState.cpp" />
@@ -33,6 +32,8 @@
     <ClCompile Include="Factory\LocationFactory.cpp" />
     <ClCompile Include="Model\GameObject.cpp" />
     <ClCompile Include="Model\Location\Trap.cpp" />
+    <ClCompile Include="Model\Dungeon.cpp" />
+    <ClCompile Include="Model\Location\StartRoom.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Model\Character\Character.h" />
@@ -49,7 +50,6 @@
     <ClInclude Include="Model\Item\Item.h" />
     <ClInclude Include="Model\Location\Location.h" />
     <ClInclude Include="States\MainMenuState.h" />
-    <ClInclude Include="Model\Location\Map.h" />
     <ClInclude Include="Model\Character\Player.h" />
     <ClInclude Include="States\PlayState.h" />
     <ClInclude Include="Model\Location\Room.h" />
@@ -67,6 +67,8 @@
     <ClInclude Include="Enum\Enum.h" />
     <ClInclude Include="Factory\LocationFactory.h" />
     <ClInclude Include="Model\GameObject.h" />
+    <ClInclude Include="Model\Dungeon.h" />
+    <ClInclude Include="Model\Location\StartRoom.h" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="Inputfiles\example1.xml" />

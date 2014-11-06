@@ -15,15 +15,18 @@ class Room : public Location
 {
 public:
 	Room();
-	Room(map<Directions, Hallway> doors, Item *items);
 	virtual ~Room();
 	bool connected;
 	bool visited;
 	void addHallway(Hallway* hallway, Directions::Direction direction);
 	void setItems(Item *items);
 	void delHallway(Hallway* hall);
-	char getSymbol();
+	virtual char getSymbol();
+	Hallway* getHallway(Directions::Direction direction);
 	bool hasHallway(Directions::Direction direction);
+	void MoveHallwaysTo(Room* room);
+	Directions::Direction getDirection(Hallway* hallway);
+
 private:
 	map<Directions::Direction, Hallway*> Doors;
 	Item* Items;

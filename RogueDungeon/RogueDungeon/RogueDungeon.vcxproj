@@ -95,6 +95,7 @@
     <ClInclude Include="Model\Character\Character.h" />
     <ClInclude Include="Model\Item\ConsumableItem.h" />
     <ClInclude Include="Controller\Controller.h" />
+    <ClInclude Include="Model\Location\StartRoom.h" />
     <ClInclude Include="States\CreditsState.h" />
     <ClInclude Include="Model\Character\Enemy\Enemy.h" />
     <ClInclude Include="Factory\MainFactory.h" />
@@ -110,7 +111,7 @@
     <ClInclude Include="Model\Item\Item.h" />
     <ClInclude Include="Model\Location\Location.h" />
     <ClInclude Include="States\MainMenuState.h" />
-    <ClInclude Include="Model\Location\Map.h" />
+    <ClInclude Include="Model\Dungeon.h" />
     <ClInclude Include="Model\Character\Player.h" />
     <ClInclude Include="States\PlayState.h" />
     <ClInclude Include="Model\Location\Room.h" />
@@ -130,6 +131,7 @@
     <ClCompile Include="Model\Item\ConsumableItem.cpp" />
     <ClCompile Include="Controller\Controller.cpp" />
     <ClCompile Include="Model\Location\Directions.cpp" />
+    <ClCompile Include="Model\Location\StartRoom.cpp" />
     <ClCompile Include="States\CreditsState.cpp" />
     <ClCompile Include="Model\Character\Enemy\Enemy.cpp" />
     <ClCompile Include="Factory\MainFactory.cpp" />
@@ -143,7 +145,7 @@
     <ClCompile Include="Model\Item\Item.cpp" />
     <ClCompile Include="Model\Location\Location.cpp" />
     <ClCompile Include="States\MainMenuState.cpp" />
-    <ClCompile Include="Model\Location\Map.cpp" />
+    <ClCompile Include="Model\Dungeon.cpp" />
     <ClCompile Include="Model\Character\Player.cpp" />
     <ClCompile Include="Controller\Game.cpp" />
     <ClCompile Include="States\PlayState.cpp" />
