@@ -36,13 +36,14 @@ ItemFactory::~ItemFactory()
 
 }
 
-void ItemFactory::parseXML(string xmlPath) {
+vector<Item*> ItemFactory::parseXML(string xmlPath) {
 	// Read from file
 	XMLDocument doc;
 	doc.LoadFile(xmlPath.c_str());
 	// Text is just another Node to TinyXML-2. The more
 	// general way to get to the XMLText:
 	XMLElement *node = doc.FirstChildElement("items")->FirstChildElement("item")->ToElement();
+	vector<Item*> items;
 	for (node; node; node = node->NextSiblingElement())
 	{
 		Item *item = NULL;
@@ -58,10 +59,10 @@ void ItemFactory::parseXML(string xmlPath) {
 			break;
 		case Enum::CONSUMABLE_ITEM:
 			item = new ConsumableItem();
-				break;
+			break;
 		case Enum::USABLE_ITEM:
 			item = new UsableItem();
-				break;
+			break;
 		case Enum::WEARABLE_ITEM:
 			item = new WearableItem();
 			break;
@@ -70,5 +71,7 @@ void ItemFactory::parseXML(string xmlPath) {
 			break;
 		}
 		item->parseXMLElement(node);
+		items.push_back(item);
 	}
+	return items;
 }

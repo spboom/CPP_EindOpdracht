@@ -6,7 +6,6 @@
     <ClCompile Include="Controller\Controller.cpp" />
     <ClCompile Include="Model\Location\Directions.cpp" />
     <ClCompile Include="States\CreditsState.cpp" />
-    <ClCompile Include="Model\Item\GameObject.cpp" />
     <ClCompile Include="States\FightState.cpp" />
     <ClCompile Include="States\GameState.cpp" />
     <ClCompile Include="Controller\GameStateMachine.cpp" />
@@ -23,7 +22,6 @@
     <ClCompile Include="Model\Location\Room.cpp" />
     <ClCompile Include="Model\Location\Staircase.cpp" />
     <ClCompile Include="Library\stdafx.cpp" />
-    <ClCompile Include="Model\Location\Trap.cpp" />
     <ClCompile Include="Model\Item\UsableItem.cpp" />
     <ClCompile Include="Model\Item\WearableItem.cpp" />
     <ClCompile Include="Factory\MainFactory.cpp" />
@@ -33,6 +31,8 @@
     <ClCompile Include="Factory\ItemFactory.cpp" />
     <ClCompile Include="Enum\Enum.cpp" />
     <ClCompile Include="Factory\LocationFactory.cpp" />
+    <ClCompile Include="Model\GameObject.cpp" />
+    <ClCompile Include="Model\Location\Trap.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Model\Character\Character.h" />
@@ -40,7 +40,6 @@
     <ClInclude Include="Controller\Controller.h" />
     <ClInclude Include="States\CreditsState.h" />
     <ClInclude Include="Controller\Game.h" />
-    <ClInclude Include="Model\Item\GameObject.h" />
     <ClInclude Include="States\FightState.h" />
     <ClInclude Include="States\GameState.h" />
     <ClInclude Include="Controller\GameStateMachine.h" />
@@ -67,6 +66,7 @@
     <ClInclude Include="Factory\ItemFactory.h" />
     <ClInclude Include="Enum\Enum.h" />
     <ClInclude Include="Factory\LocationFactory.h" />
+    <ClInclude Include="Model\GameObject.h" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="Inputfiles\example1.xml" />

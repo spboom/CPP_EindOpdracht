@@ -37,7 +37,7 @@ const int SCREEN_HEIGHT = 768;
 // MAIN point for the console application
 int main(int argc, char* argv[]) {
 	// Checking for memory leaks!
-	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+	//_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 
 	if (TheGame::Instance()->init(TITLE + " (" + VERSION + ")", SCREEN_WIDTH, SCREEN_HEIGHT))
 	{

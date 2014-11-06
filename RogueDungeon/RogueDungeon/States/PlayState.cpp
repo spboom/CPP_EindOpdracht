@@ -15,7 +15,7 @@
 #include "../Controller/Game.h"
 #include "PlayState.h"
 #include "../Controller/InputHandler.h"
-#include "../Controller/Factory.h"
+#include "../Factory/MainFactory.h"
 #include "../Controller/Controller.h"
 
 void PlayState::update() {
@@ -93,7 +93,7 @@ void PlayState::drawMap()
 		{
 			Room* room = floor[y][x];
 			roomLine << room->getSymbol();
-			if (room->hasHallway(East))
+			if (room->hasHallway(Directions::East))
 			{
 				roomLine << "-";
 			}
@@ -102,7 +102,7 @@ void PlayState::drawMap()
 				roomLine << " ";
 			}
 
-			if (room->hasHallway(South))
+			if (room->hasHallway(Directions::South))
 			{
 				hallLine << "| ";
 			}

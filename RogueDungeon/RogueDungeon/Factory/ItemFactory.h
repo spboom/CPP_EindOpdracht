@@ -30,7 +30,7 @@ public:
 	}
 
 	/*Factory Method*/
-	void parseXML(string xmlPath);
+	vector<Item*> parseXML(string xmlPath);
 
 private:
 	static ItemFactory* s_pInstance;

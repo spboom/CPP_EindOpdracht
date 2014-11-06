@@ -7,13 +7,13 @@
 #include <vector>
 #include <string>
 #include "tinyxml2.h"
-
+#include "../GameObject.h"
 //
 using namespace std;
 using namespace tinyxml2;
 
 /*Base Class*/
-class Item
+class Item :public GameObject
 {
 public:
 	// Item variables

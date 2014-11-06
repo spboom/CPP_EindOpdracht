@@ -1,8 +1,18 @@
+#ifdef _WIN32
+#endif
+
+#ifdef __unix__
+#endif
+
+//
+
+//
 #include "Hallway.h"
 #include  "Room.h"
 
+//
 
-Hallway::Hallway(Room* from, Room* to, Directions direction)
+Hallway::Hallway(Room* from, Room* to, Directions::Direction direction)
 {
 	room1 = from;
 	room2 = to;
@@ -13,7 +23,7 @@ Hallway::Hallway(Room* from, Room* to, Directions direction)
 		dif *= -1;
 	}
 	int dir = direction;
-	direction = static_cast<Directions>(dir + dif);
+	direction = static_cast<Directions::Direction>(dir + dif);
 
 	to->addHallway(this, direction);
 }

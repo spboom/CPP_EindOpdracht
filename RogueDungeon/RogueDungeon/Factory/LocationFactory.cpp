@@ -33,13 +33,15 @@ LocationFactory::~LocationFactory()
 
 }
 
-void LocationFactory::parseXML(string xmlPath) {
+vector<Location*> LocationFactory::parseXML(string xmlPath) {
 	// Read from file
 	XMLDocument doc;
 	doc.LoadFile(xmlPath.c_str());
 	// Text is just another Node to TinyXML-2. The more
 	// general way to get to the XMLText:
 	XMLElement *node = doc.FirstChildElement("enemies")->FirstChildElement("enemy")->ToElement();
+	vector<Location*> locations;
+
 	for (node; node; node = node->NextSiblingElement())
 	{
 		// Item *item = NULL; --> veranderen naar BASE CLASS location
@@ -51,21 +53,22 @@ void LocationFactory::parseXML(string xmlPath) {
 		/*switch (e->getLocationEnum(location_type))
 		{
 		case Enum::ITEM:
-			item = new Item();
-			break;
+		item = new Item();
+		break;
 		case Enum::CONSUMABLE_ITEM:
-			item = new ConsumableItem();
-			break;
+		item = new ConsumableItem();
+		break;
 		case Enum::USABLE_ITEM:
-			item = new UsableItem();
-			break;
+		item = new UsableItem();
+		break;
 		case Enum::WEARABLE_ITEM:
-			item = new WearableItem();
-			break;
+		item = new WearableItem();
+		break;
 		default:
-			item = NULL;
-			break;
+		item = NULL;
+		break;
 		}
 		item->parseXMLElement(node);*/
 	}
+	return locations;
 }

@@ -48,8 +48,8 @@ bool MainMenuState::onEnter() {
 	TheInputHandler::Instance()->setCommandLine("SELECT FROM MENU");
 
 	//
-	TheCharacterFactory::Instance()->parseXML("Inputfiles/Character/Enemy/enemy.xml");
-	TheItemFactory::Instance()->parseXML("Inputfiles/Item/item.xml");
+	characters = TheCharacterFactory::Instance()->parseXML("Inputfiles/Character/Enemy/enemy.xml");
+	items =  TheItemFactory::Instance()->parseXML("Inputfiles/Item/item.xml");
 
 	return true;
 }
@@ -57,6 +57,18 @@ bool MainMenuState::onEnter() {
 bool MainMenuState::onExit(){
 	GameState::onExit();
 	return true;
+}
+
+MainMenuState::~MainMenuState()
+{
+	for (int i = 0; i < characters.size(); i++)
+	{
+		delete characters[i];
+	}
+	for (int i = 0; i < items.size(); i++)
+	{
+		delete items[i];
+	}
 }
 
 void MainMenuState::OutputHandler(string input)

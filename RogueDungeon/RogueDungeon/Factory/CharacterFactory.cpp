@@ -29,20 +29,22 @@ CharacterFactory::CharacterFactory()
 
 CharacterFactory::~CharacterFactory()
 {
-
 }
 
-void CharacterFactory::parseXML(string xmlPath) {
+vector<Character*>  CharacterFactory::parseXML(string xmlPath) {
 	// Read from file
 	XMLDocument doc;
 	doc.LoadFile(xmlPath.c_str());
 	// Text is just another Node to TinyXML-2. The more
 	// general way to get to the XMLText:
 	XMLElement *node = doc.FirstChildElement("enemies")->FirstChildElement("enemy")->ToElement();
+	vector<Character*> characters;
 	for (node; node; node = node->NextSiblingElement())
 	{
 		Character *character = NULL;
 		character = new Enemy();
 		character->parseXMLElement(node);
+		characters.push_back(character);
 	}
+	return characters;
 }

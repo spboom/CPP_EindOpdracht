@@ -19,13 +19,13 @@ public:
 	virtual ~Room();
 	bool connected;
 	bool visited;
-	void addHallway(Hallway* hallway, Directions direction);
+	void addHallway(Hallway* hallway, Directions::Direction direction);
 	void setItems(Item *items);
 	void delHallway(Hallway* hall);
 	char getSymbol();
-	bool hasHallway(Directions direction);
+	bool hasHallway(Directions::Direction direction);
 private:
-	map<Directions, Hallway*> Doors;
+	map<Directions::Direction, Hallway*> Doors;
 	Item* Items;
 };
 #endif /* defined(_ROOM_H_) */

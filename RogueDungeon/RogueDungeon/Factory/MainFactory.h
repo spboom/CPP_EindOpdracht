@@ -1,5 +1,8 @@
-#ifndef _FACTORY_H_
-#define _FACTORY_H_
+#ifndef _MAINFACTORY_H_
+#define _MAINFACTORY_H_
+
+//
+#include <random>
 
 //
 #include "../Model/Location/Room.h";
@@ -23,17 +26,27 @@ public:
 		}
 		return s_pInstance;
 	}
-	Room* createDungeon(int width, int height);
 	void fillAllVectors();
-	void getVectorContent(vector<string> *sort);
 	string getRandomVectorItems(vector<string> *random);
-	vector<string>* getCharacteristicsVector();
-	vector<string>* getCharacters();
+	vector<vector<vector<Room*>>> createDungeon(int width, int height, int depth);
+	void clean();
 
-	virtual void parseXML(string xmlPath);
 private:
 	static MainFactory* s_pInstance;
+
+	vector<vector<Room*>> createDungeonFloor(int* entranceXpos, int* entranceYpos, int width, int height);
+	int moveOneToGoal(int* current, int goal);
+	Directions::Direction moveXOneToGoal(int* current, int goal);
+	Directions::Direction moveYOneToGoal(int* current, int goal);
+
+	random_device dev;
+	default_random_engine dre;
+	uniform_int_distribution<int> widthDist;
+	uniform_int_distribution<int> heightDist;
+	uniform_int_distribution<int> depthDist;
+
+	vector<string>* characteristics;
 };
 typedef MainFactory TheFactory;
-#endif /* _CONTROLLER_H_ */
+#endif /* _MAINFACTORY_H_ */
 

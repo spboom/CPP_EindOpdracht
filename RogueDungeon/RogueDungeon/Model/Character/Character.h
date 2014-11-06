@@ -3,6 +3,8 @@
 
 // 
 #include "../Item/Item.h"
+#include "../GameObject.h"
+
 
 //
 #include <vector>
@@ -14,10 +16,10 @@ using namespace std;
 using namespace tinyxml2;
 
 /*Base Class*/
-class Character
+class Character :public GameObject
 {
 public:
-	
+
 	// Character features
 	string name;
 	bool endboss;

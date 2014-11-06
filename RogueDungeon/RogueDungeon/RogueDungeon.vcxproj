@@ -100,7 +100,7 @@
     <ClInclude Include="Factory\MainFactory.h" />
     <ClInclude Include="Model\Character\Enemy\FollowingEnemy.h" />
     <ClInclude Include="Controller\Game.h" />
-    <ClInclude Include="Model\Item\GameObject.h" />
+    <ClInclude Include="Model\GameObject.h" />
     <ClInclude Include="States\FightState.h" />
     <ClInclude Include="States\GameState.h" />
     <ClInclude Include="Controller\GameStateMachine.h" />
@@ -134,7 +134,7 @@
     <ClCompile Include="Model\Character\Enemy\Enemy.cpp" />
     <ClCompile Include="Factory\MainFactory.cpp" />
     <ClCompile Include="Model\Character\Enemy\FollowingEnemy.cpp" />
-    <ClCompile Include="Model\Item\GameObject.cpp" />
+    <ClCompile Include="Model\GameObject.cpp" />
     <ClCompile Include="States\FightState.cpp" />
     <ClCompile Include="States\GameState.cpp" />
     <ClCompile Include="Controller\GameStateMachine.cpp" />

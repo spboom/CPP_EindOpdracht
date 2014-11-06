@@ -1,4 +1,5 @@
-#pragma once
+#ifndef _MAP_H_
+#define _MAP_H_
 
 class Map
 {
@@ -9,3 +10,4 @@ public:
 private:
 
 };
+#endif /* _MAP_H_ */

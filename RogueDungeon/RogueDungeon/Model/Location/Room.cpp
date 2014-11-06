@@ -52,7 +52,7 @@ void Room::delHallway(Hallway* hall)
 	}
 }
 
-void Room::addHallway(Hallway* hallway, Directions direction)
+void Room::addHallway(Hallway* hallway, Directions::Direction direction)
 {
 	Doors[direction] = hallway;
 }
@@ -62,7 +62,7 @@ char Room::getSymbol()
 	return 'N';
 }
 
-bool Room::hasHallway(Directions direction)
+bool Room::hasHallway(Directions::Direction direction)
 {
 	for (auto iterator = Doors.begin(); iterator != Doors.end(); iterator++) {
 		if (iterator->first == direction)
