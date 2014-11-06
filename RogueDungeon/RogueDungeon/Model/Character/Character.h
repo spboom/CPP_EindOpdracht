@@ -26,10 +26,8 @@ public:
 	string name;
 	int level;
 	int lifepoints;
-	int experience_points;
 	int attack;
 	int defence;
-	int attraction;
 	vector<Item*> items;
 
 	//

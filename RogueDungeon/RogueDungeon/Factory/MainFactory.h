@@ -8,7 +8,7 @@
 #include "../Model/Location/Room.h";
 #include "tinyxml2.h"
 #include "../Model/Dungeon.h"
-
+#include "../Model/Location/StartRoom.h"
 //
 using namespace std;
 using namespace tinyxml2;
@@ -35,7 +35,7 @@ public:
 private:
 	static MainFactory* s_pInstance;
 
-	vector<vector<Room*>> createDungeonFloor(int* entranceXpos, int* entranceYpos, int width, int height);
+	vector<vector<Room*>> createDungeonFloor(int* entranceXpos, int* entranceYpos, int width, int height, int level);
 	int moveOneToGoal(int* current, int goal);
 	Directions::Direction moveXOneToGoal(int* current, int goal);
 	Directions::Direction moveYOneToGoal(int* current, int goal);

@@ -13,8 +13,6 @@
 #include "../Factory/LocationFactory.h"
 #include "../Factory/ItemFactory.h"
 #include "../Factory/CharacterFactory.h"
-#include "../Model/Dungeon.h"
-#include "../Model/Location/StartRoom.h"
 
 //
 using namespace std;
@@ -91,7 +89,7 @@ Directions::Direction MainFactory::moveYOneToGoal(int* current, int goal)
 	return (Directions::Direction)0;
 }
 
-vector<vector<Room*>> MainFactory::createDungeonFloor(int* entranceXpos, int* entranceYpos, int width, int height)
+vector<vector<Room*>> MainFactory::createDungeonFloor(int* entranceXpos, int* entranceYpos, int width, int height, int level)
 {
 	vector<vector<Room*>> floor;
 	floor.resize(width);
@@ -115,7 +113,7 @@ vector<vector<Room*>> MainFactory::createDungeonFloor(int* entranceXpos, int* en
 	{
 		for (int x = 0; x < width; x++)
 		{
-			floor[y].push_back(new Room());
+			floor[y].push_back(new Room(level));
 		}
 	}
 
@@ -175,6 +173,7 @@ Dungeon* MainFactory::createDungeon(int width, int height, int depth)
 	heightDist = uniform_int_distribution<int>(0, height - 1);
 	depthDist = uniform_int_distribution<int>(0, depth - 1);
 
+	StartRoom* startRoom = nullptr;
 	vector<vector<vector<Room*>>>rooms;
 	int startXPos = widthDist(dre);
 	int startYPos = heightDist(dre);
@@ -185,24 +184,24 @@ Dungeon* MainFactory::createDungeon(int width, int height, int depth)
 	for (int z = 0; z < depth; z++)
 	{
 
-		rooms.push_back(createDungeonFloor(&xpos, &ypos, width, height));
+		rooms.push_back(createDungeonFloor(&xpos, &ypos, width, height, z));
 		if (z > 0)
 		{
 			new Staircase(rooms[z - 1][startYPos][startXPos], rooms[z][startYPos][startXPos]);
 		}
 		else
 		{
-			Room* start = new StartRoom();
-			rooms[z][startYPos][startXPos]->MoveHallwaysTo(start);
+			startRoom = new StartRoom(rooms[z][startYPos][startXPos]->getLevel());
+			rooms[z][startYPos][startXPos]->MoveHallwaysTo(startRoom);
 			delete rooms[z][startYPos][startXPos];
-			rooms[z][startYPos][startXPos] = start;
+			rooms[z][startYPos][startXPos] = startRoom;
 		}
 		startYPos = ypos;
 		startXPos = xpos;
 
 	}
 
-	return new Dungeon(rooms);
+	return new Dungeon(rooms, startRoom);
 }
 
 void MainFactory::clean()

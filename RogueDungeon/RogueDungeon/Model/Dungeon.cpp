@@ -11,9 +11,10 @@
 
 //
 
-Dungeon::Dungeon(vector<vector<vector<Room*>>> dungeon)
+Dungeon::Dungeon(vector<vector<vector<Room*>>> dungeon, StartRoom* start)
 {
 	this->dungeon = dungeon;
+	startRoom = start;
 }
 
 Dungeon::~Dungeon()
@@ -33,4 +34,9 @@ Dungeon::~Dungeon()
 vector<vector<Room*>> Dungeon::getFloor(int level)
 {
 	return dungeon[level];
+}
+
+StartRoom* Dungeon::getStart()
+{
+	return startRoom;
 }

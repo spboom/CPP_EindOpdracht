@@ -14,7 +14,7 @@ using namespace std;
 class Room : public Location
 {
 public:
-	Room();
+	Room(int level);
 	virtual ~Room();
 	bool connected;
 	bool visited;
@@ -26,8 +26,10 @@ public:
 	bool hasHallway(Directions::Direction direction);
 	void MoveHallwaysTo(Room* room);
 	Directions::Direction getDirection(Hallway* hallway);
+	int getLevel();
 
 private:
+	int level;
 	map<Directions::Direction, Hallway*> Doors;
 	Item* Items;
 };

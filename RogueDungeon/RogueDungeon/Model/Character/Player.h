@@ -3,6 +3,7 @@
 
 #include "Character.h"
 #include "tinyxml2.h"
+#include "../Location/StartRoom.h"
 
 //
 using namespace tinyxml2;
@@ -10,9 +11,22 @@ using namespace tinyxml2;
 class Player : public Character
 {
 public:
-	Player();
+	Player(StartRoom* room);
 	virtual ~Player();
-	
+
+	virtual void message() { };
 	void parseXMLElement(XMLElement *xmlelement);
+	Room* location;
+
+	void move(Directions::Direction direction);
+	void addExp(float exp);
+private:
+	float expNeededforLvlUp;
+	void levelUp();
+	float observation;
+	float experience_points;
+
+	int MaxHp;
+
 };
 #endif /* _PLAYER_H_ */

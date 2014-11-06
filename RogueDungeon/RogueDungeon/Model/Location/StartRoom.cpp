@@ -10,7 +10,7 @@
 //
 using namespace std;
 
-StartRoom::StartRoom() :Room()
+StartRoom::StartRoom(int level) :Room(level)
 {}
 
 StartRoom::~StartRoom()

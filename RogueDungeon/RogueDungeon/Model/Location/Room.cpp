@@ -13,10 +13,11 @@
 using namespace std;
 
 
-Room::Room()
+Room::Room(int level)
 {
 	connected = false;
 	visited = true;
+	this->level = level;
 }
 
 void Room::setItems(Item *items)
@@ -113,4 +114,7 @@ Directions::Direction Room::getDirection(Hallway* hallway)
 	return (Directions::Direction)0;
 }
 
-
+int Room::getLevel()
+{
+	return level;
+}
