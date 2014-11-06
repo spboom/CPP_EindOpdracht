@@ -28,8 +28,8 @@ public:
 	void appendCommandLine(string input);
 	string getOutput();
 private:
-	InputHandler() {}
-	~InputHandler();
+	InputHandler();
+	virtual ~InputHandler();
 	static InputHandler* s_pInstance;
 };
 typedef InputHandler TheInputHandler;

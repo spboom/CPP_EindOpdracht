@@ -13,6 +13,9 @@
 //
 using namespace std;
 
+Enum::Enum(){}
+Enum::~Enum(){}
+
 int Enum::getItemEnum(string itemname)
 {
 	if (itemname == "item")

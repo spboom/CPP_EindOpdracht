@@ -13,7 +13,7 @@
 
 //
 #include "LocationFactory.h"
-#include "../Model/Character/Enemy/Enemy.h"
+#include "../Model/Location/Location.h"
 #include "../Enum/Enum.h"
 
 //
@@ -25,12 +25,18 @@ using namespace tinyxml2;
 
 LocationFactory::LocationFactory()
 {
-
+	room_characteristics = new vector<string>();
+	room_feature = new vector<string>();
+	room_state = new vector<string>();
+	room_trap = new vector<string>();
 }
 
 LocationFactory::~LocationFactory()
 {
-
+	delete room_feature;
+	delete room_characteristics;
+	delete room_state;
+	delete room_trap;
 }
 
 vector<Location*> LocationFactory::parseXML(string xmlPath) {
@@ -39,36 +45,39 @@ vector<Location*> LocationFactory::parseXML(string xmlPath) {
 	doc.LoadFile(xmlPath.c_str());
 	// Text is just another Node to TinyXML-2. The more
 	// general way to get to the XMLText:
-	XMLElement *node = doc.FirstChildElement("enemies")->FirstChildElement("enemy")->ToElement();
+	XMLElement *node = doc.FirstChildElement("locations")->FirstChildElement("location")->ToElement();
 	vector<Location*> locations;
-
 	for (node; node; node = node->NextSiblingElement())
 	{
-		// Item *item = NULL; --> veranderen naar BASE CLASS location
-		Enum *e = NULL;
-		string location_type;
+		Location *location = new Location();
 
-		location_type = node->Attribute("location");
+		type = node->Attribute("type");
+		name = node->Attribute("name");
 
-		/*switch (e->getLocationEnum(location_type))
+		if ("characteristic" == type)
 		{
-		case Enum::ITEM:
-		item = new Item();
-		break;
-		case Enum::CONSUMABLE_ITEM:
-		item = new ConsumableItem();
-		break;
-		case Enum::USABLE_ITEM:
-		item = new UsableItem();
-		break;
-		case Enum::WEARABLE_ITEM:
-		item = new WearableItem();
-		break;
-		default:
-		item = NULL;
-		break;
+			room_characteristics->push_back(name);
 		}
-		item->parseXMLElement(node);*/
+		else if ("feature" == type)
+		{
+			room_feature->push_back(name);
+		}
+		else if ("state" == type)
+		{
+			room_state->push_back(name);
+		}
+		else if ("trap" == type)
+		{
+			room_trap->push_back(name);
+		}
+
+		location->parseXMLElement(node);
+		locations.push_back(location);
 	}
 	return locations;
+}
+
+void LocationFactory::fillRoom(Room* room)
+{
+
 }

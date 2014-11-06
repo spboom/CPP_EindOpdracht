@@ -14,6 +14,9 @@
 //
 #include <iostream>
 
+ConsumableItem::ConsumableItem() {}
+ConsumableItem::~ConsumableItem() {}
+
 void ConsumableItem::message()
 {
 	cout << "Enemy derives from Character!";

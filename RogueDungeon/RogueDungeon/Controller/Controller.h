@@ -27,8 +27,8 @@ public:
 	void clean();
 
 private:
-	Controller() {}
-	~Controller();
+	Controller();
+	virtual ~Controller();
 	static Controller* s_pInstance;
 };
 typedef Controller TheController;

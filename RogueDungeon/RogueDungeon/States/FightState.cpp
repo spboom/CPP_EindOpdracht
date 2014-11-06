@@ -15,6 +15,9 @@
 #include "../Controller/InputHandler.h"
 #include "../Controller/Controller.h"
 
+FightState::FightState() {}
+FightState::~FightState() {}
+
 void FightState::update() {
 	OutputHandler(TheInputHandler::Instance()->getOutput());
 }

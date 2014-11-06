@@ -15,8 +15,12 @@ using namespace tinyxml2;
 class Enemy : public Character
 {
 public:
+	bool endboss;
+	string boss;
 	virtual void message();
 	void parseXMLElement(XMLElement *xmlelement);
+	Enemy();
+	virtual ~Enemy();
 private:
 };
 #endif /* _ENEMY_H_ */

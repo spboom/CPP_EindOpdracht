@@ -13,6 +13,6 @@ class Staircase : public Hallway
 {
 public:
 	Staircase(Room* from, Room* to);
-	virtual  ~Staircase();
+	virtual ~Staircase();
 };
 #endif /* _STAIRCASE_H_ */

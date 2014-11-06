@@ -16,14 +16,14 @@ using namespace std;
 using namespace tinyxml2;
 
 /*Base Class*/
-class Character :public GameObject
+class Character : public GameObject
 {
 public:
+	Character();
+	virtual ~Character();
 
 	// Character features
 	string name;
-	bool endboss;
-	string boss;
 	int level;
 	int lifepoints;
 	int experience_points;

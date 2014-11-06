@@ -12,6 +12,8 @@
 
 class CreditsState : public GameState {
 public:
+	CreditsState();
+	virtual ~CreditsState();
 	virtual void update();
 	virtual void render();
 	virtual bool onEnter();

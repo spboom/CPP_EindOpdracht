@@ -14,6 +14,9 @@
 //
 #include <iostream>
 
+UsableItem::UsableItem() {}
+UsableItem::~UsableItem() {}
+
 void UsableItem::message()
 {
 	cout << "Enemy derives from Character!";

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <traps>
-	<trap name="scherpe naalden"/>
-	<trap name="gifgas"/>
-	<trap name="open luik"/>
-	<trap name="negatieve energie"/>
-	<trap name="kogels uit de muren"/>
+	<trap type="trap" name="scherpe naalden"/>
+	<trap type="trap" name="gifgas"/>
+	<trap type="trap" name="open luik"/>
+	<trap type="trap" name="negatieve energie"/>
+	<trap type="trap" name="kogels uit de muren"/>
 </traps>

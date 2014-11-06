@@ -8,3 +8,6 @@
 
 //
 #include "Directions.h"
+
+Directions::Directions() {}
+Directions::~Directions() {}

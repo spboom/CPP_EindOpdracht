@@ -12,6 +12,6 @@ class Trap : public GameObject
 {
 public:
 	Trap();
-	~Trap();
+	virtual ~Trap();
 };
 #endif /* _TRAP_H_ */

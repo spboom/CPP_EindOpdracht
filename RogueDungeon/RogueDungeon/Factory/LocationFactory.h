@@ -18,7 +18,7 @@ class LocationFactory : public MainFactory
 {
 public:
 	LocationFactory();
-	~LocationFactory();
+	virtual ~LocationFactory();
 	static LocationFactory* Instance()
 	{
 		if (s_pInstance == 0)
@@ -29,9 +29,19 @@ public:
 		return s_pInstance;
 	}
 
+	//
+	vector<string>* room_characteristics;
+	vector<string>* room_feature;
+	vector<string>* room_state;
+	vector<string>* room_trap;
+
+	//
+	string type;
+	string name;
+
 	/*Factory Method*/
 	vector<Location*> parseXML(string xmlPath);
-
+	void fillRoom(Room* room);
 private:
 	static LocationFactory* s_pInstance;
 };

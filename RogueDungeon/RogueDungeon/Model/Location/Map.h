@@ -5,9 +5,7 @@ class Map
 {
 public:
 	Map();
-	~Map();
-
+	virtual ~Map();
 private:
-
 };
 #endif /* _MAP_H_ */

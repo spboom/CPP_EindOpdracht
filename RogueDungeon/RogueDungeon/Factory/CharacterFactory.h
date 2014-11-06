@@ -18,7 +18,7 @@ class CharacterFactory : public MainFactory
 {
 public:
 	CharacterFactory();
-	~CharacterFactory();
+	virtual ~CharacterFactory();
 	static CharacterFactory* Instance()
 	{
 		if (s_pInstance == 0)

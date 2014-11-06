@@ -16,6 +16,8 @@ using namespace tinyxml2;
 class UsableItem : public Item
 {
 public:
+	UsableItem();
+	virtual ~UsableItem();
 	virtual void message();
 	void parseXMLElement(XMLElement *xmlelement);
 private:

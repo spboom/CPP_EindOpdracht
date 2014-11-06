@@ -17,6 +17,9 @@
 using namespace std;
 using namespace tinyxml2;
 
+Item::Item() {}
+Item::~Item() {}
+
 void Item::parseXMLElement(XMLElement *xmlelement)
 {
 	name = xmlelement->Attribute("name");

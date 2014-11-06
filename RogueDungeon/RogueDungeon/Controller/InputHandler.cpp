@@ -21,6 +21,10 @@ InputHandler* InputHandler::s_pInstance;
 using namespace std;
 string user_output;
 
+InputHandler::InputHandler() {}
+
+InputHandler::~InputHandler() {}
+
 void InputHandler::update() {}
 
 void InputHandler::clean() {
@@ -51,6 +55,3 @@ void InputHandler::appendCommandLine(string input) {
 string InputHandler::getOutput() {
 	return user_output;
 }
-
-InputHandler::~InputHandler()
-{}

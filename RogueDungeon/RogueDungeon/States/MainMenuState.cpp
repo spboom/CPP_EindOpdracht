@@ -28,6 +28,7 @@
 #include "../Factory/MainFactory.h"
 #include "../Factory/CharacterFactory.h"
 #include "../Factory/ItemFactory.h"
+#include "../Factory/LocationFactory.h"
 
 //
 using namespace std;
@@ -50,6 +51,7 @@ bool MainMenuState::onEnter() {
 	//
 	characters = TheCharacterFactory::Instance()->parseXML("Inputfiles/Character/Enemy/enemy.xml");
 	items =  TheItemFactory::Instance()->parseXML("Inputfiles/Item/item.xml");
+	location = TheLocationFactory::Instance()->parseXML("Inputfiles/Location/location.xml");
 
 	return true;
 }
@@ -58,6 +60,8 @@ bool MainMenuState::onExit(){
 	GameState::onExit();
 	return true;
 }
+
+MainMenuState::MainMenuState() {}
 
 MainMenuState::~MainMenuState()
 {
@@ -68,6 +72,10 @@ MainMenuState::~MainMenuState()
 	for (int i = 0; i < items.size(); i++)
 	{
 		delete items[i];
+	}
+	for (int i = 0; i < location.size(); i++)
+	{
+		delete location[i];
 	}
 }
 

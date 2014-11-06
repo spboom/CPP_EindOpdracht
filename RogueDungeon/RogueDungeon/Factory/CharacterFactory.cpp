@@ -31,7 +31,7 @@ CharacterFactory::~CharacterFactory()
 {
 }
 
-vector<Character*>  CharacterFactory::parseXML(string xmlPath) {
+vector<Character*> CharacterFactory::parseXML(string xmlPath) {
 	// Read from file
 	XMLDocument doc;
 	doc.LoadFile(xmlPath.c_str());
@@ -41,8 +41,7 @@ vector<Character*>  CharacterFactory::parseXML(string xmlPath) {
 	vector<Character*> characters;
 	for (node; node; node = node->NextSiblingElement())
 	{
-		Character *character = NULL;
-		character = new Enemy();
+		Character *character = new Enemy();
 		character->parseXMLElement(node);
 		characters.push_back(character);
 	}

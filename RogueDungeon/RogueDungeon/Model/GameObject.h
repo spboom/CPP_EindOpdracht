@@ -12,6 +12,6 @@ class GameObject
 {
 public:
 	GameObject();
-	~GameObject();
+	virtual ~GameObject();
 };
 #endif /* _GAMEOBJECT_H_ */

@@ -12,6 +12,8 @@
 
 class FightState : public GameState {
 public:
+	FightState();
+	virtual ~FightState();
 	virtual void update();
 	virtual void render();
 	virtual bool onEnter();

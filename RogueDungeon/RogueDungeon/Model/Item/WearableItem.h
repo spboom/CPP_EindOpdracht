@@ -16,6 +16,8 @@ using namespace tinyxml2;
 class WearableItem : public Item
 {
 public:
+	WearableItem();
+	virtual ~WearableItem();
 	virtual void message();
 	void parseXMLElement(XMLElement *xmlelement);
 private:

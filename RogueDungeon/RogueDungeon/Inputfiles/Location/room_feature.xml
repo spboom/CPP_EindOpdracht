@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <features>
-    <feature name="kaars"/>
-	<feature name="fakkel"/>
-	<feature name="haardvuur"/>
+    <feature type="feature" name="kaars"/>
+	<feature type="feature" name="fakkel"/>
+	<feature type="feature" name="haardvuur"/>
 </features>

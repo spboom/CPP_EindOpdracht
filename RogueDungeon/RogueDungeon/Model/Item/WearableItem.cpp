@@ -14,6 +14,9 @@
 //
 #include <iostream>
 
+WearableItem::WearableItem() {}
+WearableItem::~WearableItem() {}
+
 void WearableItem::message()
 {
 	cout << "Enemy derives from Character!";

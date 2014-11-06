@@ -17,7 +17,8 @@ public:
 	void popState();
 	void update();
 	void render();
-	~GameStateMachine();
+	GameStateMachine();
+	virtual ~GameStateMachine();
 private:
 	std::vector<GameState*> m_gameStates;
 };

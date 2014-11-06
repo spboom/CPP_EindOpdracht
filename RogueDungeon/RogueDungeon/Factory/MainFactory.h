@@ -16,7 +16,7 @@ class MainFactory
 {
 public:
 	MainFactory();
-	~MainFactory();
+	virtual ~MainFactory();
 	static MainFactory* Instance()
 	{
 		if (s_pInstance == 0)
@@ -30,7 +30,7 @@ public:
 	string getRandomVectorItems(vector<string> *random);
 	vector<vector<vector<Room*>>> createDungeon(int width, int height, int depth);
 	void clean();
-
+	void fillRoom(Room* room);
 private:
 	static MainFactory* s_pInstance;
 

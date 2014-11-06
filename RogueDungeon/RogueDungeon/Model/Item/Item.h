@@ -13,9 +13,12 @@ using namespace std;
 using namespace tinyxml2;
 
 /*Base Class*/
-class Item :public GameObject
+class Item : public GameObject
 {
 public:
+	Item();
+	virtual ~Item();
+
 	// Item variables
 	string name;
 	string type;
@@ -23,7 +26,6 @@ public:
 	//
 	void message();
 	virtual void parseXMLElement(XMLElement *xmlnode);
-
 private:
 };
 #endif /* _ITEM_H_ */

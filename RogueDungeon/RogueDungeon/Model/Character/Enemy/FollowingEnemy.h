@@ -1,9 +1,18 @@
-#pragma once
+#ifndef _FOLLOWINGENEMY_H_
+#define _FOLLOWINGENEMY_H_
+
+//
 #include "Enemy.h"
+
+//
+
+//
+using namespace std;
+
 class FollowingEnemy : public Enemy
 {
 public:
 	FollowingEnemy();
-	~FollowingEnemy();
+	virtual ~FollowingEnemy();
 };
-
+#endif /* _FOLLOWINGENEMY_H_ */

@@ -27,10 +27,16 @@
 #include "InputHandler.h"
 #include "Controller.h"
 #include "../Factory/MainFactory.h"
+#include "../Factory/CharacterFactory.h"
+#include "../Factory/ItemFactory.h"
+#include "../Factory/LocationFactory.h"
 
 // 
 Game* Game::s_pInstance;
 using namespace std;
+
+Game::Game(){}
+Game::~Game(){}
 
 bool Game::init(string title, int width, int height) {
 	// attempt to initialize SDL
@@ -56,10 +62,12 @@ void Game::render() {
 
 void Game::clean() {
 	//std::cout << "cleaning game\n";
-
 	Controller::Instance()->clean();
 	InputHandler::Instance()->clean();
 	TheFactory::Instance()->clean();
+	TheCharacterFactory::Instance()->clean();
+	TheItemFactory::Instance()->clean();
+	TheLocationFactory::Instance()->clean();
 	delete m_pGameStateMachine;
 	delete this;
 }

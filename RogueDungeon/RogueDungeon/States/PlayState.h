@@ -18,8 +18,8 @@ public:
 	virtual bool onEnter();
 	virtual bool onExit();
 	virtual std::string getStateID() const { return "PLAY"; };
-	~PlayState();
-
+	PlayState();
+	virtual ~PlayState();
 private:
 	void drawMap();
 	void OutputHandler(string input);

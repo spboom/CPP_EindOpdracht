@@ -65,6 +65,8 @@ void PlayState::OutputHandler(string input)
 	}
 }
 
+PlayState::PlayState() {}
+
 PlayState::~PlayState()
 {
 	for (int z = 0; z < dungeon.size(); z++)

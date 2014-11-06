@@ -7,12 +7,17 @@
 //
 #include <tchar.h>
 #include <strsafe.h>
+#include <iostream>
 
 //
 #include "Enemy.h"
 
 //
-#include <iostream>
+using namespace std;
+
+Enemy::Enemy() {}
+
+Enemy::~Enemy() {}
 
 void Enemy::message()
 {
@@ -21,5 +26,13 @@ void Enemy::message()
 
 void Enemy::parseXMLElement(XMLElement *xmlelement)
 {
+	if (xmlelement->Attribute("boss"))
+	{
+		boss = xmlelement->Attribute("boss");
+		endboss = true;
+	}
+
+	cout << boss;
+
 	Character::parseXMLElement(xmlelement);
 }

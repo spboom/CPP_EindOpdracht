@@ -18,6 +18,9 @@
 
 using namespace std;
 
+GameState::GameState() {}
+GameState::~GameState() {}
+
 bool GameState::onExit()
 {
 	delete this;

@@ -18,7 +18,7 @@ class ItemFactory : public MainFactory
 {
 public:
 	ItemFactory();
-	~ItemFactory();
+	virtual ~ItemFactory();
 	static ItemFactory* Instance()
 	{
 		if (s_pInstance == 0)

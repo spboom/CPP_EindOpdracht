@@ -17,6 +17,9 @@
 #include "../Controller/InputHandler.h"
 #include "../Controller/Controller.h"
 
+CreditsState::CreditsState() {}
+CreditsState::~CreditsState() {}
+
 void CreditsState::update() {
 	OutputHandler(TheInputHandler::Instance()->getOutput());
 }

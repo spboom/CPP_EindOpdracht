@@ -12,20 +12,23 @@
 //
 #include "Character.h"
 
+Character::Character() {}
+
+Character::~Character()
+{
+	for (int i = 0; i < items.size(); i++)
+	{
+		delete items[i];
+	}
+}
+
 void Character::parseXMLElement(XMLElement *xmlelement)
 {
-
 	name = xmlelement->Attribute("name");
 
 	attack = atoi(xmlelement->Attribute("attack"));
 
 	level = atoi(xmlelement->Attribute("level"));
 
-	if (xmlelement->Attribute("boss"))
-	{
-		boss = xmlelement->Attribute("boss");
-		endboss = true;
-	}
-
-	cout << name + " " + std::to_string(level) + " " + std::to_string(attack) + " " +  boss + "\n";
+	cout << name + " " + std::to_string(level) + " " + std::to_string(attack) + "\n";
 }

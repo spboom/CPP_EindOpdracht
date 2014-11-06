@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<location>
-	<characteristic name="groot" value="room"/>
-	<characteristic name="gemiddeld" value="room"/>
-	<characteristic name="klein" value="room"/>
-	<feature name="kaars" value="room"/>
-	<feature name="fakkel" value="room"/>
-	<feature name="haardvuur" value="room"/>
-	<state name="opgeruimd" value="room"/>
-	<state name="netjes" value="room"/>
-	<trap name="scherpe naalden" type="trap" value="room"/>
-	<trap name="gifgas" type="trap" value="room"/>
-	<trap name="open luik" type="trap" value="room"/>
-	<trap name="negatieve energie" type="trap" value="room"/>
-	<trap name="kogels uit de muren" type="trap" value="room"/>
-</location>
+<locations>
+	<location type="characteristic" name="groot"/>
+	<location type="characteristic" name="gemiddeld"/>
+	<location type="characteristic" name="klein"/>
+	<location type="feature" name="kaars"/>
+	<location type="feature" name="fakkel"/>
+	<location type="feature" name="haardvuur"/>
+	<location type="state" name="opgeruimd"/>
+	<location type="state" name="netjes"/>
+	<location type="trap" name="scherpe naalden"/>
+	<location type="trap" name="gifgas"/>
+	<location type="trap" name="open luik"/>
+	<location type="trap" name="negatieve energie"/>
+	<location type="trap" name="kogels uit de muren"/>
+</locations>

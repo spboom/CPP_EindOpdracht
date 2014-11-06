@@ -10,6 +10,9 @@
 #include "../Model/Location/Staircase.h"
 #include "../Model/GameObject.h"
 #include "../Controller/Controller.h"
+#include "../Factory/LocationFactory.h"
+#include "../Factory/ItemFactory.h"
+#include "../Factory/CharacterFactory.h"
 
 //
 MainFactory* MainFactory::s_pInstance;
@@ -29,9 +32,11 @@ MainFactory::~MainFactory()
 	delete characteristics;
 }
 
-void MainFactory::fillAllVectors()
+void MainFactory::fillRoom(Room* room)
 {
-	// TheController::Instance()->xmlFileController("Inputfiles/Room/room_characteristics.xml", MainFactory::characteristics);
+	TheLocationFactory::Instance()->fillRoom(room);
+	TheCharacterFactory::Instance()->fillRoom(room);
+	TheItemFactory::Instance()->fillRoom(room);
 }
 
 string MainFactory::getRandomVectorItems(vector<string> *random)

@@ -37,8 +37,8 @@ public:
 	// a function to access the private running variable
 	bool running() { return m_bRunning; }
 private:
-	Game(){}
-	~Game(){}
+	Game();
+	virtual ~Game();
 	static Game* s_pInstance;
 	bool m_bRunning;
 	GameStateMachine* m_pGameStateMachine;

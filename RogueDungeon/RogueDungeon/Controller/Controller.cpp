@@ -22,6 +22,10 @@
 Controller* Controller::s_pInstance;
 using namespace std;
 
+Controller::Controller() {}
+
+Controller::~Controller() {}
+
 void Controller::txtFileController(string txtPath) {
 	// Read from file
 	ifstream fin(txtPath.c_str());
@@ -49,6 +53,3 @@ void Controller::clean()
 {
 	delete this;
 }
-
-Controller::~Controller()
-{}

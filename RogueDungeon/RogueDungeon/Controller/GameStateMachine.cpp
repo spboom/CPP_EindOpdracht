@@ -52,6 +52,8 @@ void GameStateMachine::render() {
 	}
 }
 
+GameStateMachine::GameStateMachine() {}
+
 GameStateMachine::~GameStateMachine()
 {
 	while (!m_gameStates.empty())

@@ -20,6 +20,8 @@ public:
 	};
 	int getItemEnum(string itemname);
 	int getLocationEnum(string locationname);
+	Enum();
+	virtual ~Enum();
 private:
 };
 #endif /* _ENUM_H_ */
