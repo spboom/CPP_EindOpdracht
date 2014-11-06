@@ -7,6 +7,8 @@
 #include <sstream>
 #include "../Model/Location/Room.h"
 #include "../Library/stdafx.h"
+#include "../Model/Character/Player.h"
+
 
 //
 #include "GameState.h"
@@ -26,5 +28,6 @@ private:
 	void OutputHandler(string input);
 	Dungeon* dungeon;
 	int level;
+	Player* player;
 };
 #endif /* _PLAYSTATE_H_ */

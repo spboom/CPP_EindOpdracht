@@ -15,11 +15,12 @@
 //
 using namespace std;
 
-Room::Room()
+Room::Room(int level)
 {
 	TheFactory::Instance()->fillRoom(this);
 	connected = false;
 	visited = true;
+	this->level = level;
 }
 
 void Room::setItems(Item *items)
@@ -123,4 +124,9 @@ string Room::getDescription()
 	description << "Beschrijving: Je staat in een " << characteristic << " " << state << " kamer met in het midden een " << object << ". Het wordt verlicht door een " << feature;
 
 	return description.str();
+}
+
+int Room::getLevel()
+{
+	return level;
 }

@@ -10,7 +10,7 @@ using namespace std;
 class StartRoom : public Room
 {
 public:
-	StartRoom();
+	StartRoom(int level);
 	virtual ~StartRoom();
 	virtual char getSymbol();
 };

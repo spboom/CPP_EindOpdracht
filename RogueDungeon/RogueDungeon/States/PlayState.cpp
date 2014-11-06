@@ -35,6 +35,7 @@ bool PlayState::onEnter() {
 
 	dungeon = TheFactory::Instance()->createDungeon(10, 10, 2);
 	level = 0;
+	player = new Player(dungeon->getStart());
 
 	return true;
 }
@@ -49,7 +50,7 @@ void PlayState::OutputHandler(string input)
 	// MENU
 	if (input != "")
 	{
-		if (input == "show map") {
+		if (input == "kaart" || input == "bekijk kaart") {
 			TheGame::Instance()->cleanScreen();
 			drawMap();
 		}
@@ -68,11 +69,12 @@ PlayState::PlayState() {}
 PlayState::~PlayState()
 {
 	delete dungeon;
+	delete player;
 }
 
 void PlayState::drawMap()
 {
-	vector<vector<Room*>> floor = dungeon->getFloor(level);
+	vector<vector<Room*>> floor = dungeon->getFloor(player->location->getLevel());
 	InputHandler::Instance()->setCommandLine("Kerker Kaart:");
 	for (int y = 0; y < floor.size(); y++)
 	{

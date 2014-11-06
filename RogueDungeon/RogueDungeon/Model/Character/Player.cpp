@@ -11,11 +11,13 @@
 //
 #include "Player.h"
 
+
 //
 using namespace std;
 
-Player::Player()
+Player::Player(StartRoom* room)
 {
+	location = room;
 }
 
 Player::~Player()
@@ -25,4 +27,33 @@ Player::~Player()
 void Player::parseXMLElement(XMLElement *xmlelement)
 {
 
+}
+
+
+void Player::levelUp()
+{
+	experience_points -= expNeededforLvlUp;
+	expNeededforLvlUp *= 1.5;
+	MaxHp *= 1.5;
+	level++;
+}
+void Player::addExp(float exp)
+{
+	experience_points += exp;
+	while (experience_points >= expNeededforLvlUp)
+	{
+		levelUp();
+	}
+}
+
+
+
+
+
+
+
+
+void Player::move(Directions::Direction direction)
+{
+	//TODO
 }
