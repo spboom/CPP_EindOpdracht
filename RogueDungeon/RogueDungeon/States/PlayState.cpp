@@ -49,7 +49,7 @@ void PlayState::OutputHandler(string input)
 	// MENU
 	if (input != "")
 	{
-		if (input == "show map") {
+		if (input == "kaart"|| input == "bekijk kaart") {
 			TheGame::Instance()->cleanScreen();
 			drawMap();
 		}
