@@ -10,6 +10,7 @@ class Hallway :
 {
 public:
 	Hallway(Room* from, Room* to, Directions direction);
+	bool Hallway::connectedToVisited();
 	virtual ~Hallway();
 private:
 	Room* room1;

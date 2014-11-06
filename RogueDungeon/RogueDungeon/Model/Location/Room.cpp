@@ -16,6 +16,7 @@ using namespace std;
 Room::Room()
 {
 	connected = false;
+	visited = true;
 }
 
 //Room::Room(map<Directions, Hallway> doors, Item *items) : connected(false)
@@ -59,7 +60,22 @@ void Room::addHallway(Hallway* hallway, Directions direction)
 
 char Room::getSymbol()
 {
-	return 'N';
+	if (!visited)
+	{
+		return '.';
+	}
+	else
+	{
+		if (hasHallway(Down))
+		{
+			return 'L';
+		}
+		else if (hasHallway(Up))
+		{
+			return 'H';
+		}
+		return 'N';
+	}
 }
 
 bool Room::hasHallway(Directions direction)
@@ -71,4 +87,15 @@ bool Room::hasHallway(Directions direction)
 		}
 	}
 	return false;
+}
+
+Hallway* Room::getHallway(Directions direction)
+{
+	for (auto iterator = Doors.begin(); iterator != Doors.end(); iterator++) {
+		if (iterator->first == direction)
+		{
+			return iterator->second;
+		}
+	}
+	return NULL;
 }

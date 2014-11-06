@@ -23,7 +23,6 @@ void PlayState::update() {
 }
 
 void PlayState::render() {
-	drawMap();
 }
 
 bool PlayState::onEnter() {
@@ -50,13 +49,12 @@ void PlayState::OutputHandler(string input)
 	// MENU
 	if (input != "")
 	{
-		if (input == "main menu") {
+		if (input == "show map") {
 			TheGame::Instance()->cleanScreen();
-			TheGame::Instance()->goToMainMenu();
+			drawMap();
 		}
-		else if (input == "credits") {
+		else if (input == "") {
 			TheGame::Instance()->cleanScreen();
-			TheGame::Instance()->goToCredits();
 		}
 
 		else {
@@ -93,7 +91,7 @@ void PlayState::drawMap()
 		{
 			Room* room = floor[y][x];
 			roomLine << room->getSymbol();
-			if (room->hasHallway(East))
+			if (room->visited && room->hasHallway(East))
 			{
 				roomLine << "-";
 			}
@@ -102,7 +100,7 @@ void PlayState::drawMap()
 				roomLine << " ";
 			}
 
-			if (room->hasHallway(South))
+			if (room->hasHallway(South) && room->getHallway(South)->connectedToVisited())
 			{
 				hallLine << "| ";
 			}

@@ -24,6 +24,7 @@ public:
 	void delHallway(Hallway* hall);
 	char getSymbol();
 	bool hasHallway(Directions direction);
+	Hallway* getHallway(Directions direction);
 private:
 	map<Directions, Hallway*> Doors;
 	Item* Items;

@@ -18,6 +18,11 @@ Hallway::Hallway(Room* from, Room* to, Directions direction)
 	to->addHallway(this, direction);
 }
 
+bool Hallway::connectedToVisited()
+{
+	return room1->visited || room2->visited;
+}
+
 Hallway::~Hallway()
 {
 	room1->delHallway(this);
