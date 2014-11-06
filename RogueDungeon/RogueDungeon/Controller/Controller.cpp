@@ -12,7 +12,6 @@
 #include <sstream>
 #include <vector>
 #include <fstream>
-#include "tinyxml2.h"
 
 //
 #include "Controller.h"
@@ -22,7 +21,6 @@
 //
 Controller* Controller::s_pInstance;
 using namespace std;
-using namespace tinyxml2;
 
 void Controller::txtFileController(string txtPath) {
 	// Read from file
@@ -37,25 +35,6 @@ void Controller::txtFileController(string txtPath) {
 		TheInputHandler::Instance()->appendCommandLine(str);
 	}
 	fin.close();
-}
-
-void Controller::xmlFileController(string xmlPath, vector<string> *objects) {
-	// Read from file
-	XMLDocument doc;
-	doc.LoadFile(xmlPath.c_str());
-	const char* title;
-	// Text is just another Node to TinyXML-2. The more
-	// general way to get to the XMLText:
-	XMLNode *node = doc.FirstChildElement()->FirstChildElement()->FirstChildElement();
-	while (node != NULL)
-	{
-
-		title = node->FirstChild()->ToText()->Value();
-		// add to array
-		objects->push_back(title);
-		node = node->NextSibling();
-	}
-	doc.Clear();
 }
 
 void Controller::saveFile() {

@@ -22,7 +22,6 @@ public:
 		return s_pInstance;
 	}
 	void txtFileController(string txtPath);
-	void xmlFileController(string xmlPath, vector<string> *objects);
 	void saveFile();
 	void writeFile();
 	void clean();

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<location>
+	<characteristic name="groot" value="room"/>
+	<characteristic name="gemiddeld" value="room"/>
+	<characteristic name="klein" value="room"/>
+	<feature name="kaars" value="room"/>
+	<feature name="fakkel" value="room"/>
+	<feature name="haardvuur" value="room"/>
+	<state name="opgeruimd" value="room"/>
+	<state name="netjes" value="room"/>
+	<trap name="scherpe naalden" type="trap" value="room"/>
+	<trap name="gifgas" type="trap" value="room"/>
+	<trap name="open luik" type="trap" value="room"/>
+	<trap name="negatieve energie" type="trap" value="room"/>
+	<trap name="kogels uit de muren" type="trap" value="room"/>
+</location>

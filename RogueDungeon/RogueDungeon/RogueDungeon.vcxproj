@@ -88,16 +88,20 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Model\Item\Backpack.h" />
+    <ClInclude Include="Enum\Enum.h" />
+    <ClInclude Include="Factory\CharacterFactory.h" />
+    <ClInclude Include="Factory\ItemFactory.h" />
+    <ClInclude Include="Factory\LocationFactory.h" />
     <ClInclude Include="Model\Character\Character.h" />
     <ClInclude Include="Model\Item\ConsumableItem.h" />
     <ClInclude Include="Controller\Controller.h" />
+    <ClInclude Include="Model\Location\StartRoom.h" />
     <ClInclude Include="States\CreditsState.h" />
-    <ClInclude Include="Model\Character\Enemy.h" />
-    <ClInclude Include="Controller\Factory.h" />
-    <ClInclude Include="Model\Character\FollowingEnemy.h" />
+    <ClInclude Include="Model\Character\Enemy\Enemy.h" />
+    <ClInclude Include="Factory\MainFactory.h" />
+    <ClInclude Include="Model\Character\Enemy\FollowingEnemy.h" />
     <ClInclude Include="Controller\Game.h" />
-    <ClInclude Include="Model\Item\GameObject.h" />
+    <ClInclude Include="Model\GameObject.h" />
     <ClInclude Include="States\FightState.h" />
     <ClInclude Include="States\GameState.h" />
     <ClInclude Include="Controller\GameStateMachine.h" />
@@ -107,30 +111,32 @@
     <ClInclude Include="Model\Item\Item.h" />
     <ClInclude Include="Model\Location\Location.h" />
     <ClInclude Include="States\MainMenuState.h" />
-    <ClInclude Include="Model\Location\Map.h" />
+    <ClInclude Include="Model\Dungeon.h" />
     <ClInclude Include="Model\Character\Player.h" />
     <ClInclude Include="States\PlayState.h" />
     <ClInclude Include="Model\Location\Room.h" />
-    <ClInclude Include="Model\Item\Schield.h" />
     <ClInclude Include="Model\Location\Staircase.h" />
     <ClInclude Include="Library\stdafx.h" />
     <ClInclude Include="Library\targetver.h" />
     <ClInclude Include="Model\Location\Trap.h" />
     <ClInclude Include="Model\Item\UsableItem.h" />
-    <ClInclude Include="Model\Item\Weapon.h" />
     <ClInclude Include="Model\Item\WearableItem.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Model\Item\Backpack.cpp" />
+    <ClCompile Include="Enum\Enum.cpp" />
+    <ClCompile Include="Factory\CharacterFactory.cpp" />
+    <ClCompile Include="Factory\ItemFactory.cpp" />
+    <ClCompile Include="Factory\LocationFactory.cpp" />
     <ClCompile Include="Model\Character\Character.cpp" />
     <ClCompile Include="Model\Item\ConsumableItem.cpp" />
     <ClCompile Include="Controller\Controller.cpp" />
     <ClCompile Include="Model\Location\Directions.cpp" />
+    <ClCompile Include="Model\Location\StartRoom.cpp" />
     <ClCompile Include="States\CreditsState.cpp" />
-    <ClCompile Include="Model\Character\Enemy.cpp" />
-    <ClCompile Include="Controller\Factory.cpp" />
-    <ClCompile Include="Model\Character\FollowingEnemy.cpp" />
-    <ClCompile Include="Model\Item\GameObject.cpp" />
+    <ClCompile Include="Model\Character\Enemy\Enemy.cpp" />
+    <ClCompile Include="Factory\MainFactory.cpp" />
+    <ClCompile Include="Model\Character\Enemy\FollowingEnemy.cpp" />
+    <ClCompile Include="Model\GameObject.cpp" />
     <ClCompile Include="States\FightState.cpp" />
     <ClCompile Include="States\GameState.cpp" />
     <ClCompile Include="Controller\GameStateMachine.cpp" />
@@ -139,13 +145,12 @@
     <ClCompile Include="Model\Item\Item.cpp" />
     <ClCompile Include="Model\Location\Location.cpp" />
     <ClCompile Include="States\MainMenuState.cpp" />
-    <ClCompile Include="Model\Location\Map.cpp" />
+    <ClCompile Include="Model\Dungeon.cpp" />
     <ClCompile Include="Model\Character\Player.cpp" />
     <ClCompile Include="Controller\Game.cpp" />
     <ClCompile Include="States\PlayState.cpp" />
     <ClCompile Include="RogueDungeonMain.cpp" />
     <ClCompile Include="Model\Location\Room.cpp" />
-    <ClCompile Include="Model\Item\Schield.cpp" />
     <ClCompile Include="Model\Location\Staircase.cpp" />
     <ClCompile Include="Library\stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -153,7 +158,6 @@
     </ClCompile>
     <ClCompile Include="Model\Location\Trap.cpp" />
     <ClCompile Include="Model\Item\UsableItem.cpp" />
-    <ClCompile Include="Model\Item\Weapon.cpp" />
     <ClCompile Include="Model\Item\WearableItem.cpp" />
   </ItemGroup>
   <ItemGroup>

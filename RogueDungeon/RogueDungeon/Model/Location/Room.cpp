@@ -19,12 +19,6 @@ Room::Room()
 	visited = true;
 }
 
-//Room::Room(map<Directions, Hallway> doors, Item *items) : connected(false)
-//{
-//	Doors = doors;
-//	Items = items;
-//}
-
 void Room::setItems(Item *items)
 {
 	Items = items;
@@ -53,7 +47,7 @@ void Room::delHallway(Hallway* hall)
 	}
 }
 
-void Room::addHallway(Hallway* hallway, Directions direction)
+void Room::addHallway(Hallway* hallway, Directions::Direction direction)
 {
 	Doors[direction] = hallway;
 }
@@ -66,11 +60,11 @@ char Room::getSymbol()
 	}
 	else
 	{
-		if (hasHallway(Down))
+		if (hasHallway(Directions::Down))
 		{
 			return 'L';
 		}
-		else if (hasHallway(Up))
+		else if (hasHallway(Directions::Up))
 		{
 			return 'H';
 		}
@@ -78,7 +72,7 @@ char Room::getSymbol()
 	}
 }
 
-bool Room::hasHallway(Directions direction)
+bool Room::hasHallway(Directions::Direction direction)
 {
 	for (auto iterator = Doors.begin(); iterator != Doors.end(); iterator++) {
 		if (iterator->first == direction)
@@ -89,7 +83,7 @@ bool Room::hasHallway(Directions direction)
 	return false;
 }
 
-Hallway* Room::getHallway(Directions direction)
+Hallway* Room::getHallway(Directions::Direction direction)
 {
 	for (auto iterator = Doors.begin(); iterator != Doors.end(); iterator++) {
 		if (iterator->first == direction)
@@ -99,3 +93,24 @@ Hallway* Room::getHallway(Directions direction)
 	}
 	return NULL;
 }
+
+void Room::MoveHallwaysTo(Room* room)
+{
+	for (auto iterator = Doors.begin(); iterator != Doors.end(); iterator++) {
+		iterator->second->changeRoom(this, room);
+		iterator->second = NULL;
+	}
+}
+
+Directions::Direction Room::getDirection(Hallway* hallway)
+{
+	for (auto iterator = Doors.begin(); iterator != Doors.end(); iterator++) {
+		if (iterator->second == hallway)
+		{
+			return iterator->first;
+		}
+	}
+	return (Directions::Direction)0;
+}
+
+

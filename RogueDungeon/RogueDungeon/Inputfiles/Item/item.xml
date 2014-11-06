@@ -1,8 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<characteristics>
-	<size>
-		<item>groot</item>
-		<item>gemiddeld</item>
-		<item>klein</item>
-	</size>
-</characteristics>
+<items>
+	<item name="rugzak" type="usableitem"/>
+	<item name="zwaard" type="usableitem"/>
+	<item name="genezingsdrankje" type="consumableitem"/>
+	<item name="schild" type="usableitem"/>
+	<item name="geweer" type="usableitem"/>
+	<item name="tafel" type="item"/>
+	<item name="stoel" type="item"/>
+	<item name="bed" type="item"/>
+	<item name="zaklamp" type="usableitem"/>
+	<item name="zakmes" type="usableitem"/>
+	<item name="shotgun" type="usableitem"/>
+	<item name="mes" type="usableitem"/>
+	<item name="helm" type="usableitem"/>
+	<item name="handschoen" type="wearableitem"/>
+	<item name="schoen" type="wearableitem"/>
+	<item name="heilige handgranaat" type="usableitem"/>
+	<item name="wapen uitrusting" type="usableitem"/>
+	<item name="tommy gun" type="usableitem"/>
+	<item name="pijl en boog" type="usableitem"/>
+	<item name="bazooka" type="usableitem"/>
+	<item name="lamp" type="item"/>
+	<item name="tas" type="usableitem"/>
+	<item name="sleutel" type="usableitem"/>
+	<item name="kist" type="item"/>
+	<item name="kast" type="item"/>
+	<item name="genezingscapsule" type="consumableitem"/>
+	<item name="eten" type="consumableitem"/>
+	<item name="drankje" type="consumableitem"/>
+	<item name="ketting" type="usableitem"/>
+	<item name="broek" type="wearableitem"/>
+	<item name="kogelvrije vest" type="wearableitem"/>
+	<item name="geld" type="usableitem"/>
+	<item name="molotov cocktail" type="usableitem"/>
+	<item name="zweep" type="usableitem"/>
+	<item name="bril" type="wearableitem"/>
+	<item name="tv" type="item"/>
+	<item name="vaas" type="item"/>
+	<item name="energie pil" type="consumableitem"/>
+	<item name="laptop" type="item"/>
+	<item name="plant" type="item"/>
+	<item name="aansteker" type="usableitem"/>
+	<item name="minigun" type="usableitem"/>
+	<item name="flash granaat" type="usableitem"/>
+	<item name="kogels" type="usableitem"/>
+	<item name="toverdrankje" type="consumableitem"/>
+	<item name="bepantsering" type="wearableitem"/>
+	<item name="vlammenwerper" type="usableitem"/>
+	<item name="krachtkoek" type="consumableitem"/>
+	<item name="skelet" type="item"/>
+	<item name="schat" type="item"/>
+</items>

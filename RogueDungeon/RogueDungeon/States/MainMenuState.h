@@ -8,6 +8,9 @@
 
 //
 #include "GameState.h"
+#include "../Model/Character/Character.h"
+#include "../Model//Item/Item.h"
+
 
 //
 using namespace std;
@@ -20,6 +23,9 @@ public:
 	virtual bool onExit();
 	virtual std::string getStateID() const { return "MENU"; };
 private:
+	MainMenuState::~MainMenuState();
 	void OutputHandler(string input);
+	vector<Character*> characters;
+	vector<Item*> items;
 };
 #endif /* _MENUSTATE_H_ */

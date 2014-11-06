@@ -25,7 +25,9 @@
 #include "../Controller/Game.h"
 #include "../Controller/InputHandler.h"
 #include "../Controller/Controller.h"
-#include "../Controller/Factory.h"
+#include "../Factory/MainFactory.h"
+#include "../Factory/CharacterFactory.h"
+#include "../Factory/ItemFactory.h"
 
 //
 using namespace std;
@@ -40,15 +42,14 @@ void MainMenuState::render() {
 bool MainMenuState::onEnter() {
 
 	// 
-	TheController::Instance()->txtFileController("Inputfiles/State/mainmenustate.txt");
+	TheController::Instance()->txtFileController("Inputfiles/State/state_mainmenu.txt");
 
 	//
 	TheInputHandler::Instance()->setCommandLine("SELECT FROM MENU");
 
-	// test
-	//TheController::Instance()->xmlFileController("Inputfiles/size.xml");
-	TheFactory::Instance()->roomCharacteristics();
-
+	//
+	characters = TheCharacterFactory::Instance()->parseXML("Inputfiles/Character/Enemy/enemy.xml");
+	items =  TheItemFactory::Instance()->parseXML("Inputfiles/Item/item.xml");
 
 	return true;
 }
@@ -56,6 +57,18 @@ bool MainMenuState::onEnter() {
 bool MainMenuState::onExit(){
 	GameState::onExit();
 	return true;
+}
+
+MainMenuState::~MainMenuState()
+{
+	for (int i = 0; i < characters.size(); i++)
+	{
+		delete characters[i];
+	}
+	for (int i = 0; i < items.size(); i++)
+	{
+		delete items[i];
+	}
 }
 
 void MainMenuState::OutputHandler(string input)

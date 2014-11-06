@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description>
+	<exit description="is de uitgang uit de kerker"/>
+	<exit description="is een stevige deur"/>
+	<exit description="is een gang"/>
+</description>

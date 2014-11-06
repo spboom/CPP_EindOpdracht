@@ -1,9 +1,16 @@
 #pragma once
 #include "Character.h"
-class Player :Character
+#include "tinyxml2.h"
+
+//
+using namespace tinyxml2;
+
+class Player : public Character
 {
 public:
 	Player();
 	~Player();
+	
+	void parseXMLElement(XMLElement *xmlelement);
 };
 

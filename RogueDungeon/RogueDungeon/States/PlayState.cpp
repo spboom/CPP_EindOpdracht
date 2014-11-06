@@ -15,7 +15,7 @@
 #include "../Controller/Game.h"
 #include "PlayState.h"
 #include "../Controller/InputHandler.h"
-#include "../Controller/Factory.h"
+#include "../Factory/MainFactory.h"
 #include "../Controller/Controller.h"
 
 void PlayState::update() {
@@ -28,7 +28,7 @@ void PlayState::render() {
 bool PlayState::onEnter() {
 
 	// 
-	TheController::Instance()->txtFileController("Inputfiles/State/playstate.txt");
+	TheController::Instance()->txtFileController("Inputfiles/State/state_play.txt");
 
 	//
 	TheInputHandler::Instance()->setCommandLine("SELECT FROM MENU");
@@ -65,21 +65,12 @@ void PlayState::OutputHandler(string input)
 
 PlayState::~PlayState()
 {
-	for (int z = 0; z < dungeon.size(); z++)
-	{
-		for (int y = 0; y < dungeon[z].size(); y++)
-		{
-			for (int x = 0; x < dungeon[z][y].size(); x++)
-			{
-				delete dungeon[z][y][x];
-			}
-		}
-	}
+	delete dungeon;
 }
 
 void PlayState::drawMap()
 {
-	vector<vector<Room*>> floor = dungeon[level];
+	vector<vector<Room*>> floor = dungeon->getFloor(level);
 	InputHandler::Instance()->setCommandLine("Kerker Kaart:");
 	for (int y = 0; y < floor.size(); y++)
 	{
@@ -91,7 +82,7 @@ void PlayState::drawMap()
 		{
 			Room* room = floor[y][x];
 			roomLine << room->getSymbol();
-			if (room->visited && room->hasHallway(East))
+			if (room->visited && room->hasHallway(Directions::East))
 			{
 				roomLine << "-";
 			}
@@ -100,7 +91,7 @@ void PlayState::drawMap()
 				roomLine << " ";
 			}
 
-			if (room->hasHallway(South) && room->getHallway(South)->connectedToVisited())
+			if (room->hasHallway(Directions::South) && room->getHallway(Directions::South)->connectedToVisited())
 			{
 				hallLine << "| ";
 			}

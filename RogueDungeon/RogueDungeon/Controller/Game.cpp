@@ -26,7 +26,7 @@
 #include "../States/CreditsState.h"
 #include "InputHandler.h"
 #include "Controller.h"
-#include "Factory.h"
+#include "../Factory/MainFactory.h"
 
 // 
 Game* Game::s_pInstance;
@@ -59,7 +59,7 @@ void Game::clean() {
 
 	Controller::Instance()->clean();
 	InputHandler::Instance()->clean();
-	Factory::Instance()->clean();
+	TheFactory::Instance()->clean();
 	delete m_pGameStateMachine;
 	delete this;
 }
