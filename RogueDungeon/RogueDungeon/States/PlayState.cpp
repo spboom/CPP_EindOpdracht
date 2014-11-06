@@ -26,7 +26,7 @@ void PlayState::render() {
 bool PlayState::onEnter() {
 	
 	// 
-	TheController::Instance()->txtFileController("Inputfiles/states/playstate.txt");
+	TheController::Instance()->txtFileController("Inputfiles/State/state_play.txt");
 
 	//
 	TheInputHandler::Instance()->setCommandLine("SELECT FROM MENU");

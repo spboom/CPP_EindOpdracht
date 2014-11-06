@@ -1,23 +1,22 @@
-#ifndef _CONSUMABLEITEM_H_
-#define _CONSUMABLEITEM_H_
+#ifndef _ENEMY_H_
+#define _ENEMY_H_
 
 //
+#include "../Character.h"
 #include "tinyxml2.h"
 #include <string>
-
-//
-#include "Item.h"
 
 //
 using namespace std;
 using namespace tinyxml2;
 
 /*Derived class Enemy from Character*/
-class ConsumableItem : public Item
+/*Base Class*/
+class Enemy : public Character
 {
 public:
 	virtual void message();
 	void parseXMLElement(XMLElement *xmlelement);
 private:
 };
-#endif /* _CONSUMABLE_H_ */
+#endif /* _ENEMY_H_ */

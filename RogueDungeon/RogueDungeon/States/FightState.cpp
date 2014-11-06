@@ -24,11 +24,11 @@ void FightState::render() {
 bool FightState::onEnter() {
 
 	// 
-	TheController::Instance()->txtFileController("Inputfiles/states/creditsstate.txt");
+	//TheController::Instance()->txtFileController("Inputfiles/States/creditsstate.txt");
 
 	//
 	TheInputHandler::Instance()->setCommandLine("SELECT FROM MENU");
-	TheInputHandler::Instance()->setCommandNewLine(">");
+	TheInputHandler::Instance()->appendCommandLine(">");
 
 	return true;
 }

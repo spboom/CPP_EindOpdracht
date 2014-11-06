@@ -25,7 +25,9 @@
 #include "../Controller/Game.h"
 #include "../Controller/InputHandler.h"
 #include "../Controller/Controller.h"
-#include "../Controller/Factory.h"
+#include "../Factory/MainFactory.h"
+#include "../Factory/CharacterFactory.h"
+#include "../Factory/ItemFactory.h"
 
 //
 using namespace std;
@@ -39,16 +41,15 @@ void MainMenuState::render() {
 bool MainMenuState::onEnter() {
 
 	// 
-	TheController::Instance()->txtFileController("Inputfiles/states/mainmenustate.txt");
+	TheController::Instance()->txtFileController("Inputfiles/State/state_mainmenu.txt");
 
 	//
 	TheInputHandler::Instance()->setCommandLine("SELECT FROM MENU");
 	TheInputHandler::Instance()->appendCommandLine(">");
 
-	// test
-	//TheController::Instance()->xmlFileController("Inputfiles/size.xml");
-	TheFactory::Instance()->roomCharacteristics();
-
+	//
+	TheCharacterFactory::Instance()->parseXML("Inputfiles/Character/Enemy/enemy.xml");
+	TheItemFactory::Instance()->parseXML("Inputfiles/Item/item.xml");
 
 	return true;
 }

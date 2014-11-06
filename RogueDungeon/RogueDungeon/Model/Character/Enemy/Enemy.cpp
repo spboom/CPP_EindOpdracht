@@ -9,17 +9,17 @@
 #include <strsafe.h>
 
 //
-#include "WearableItem.h"
+#include "Enemy.h"
 
 //
 #include <iostream>
 
-void WearableItem::message()
+void Enemy::message()
 {
 	cout << "Enemy derives from Character!";
 }
 
-void WearableItem::parseXMLElement(XMLElement *xmlelement)
+void Enemy::parseXMLElement(XMLElement *xmlelement)
 {
-	Item::parseXMLElement(xmlelement);
+	Character::parseXMLElement(xmlelement);
 }

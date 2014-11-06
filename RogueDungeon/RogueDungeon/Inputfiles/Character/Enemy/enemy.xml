@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enemies>
+	<enemy name="Rat" attack="50" level="10" description="kijkt je aan met bloedrode oogjes"/>
+	<enemy name="Slang" attack="40" level="20" description=""/>
+	<enemy name="Beer" attack="50" level="10" description=""/>
+	<enemy name="Spin" attack="40" level="20" description=""/>
+	<enemy name="Vleermuis" attack="50" level="10" description=""/>
+	<enemy name="Mug" attack="40" level="20" description=""/>
+	<enemy name="Zwijn" attack="50" level="10" description=""/>
+	<enemy name="Koe" attack="40" level="20" description=""/>
+	<enemy name="Paard" attack="50" level="10" description=""/>
+	<enemy name="Schorpion" attack="40" level="20" boss="eindbaas" description=""/>
+	<enemy name="Tarantula" attack="50" level="10" description=""/>
+	<enemy name="Python" attack="40" level="20" description=""/>
+	<enemy name="Komodovaraan" attack="50" level="10" description=""/>
+	<enemy name="Leeuw" attack="40" level="20" description=""/>
+	<enemy name="Hippopotamus" attack="50" level="10" description=""/>
+	<enemy name="Stier" attack="40" level="20" description=""/>
+	<enemy name="Inlandtaipan" attack="50" level="10" description=""/>
+	<enemy name="Krokodil" attack="40" level="20" description=""/>
+	<enemy name="Kikker" attack="50" level="10" description=""/>
+	<enemy name="Vulture" attack="40" level="20" description=""/>
+	<enemy name="Hyena" attack="50" level="10" description=""/>
+	<enemy name="Teek" attack="40" level="20" description=""/>
+	<enemy name="Aap" attack="50" level="10" description=""/>
+	<enemy name="Antiloop" attack="40" level="20" description=""/>
+	<enemy name="Mier" attack="50" level="10" description=""/>
+	<enemy name="Worm" attack="40" level="20" description=""/>
+	<enemy name="Hond" attack="50" level="10" description=""/>
+	<enemy name="Pitbull" attack="40" level="20" boss="eindbaas" description=""/>
+	<enemy name="Kat" attack="50" level="10" description=""/>
+	<enemy name="Zwartekat" attack="40" level="20" description=""/>
+</enemies>

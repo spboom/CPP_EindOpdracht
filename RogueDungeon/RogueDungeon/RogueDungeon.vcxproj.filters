@@ -1,260 +1,72 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="Header Files\Controller">
-      <UniqueIdentifier>{21605dd2-a882-4422-9c9f-71a29108b6a2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Controller">
-      <UniqueIdentifier>{5764bcd1-f475-44e4-b883-10ceb234f120}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\States">
-      <UniqueIdentifier>{03f71211-55ac-42a9-a04c-01f65916ffda}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\States">
-      <UniqueIdentifier>{61f11257-3c44-4a36-9f3c-ac2b7e72492c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Model">
-      <UniqueIdentifier>{0c2e9225-4aba-480e-8953-915263e91508}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Model\Character">
-      <UniqueIdentifier>{033150be-ba7e-4fa4-8315-574974fb1da8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Model\Item">
-      <UniqueIdentifier>{79b85e71-f993-444a-ba73-ea01b2dcc691}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Model\Location">
-      <UniqueIdentifier>{1ec7c500-ae1d-43a2-811e-0180aaff79ee}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Model">
-      <UniqueIdentifier>{e1f592dc-ff1b-4cb7-b91d-cdedac262ba6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Model\Character">
-      <UniqueIdentifier>{f9189f3f-b3bf-460e-8be5-9c4c750dc5da}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Model\Item">
-      <UniqueIdentifier>{04453dd3-0827-42fb-807a-9664e7ea27d2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Model\Location">
-      <UniqueIdentifier>{7d299c3f-491f-4384-9d3e-af781aa79035}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Library">
-      <UniqueIdentifier>{43a8e4e7-caf1-4aee-8c12-f6f0631f3aea}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Library">
-      <UniqueIdentifier>{8c33d68c-0653-4db7-b180-9d23f95b2d81}</UniqueIdentifier>
-    </Filter>
+    <ClCompile Include="Model\Character\Character.cpp" />
+    <ClCompile Include="Model\Item\ConsumableItem.cpp" />
+    <ClCompile Include="Controller\Controller.cpp" />
+    <ClCompile Include="Model\Location\Directions.cpp" />
+    <ClCompile Include="States\CreditsState.cpp" />
+    <ClCompile Include="Model\Item\GameObject.cpp" />
+    <ClCompile Include="States\FightState.cpp" />
+    <ClCompile Include="States\GameState.cpp" />
+    <ClCompile Include="Controller\GameStateMachine.cpp" />
+    <ClCompile Include="Model\Location\Hallway.cpp" />
+    <ClCompile Include="Controller\InputHandler.cpp" />
+    <ClCompile Include="Model\Item\Item.cpp" />
+    <ClCompile Include="Model\Location\Location.cpp" />
+    <ClCompile Include="States\MainMenuState.cpp" />
+    <ClCompile Include="Model\Location\Map.cpp" />
+    <ClCompile Include="Model\Character\Player.cpp" />
+    <ClCompile Include="Controller\Game.cpp" />
+    <ClCompile Include="States\PlayState.cpp" />
+    <ClCompile Include="RogueDungeonMain.cpp" />
+    <ClCompile Include="Model\Location\Room.cpp" />
+    <ClCompile Include="Model\Location\Staircase.cpp" />
+    <ClCompile Include="Library\stdafx.cpp" />
+    <ClCompile Include="Model\Location\Trap.cpp" />
+    <ClCompile Include="Model\Item\UsableItem.cpp" />
+    <ClCompile Include="Model\Item\WearableItem.cpp" />
+    <ClCompile Include="Factory\MainFactory.cpp" />
+    <ClCompile Include="Factory\CharacterFactory.cpp" />
+    <ClCompile Include="Model\Character\Enemy\Enemy.cpp" />
+    <ClCompile Include="Model\Character\Enemy\FollowingEnemy.cpp" />
+    <ClCompile Include="Factory\ItemFactory.cpp" />
+    <ClCompile Include="Enum\Enum.cpp" />
+    <ClCompile Include="Factory\LocationFactory.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
-    <Text Include="Inputfiles\enemies.txt" />
-    <Text Include="Inputfiles\items.txt" />
-    <Text Include="Inputfiles\room_description.txt" />
-    <Text Include="Inputfiles\traps.txt" />
-    <Text Include="Inputfiles\States\creditsstate.txt" />
-    <Text Include="Inputfiles\States\mainmenustate.txt" />
-    <Text Include="Inputfiles\States\playstate.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Controller\Controller.h">
-      <Filter>Header Files\Controller</Filter>
-    </ClInclude>
-    <ClInclude Include="Controller\Factory.h">
-      <Filter>Header Files\Controller</Filter>
-    </ClInclude>
-    <ClInclude Include="Controller\Game.h">
-      <Filter>Header Files\Controller</Filter>
-    </ClInclude>
-    <ClInclude Include="Controller\GameStateMachine.h">
-      <Filter>Header Files\Controller</Filter>
-    </ClInclude>
-    <ClInclude Include="Controller\InputHandler.h">
-      <Filter>Header Files\Controller</Filter>
-    </ClInclude>
-    <ClInclude Include="Library\stdafx.h">
-      <Filter>Header Files\Library</Filter>
-    </ClInclude>
-    <ClInclude Include="Library\targetver.h">
-      <Filter>Header Files\Library</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\Character\Character.h">
-      <Filter>Header Files\Model\Character</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\Character\Enemy.h">
-      <Filter>Header Files\Model\Character</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\Character\FollowingEnemy.h">
-      <Filter>Header Files\Model\Character</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\Character\Player.h">
-      <Filter>Header Files\Model\Character</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\Item\Backpack.h">
-      <Filter>Header Files\Model\Item</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\Item\ConsumableItem.h">
-      <Filter>Header Files\Model\Item</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\Item\GameObject.h">
-      <Filter>Header Files\Model\Item</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\Item\Item.h">
-      <Filter>Header Files\Model\Item</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\Item\Schield.h">
-      <Filter>Header Files\Model\Item</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\Item\UsableItem.h">
-      <Filter>Header Files\Model\Item</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\Item\Weapon.h">
-      <Filter>Header Files\Model\Item</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\Item\WearableItem.h">
-      <Filter>Header Files\Model\Item</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\Location\Directions.h">
-      <Filter>Header Files\Model\Location</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\Location\Hallway.h">
-      <Filter>Header Files\Model\Location</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\Location\Location.h">
-      <Filter>Header Files\Model\Location</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\Location\Map.h">
-      <Filter>Header Files\Model\Location</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\Location\Room.h">
-      <Filter>Header Files\Model\Location</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\Location\Staircase.h">
-      <Filter>Header Files\Model\Location</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\Location\Trap.h">
-      <Filter>Header Files\Model\Location</Filter>
-    </ClInclude>
-    <ClInclude Include="States\CreditsState.h">
-      <Filter>Header Files\States</Filter>
-    </ClInclude>
-    <ClInclude Include="States\GameState.h">
-      <Filter>Header Files\States</Filter>
-    </ClInclude>
-    <ClInclude Include="States\MainMenuState.h">
-      <Filter>Header Files\States</Filter>
-    </ClInclude>
-    <ClInclude Include="States\PlayState.h">
-      <Filter>Header Files\States</Filter>
-    </ClInclude>
-    <ClInclude Include="States\FightState.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Controller\Controller.cpp">
-      <Filter>Source Files\Controller</Filter>
-    </ClCompile>
-    <ClCompile Include="Controller\Factory.cpp">
-      <Filter>Source Files\Controller</Filter>
-    </ClCompile>
-    <ClCompile Include="Controller\Game.cpp">
-      <Filter>Source Files\Controller</Filter>
-    </ClCompile>
-    <ClCompile Include="Controller\GameStateMachine.cpp">
-      <Filter>Source Files\Controller</Filter>
-    </ClCompile>
-    <ClCompile Include="Controller\InputHandler.cpp">
-      <Filter>Source Files\Controller</Filter>
-    </ClCompile>
-    <ClCompile Include="Library\stdafx.cpp">
-      <Filter>Source Files\Library</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\Character\Character.cpp">
-      <Filter>Source Files\Model\Character</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\Character\Enemy.cpp">
-      <Filter>Source Files\Model\Character</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\Character\FollowingEnemy.cpp">
-      <Filter>Source Files\Model\Character</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\Character\Player.cpp">
-      <Filter>Source Files\Model\Character</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\Item\Backpack.cpp">
-      <Filter>Source Files\Model\Item</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\Item\ConsumableItem.cpp">
-      <Filter>Source Files\Model\Item</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\Item\GameObject.cpp">
-      <Filter>Source Files\Model\Item</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\Item\Item.cpp">
-      <Filter>Source Files\Model\Item</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\Item\Schield.cpp">
-      <Filter>Source Files\Model\Item</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\Item\UsableItem.cpp">
-      <Filter>Source Files\Model\Item</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\Item\Weapon.cpp">
-      <Filter>Source Files\Model\Item</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\Item\WearableItem.cpp">
-      <Filter>Source Files\Model\Item</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\Location\Hallway.cpp">
-      <Filter>Source Files\Model\Location</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\Location\Location.cpp">
-      <Filter>Source Files\Model\Location</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\Location\Map.cpp">
-      <Filter>Source Files\Model\Location</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\Location\Room.cpp">
-      <Filter>Source Files\Model\Location</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\Location\Staircase.cpp">
-      <Filter>Source Files\Model\Location</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\Location\Trap.cpp">
-      <Filter>Source Files\Model\Location</Filter>
-    </ClCompile>
-    <ClCompile Include="States\CreditsState.cpp">
-      <Filter>Source Files\States</Filter>
-    </ClCompile>
-    <ClCompile Include="States\GameState.cpp">
-      <Filter>Source Files\States</Filter>
-    </ClCompile>
-    <ClCompile Include="States\MainMenuState.cpp">
-      <Filter>Source Files\States</Filter>
-    </ClCompile>
-    <ClCompile Include="States\PlayState.cpp">
-      <Filter>Source Files\States</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\Location\Directions.cpp">
-      <Filter>Source Files\Model\Location</Filter>
-    </ClCompile>
-    <ClCompile Include="States\FightState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="RogueDungeonMain.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+    <ClInclude Include="Model\Character\Character.h" />
+    <ClInclude Include="Model\Item\ConsumableItem.h" />
+    <ClInclude Include="Controller\Controller.h" />
+    <ClInclude Include="States\CreditsState.h" />
+    <ClInclude Include="Controller\Game.h" />
+    <ClInclude Include="Model\Item\GameObject.h" />
+    <ClInclude Include="States\FightState.h" />
+    <ClInclude Include="States\GameState.h" />
+    <ClInclude Include="Controller\GameStateMachine.h" />
+    <ClInclude Include="Model\Location\Hallway.h" />
+    <ClInclude Include="Model\Location\Directions.h" />
+    <ClInclude Include="Controller\InputHandler.h" />
+    <ClInclude Include="Model\Item\Item.h" />
+    <ClInclude Include="Model\Location\Location.h" />
+    <ClInclude Include="States\MainMenuState.h" />
+    <ClInclude Include="Model\Location\Map.h" />
+    <ClInclude Include="Model\Character\Player.h" />
+    <ClInclude Include="States\PlayState.h" />
+    <ClInclude Include="Model\Location\Room.h" />
+    <ClInclude Include="Model\Location\Staircase.h" />
+    <ClInclude Include="Library\stdafx.h" />
+    <ClInclude Include="Library\targetver.h" />
+    <ClInclude Include="Model\Location\Trap.h" />
+    <ClInclude Include="Model\Item\UsableItem.h" />
+    <ClInclude Include="Model\Item\WearableItem.h" />
+    <ClInclude Include="Factory\MainFactory.h" />
+    <ClInclude Include="Factory\CharacterFactory.h" />
+    <ClInclude Include="Model\Character\Enemy\Enemy.h" />
+    <ClInclude Include="Model\Character\Enemy\FollowingEnemy.h" />
+    <ClInclude Include="Factory\ItemFactory.h" />
+    <ClInclude Include="Enum\Enum.h" />
+    <ClInclude Include="Factory\LocationFactory.h" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="Inputfiles\example1.xml" />
@@ -262,5 +74,14 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="Inputfiles\enemies.txt" />
+    <Text Include="Inputfiles\items.txt" />
+    <Text Include="Inputfiles\room_description.txt" />
+    <Text Include="Inputfiles\States\creditsstate.txt" />
+    <Text Include="Inputfiles\States\mainmenustate.txt" />
+    <Text Include="Inputfiles\States\playstate.txt" />
+    <Text Include="Inputfiles\traps.txt" />
+    <Text Include="ReadMe.txt" />
   </ItemGroup>
 </Project>

@@ -14,3 +14,8 @@ Player::Player()
 Player::~Player()
 {
 }
+
+void Player::parseXMLElement(XMLElement *xmlelement)
+{
+
+}
