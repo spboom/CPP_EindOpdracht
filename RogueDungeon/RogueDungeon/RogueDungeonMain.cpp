@@ -7,6 +7,9 @@
 #endif
 
 //
+#include <vld.h> //Memory leak spotter
+
+//
 #include <tchar.h>
 #include <strsafe.h>
 #include <stdlib.h>
@@ -35,20 +38,23 @@ const int SCREEN_HEIGHT = 768;
 int main(int argc, char* argv[]) {
 	// Checking for memory leaks!
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
-	
-	if (TheGame::Instance()->init(TITLE + " (" + VERSION + ")" ,SCREEN_WIDTH, SCREEN_HEIGHT))
+
+	if (TheGame::Instance()->init(TITLE + " (" + VERSION + ")", SCREEN_WIDTH, SCREEN_HEIGHT))
 	{
 		while (TheGame::Instance()->running())
 		{
 			TheGame::Instance()->handleEvents();
 			TheGame::Instance()->update();
 			TheGame::Instance()->render();
+			TheInputHandler::Instance()->appendCommandLine(">");
 			TheInputHandler::Instance()->readLine();
 		}
 	}
 	else
 	{
 		std::cout << "game init failure";
+		TheGame::Instance()->clean();
+
 		return -1;
 	}
 	TheGame::Instance()->clean();

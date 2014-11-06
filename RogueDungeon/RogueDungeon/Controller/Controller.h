@@ -24,6 +24,8 @@ public:
 	void txtFileController(string txtPath);
 	void saveFile();
 	void writeFile();
+	void clean();
+
 private:
 	Controller() {}
 	~Controller();

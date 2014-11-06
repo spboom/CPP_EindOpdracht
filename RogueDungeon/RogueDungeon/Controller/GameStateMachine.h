@@ -15,8 +15,9 @@ public:
 	void pushState(GameState* pState);
 	void changeState(GameState* pState);
 	void popState();
-	void update(int dt);
+	void update();
 	void render();
+	~GameStateMachine();
 private:
 	std::vector<GameState*> m_gameStates;
 };

@@ -29,6 +29,7 @@ public:
 	void handleEvents();
 	void quitGame(int exitcode);
 	void clean();
+	void cleanScreen();
 	GameStateMachine* getStateMachine();
 	void goToPlay();
 	void goToMainMenu();

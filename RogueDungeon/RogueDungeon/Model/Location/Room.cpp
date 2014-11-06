@@ -12,12 +12,10 @@
 //
 using namespace std;
 
-map<Directions, Hallway> Doors;
-Item *Items;
 
-Room::Room() : connected(false)
+Room::Room()
 {
-
+	connected = false;
 }
 
 //Room::Room(map<Directions, Hallway> doors, Item *items) : connected(false)
@@ -26,13 +24,6 @@ Room::Room() : connected(false)
 //	Items = items;
 //}
 
-void Room::link(Room* room, Directions direction)
-{
-	Hallway *hall = new Hallway();
-	//TODO set room to hallway
-	Doors.insert(make_pair(direction, *hall));
-}
-
 void Room::setItems(Item *items)
 {
 	Items = items;
@@ -40,4 +31,44 @@ void Room::setItems(Item *items)
 
 Room::~Room()
 {
+
+	for (auto iterator = Doors.begin(); iterator != Doors.end(); iterator++) {
+		if (iterator->second != NULL)
+		{
+			delete iterator->second;
+			iterator->second = NULL;
+		}
+	}
+}
+
+void Room::delHallway(Hallway* hall)
+{
+	for (auto iterator = Doors.begin(); iterator != Doors.end(); iterator++) {
+		if (iterator->second == hall)
+		{
+			iterator->second = NULL;
+			break;
+		}
+	}
+}
+
+void Room::addHallway(Hallway* hallway, Directions direction)
+{
+	Doors[direction] = hallway;
+}
+
+char Room::getSymbol()
+{
+	return 'N';
+}
+
+bool Room::hasHallway(Directions direction)
+{
+	for (auto iterator = Doors.begin(); iterator != Doors.end(); iterator++) {
+		if (iterator->first == direction)
+		{
+			return true;
+		}
+	}
+	return false;
 }

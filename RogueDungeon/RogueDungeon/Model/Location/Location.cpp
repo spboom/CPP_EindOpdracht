@@ -5,7 +5,6 @@ Location::Location()
 {
 }
 
-
 Location::~Location()
 {
 }

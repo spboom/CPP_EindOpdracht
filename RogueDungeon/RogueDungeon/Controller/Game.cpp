@@ -25,6 +25,8 @@
 #include "../States/PlayState.h"
 #include "../States/CreditsState.h"
 #include "InputHandler.h"
+#include "Controller.h"
+#include "Factory.h"
 
 // 
 Game* Game::s_pInstance;
@@ -44,7 +46,9 @@ bool Game::init(string title, int width, int height) {
 	return true;
 }
 
-void Game::update() {}
+void Game::update() {
+	m_pGameStateMachine->update();
+}
 
 void Game::render() {
 	m_pGameStateMachine->render();
@@ -52,6 +56,16 @@ void Game::render() {
 
 void Game::clean() {
 	//std::cout << "cleaning game\n";
+
+	Controller::Instance()->clean();
+	InputHandler::Instance()->clean();
+	Factory::Instance()->clean();
+	delete m_pGameStateMachine;
+	delete this;
+}
+
+void Game::cleanScreen()
+{
 	system("cls");
 }
 
@@ -63,7 +77,7 @@ GameStateMachine* Game::getStateMachine() {
 }
 
 void Game::quitGame(int exitcode)  {
-	exit(exitcode);
+	m_bRunning = false;
 }
 
 std::wstring s2ws(const std::string& s) {

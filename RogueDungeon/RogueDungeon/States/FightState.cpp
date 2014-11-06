@@ -15,10 +15,11 @@
 #include "../Controller/InputHandler.h"
 #include "../Controller/Controller.h"
 
-void FightState::update(int dt) {}
+void FightState::update() {
+	OutputHandler(TheInputHandler::Instance()->getOutput());
+}
 
 void FightState::render() {
-	OutputHandler(TheInputHandler::Instance()->getOutput());
 }
 
 bool FightState::onEnter() {
@@ -33,14 +34,26 @@ bool FightState::onEnter() {
 	return true;
 }
 
-bool FightState::onExit() { return true; }
+bool FightState::onExit() {
+	GameState::onExit();
+	return true;
+}
 
 void FightState::OutputHandler(string input)
 {
 	// MENU
 	if (input != "")
 	{
+		if (input == "")//TODO
+		{
+		}
+
+		else
+		{
+			GameState::OutputHandler(input);
+		}
 	}
+
 
 	//
 }

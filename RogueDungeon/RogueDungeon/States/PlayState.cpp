@@ -15,58 +15,113 @@
 #include "../Controller/Game.h"
 #include "PlayState.h"
 #include "../Controller/InputHandler.h"
+#include "../Controller/Factory.h"
 #include "../Controller/Controller.h"
 
-void PlayState::update(int dt) {}
-
-void PlayState::render() {
+void PlayState::update() {
 	OutputHandler(TheInputHandler::Instance()->getOutput());
 }
 
+void PlayState::render() {
+	drawMap();
+}
+
 bool PlayState::onEnter() {
-	
+
 	// 
 	TheController::Instance()->txtFileController("Inputfiles/State/state_play.txt");
 
 	//
 	TheInputHandler::Instance()->setCommandLine("SELECT FROM MENU");
-	TheInputHandler::Instance()->appendCommandLine(">");
+
+	dungeon = TheFactory::Instance()->createDungeon(10, 10, 2);
+	level = 0;
 
 	return true;
 }
 
-bool PlayState::onExit() { return true; }
+bool PlayState::onExit() {
+	GameState::onExit();
+	return true;
+}
 
 void PlayState::OutputHandler(string input)
 {
 	// MENU
 	if (input != "")
 	{
-		if (input == "MAIN MENU" || input == "Main Menu" || input == "main menu") {
-			TheGame::Instance()->clean();
+		if (input == "main menu") {
+			TheGame::Instance()->cleanScreen();
 			TheGame::Instance()->goToMainMenu();
 		}
-		else if (input == "CREDITS" || input == "Credits" || input == "credits") {
-			TheGame::Instance()->clean();
+		else if (input == "credits") {
+			TheGame::Instance()->cleanScreen();
 			TheGame::Instance()->goToCredits();
 		}
-		else if (input == "QUIT" || input == "Quit" || input == "quit") {
-			TheInputHandler::Instance()->setCommandLine("Are you sure? Yes or No!");
-			TheInputHandler::Instance()->appendCommandLine(">");
-		}
-		else if (input == "Yes") {
-			TheInputHandler::Instance()->setCommandLine("Thank you for playing Rogue and Dungeon!");
-			TheGame::Instance()->quitGame(0);
-		}
-		else if (input == "No") {
-			TheInputHandler::Instance()->setCommandLine("Ok! You're still in the game!");
-			TheInputHandler::Instance()->appendCommandLine(">");
-		}
+
 		else {
-			TheInputHandler::Instance()->setCommandLine("Caution! Wrong input!");
-			TheInputHandler::Instance()->appendCommandLine(">");
+			GameState::OutputHandler(input);
 		}
 	}
+}
 
-	//
+PlayState::~PlayState()
+{
+	for (int z = 0; z < dungeon.size(); z++)
+	{
+		for (int y = 0; y < dungeon[z].size(); y++)
+		{
+			for (int x = 0; x < dungeon[z][y].size(); x++)
+			{
+				delete dungeon[z][y][x];
+			}
+		}
+	}
+}
+
+void PlayState::drawMap()
+{
+	vector<vector<Room*>> floor = dungeon[level];
+	InputHandler::Instance()->setCommandLine("Kerker Kaart:");
+	for (int y = 0; y < floor.size(); y++)
+	{
+
+		stringstream roomLine;
+		stringstream hallLine;
+
+		for (int x = 0; x < floor[y].size(); x++)
+		{
+			Room* room = floor[y][x];
+			roomLine << room->getSymbol();
+			if (room->hasHallway(East))
+			{
+				roomLine << "-";
+			}
+			else
+			{
+				roomLine << " ";
+			}
+
+			if (room->hasHallway(South))
+			{
+				hallLine << "| ";
+			}
+			else
+			{
+				hallLine << "  ";
+			}
+		}
+		InputHandler::Instance()->setCommandLine(roomLine.str());
+		InputHandler::Instance()->setCommandLine(hallLine.str());
+
+	}
+	InputHandler::Instance()->setCommandLine("");
+	InputHandler::Instance()->setCommandLine("Legenda:");
+	InputHandler::Instance()->setCommandLine(":- : Gangen");
+	InputHandler::Instance()->setCommandLine("S  : Start locatie");
+	InputHandler::Instance()->setCommandLine("E  : Eind Vijand");
+	InputHandler::Instance()->setCommandLine("N  : Normale ruimte");
+	InputHandler::Instance()->setCommandLine("L  : Trap omlaag");
+	InputHandler::Instance()->setCommandLine("H  : Trap omhoog");
+	InputHandler::Instance()->setCommandLine(".  : Niet bezocht");
 }

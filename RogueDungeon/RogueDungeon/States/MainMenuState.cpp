@@ -32,10 +32,11 @@
 //
 using namespace std;
 
-void MainMenuState::update(int dt) {}
+void MainMenuState::update() {
+	OutputHandler(TheInputHandler::Instance()->getOutput());
+}
 
 void MainMenuState::render() {
-	OutputHandler(TheInputHandler::Instance()->getOutput());
 }
 
 bool MainMenuState::onEnter() {
@@ -45,7 +46,6 @@ bool MainMenuState::onEnter() {
 
 	//
 	TheInputHandler::Instance()->setCommandLine("SELECT FROM MENU");
-	TheInputHandler::Instance()->appendCommandLine(">");
 
 	//
 	TheCharacterFactory::Instance()->parseXML("Inputfiles/Character/Enemy/enemy.xml");
@@ -54,36 +54,27 @@ bool MainMenuState::onEnter() {
 	return true;
 }
 
-bool MainMenuState::onExit() { return true; }
+bool MainMenuState::onExit(){
+	GameState::onExit();
+	return true;
+}
 
 void MainMenuState::OutputHandler(string input)
 {
 	// MENU
 	if (input != "")
 	{
-		if (input == "PLAY" || input == "Play" || input == "play") {
-			TheGame::Instance()->clean();
+		if (input == "play") {
+			TheGame::Instance()->cleanScreen();
 			TheGame::Instance()->goToPlay();
 		}
-		else if (input == "CREDITS" || input == "Credits" || input == "credits") {
-			TheGame::Instance()->clean();
+		else if (input == "credits") {
+			TheGame::Instance()->cleanScreen();
 			TheGame::Instance()->goToCredits();
 		}
-		else if (input == "QUIT" || input == "Quit" || input == "quit") {
-			TheInputHandler::Instance()->setCommandLine("Are you sure? Yes or No!");
-			TheInputHandler::Instance()->appendCommandLine(">");
-		}
-		else if (input == "Yes") {
-			TheInputHandler::Instance()->setCommandLine("Thank you for playing Rogue and Dungeon!");
-			TheGame::Instance()->quitGame(0);
-		}
-		else if (input == "No") {
-			TheInputHandler::Instance()->setCommandLine("Ok! You're still in the game!");
-			TheInputHandler::Instance()->appendCommandLine(">");
-		}
+
 		else {
-			TheInputHandler::Instance()->setCommandLine("Caution! Wrong input!");
-			TheInputHandler::Instance()->appendCommandLine(">");
+			GameState::OutputHandler(input);
 		}
 	}
 

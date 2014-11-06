@@ -12,7 +12,7 @@
 
 class CreditsState : public GameState {
 public:
-	virtual void update(int dt);
+	virtual void update();
 	virtual void render();
 	virtual bool onEnter();
 	virtual bool onExit();

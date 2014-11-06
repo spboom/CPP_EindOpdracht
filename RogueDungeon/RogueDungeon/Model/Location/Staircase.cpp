@@ -1,7 +1,7 @@
 #include "Staircase.h"
 
 
-Staircase::Staircase()
+Staircase::Staircase(Room* from, Room* to) :Hallway(from, to, Down)
 {
 }
 

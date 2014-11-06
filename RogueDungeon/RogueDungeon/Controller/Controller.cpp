@@ -44,3 +44,11 @@ void Controller::saveFile() {
 void Controller::writeFile() {
 
 }
+
+void Controller::clean()
+{
+	delete this;
+}
+
+Controller::~Controller()
+{}

@@ -3,6 +3,7 @@ class Location
 {
 public:
 	Location();
-	~Location();
+	virtual ~Location();
+
 };
 
