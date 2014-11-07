@@ -40,6 +40,11 @@ LocationFactory::~LocationFactory()
 	{
 		delete locations[i];
 	}
+
+	for (int i = 0; i < traps.size(); i++)
+	{
+		delete traps[i];
+	}
 }
 
 vector<Location*> LocationFactory::parseXML(string xmlPath) {
@@ -70,6 +75,9 @@ vector<Location*> LocationFactory::parseXML(string xmlPath) {
 		}
 		else if ("trap" == type)
 		{
+			Trap* trap = new Trap();
+			trap->parseXML(node);
+			traps.push_back(trap);
 			room_trap.push_back(name);
 		}
 		else if ("exit" == type)
