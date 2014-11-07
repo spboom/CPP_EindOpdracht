@@ -35,9 +35,11 @@ public:
 	virtual void parseXMLElement(XMLElement *xmlnode);
 
 	int hit(int attackPoints);
-	int attack(Character* character);
-	int getDefence();
+	virtual int attack(Character* character);
+	virtual int getDefence();
 	string getDiscription();
+	bool Character::isDead();
+
 private:
 };
 #endif /* _CHARACTER_H_ */

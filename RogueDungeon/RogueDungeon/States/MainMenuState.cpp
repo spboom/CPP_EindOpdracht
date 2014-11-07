@@ -43,6 +43,18 @@ void MainMenuState::render() {
 
 bool MainMenuState::onEnter() {
 
+	onReEnter();
+
+	TheCharacterFactory::Instance()->parseXML("Inputfiles/Character/Enemy/enemy.xml");
+	TheItemFactory::Instance()->parseXML("Inputfiles/Item/item.xml");
+	TheLocationFactory::Instance()->parseXML("Inputfiles/Location/location.xml");
+
+	return true;
+}
+
+bool MainMenuState::onReEnter()
+{
+	Game::Instance()->cleanScreen();
 	// 
 	TheController::Instance()->txtFileController("Inputfiles/State/state_mainmenu.txt");
 
@@ -50,9 +62,7 @@ bool MainMenuState::onEnter() {
 	TheInputHandler::Instance()->setCommandLine("SELECT FROM MENU");
 
 	//
-	TheCharacterFactory::Instance()->parseXML("Inputfiles/Character/Enemy/enemy.xml");
-	TheItemFactory::Instance()->parseXML("Inputfiles/Item/item.xml");
-	TheLocationFactory::Instance()->parseXML("Inputfiles/Location/location.xml");
+
 
 	return true;
 }

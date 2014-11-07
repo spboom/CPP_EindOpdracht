@@ -19,6 +19,7 @@ public:
 	virtual void update();
 	virtual void render();
 	virtual bool onEnter();
+	virtual bool onReEnter();
 	virtual bool onExit();
 	virtual std::string getStateID() const { return "PLAY"; };
 	PlayState();

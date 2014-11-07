@@ -19,12 +19,16 @@ public:
 	virtual void update();
 	virtual void render();
 	virtual bool onEnter();
+	virtual bool onReEnter();
 	virtual bool onExit();
 	virtual std::string getStateID() const { return "FIGHT"; };
 private:
-	void step();
+	void step(bool attack, string aditionalLine);
+	void step(bool attack);
 	vector<Enemy*> enemies;
 	Player* player;
 	void OutputHandler(string input);
+
+	vector<string> lines;
 };
 #endif /* _FIGHTTSSTATE_H_ */

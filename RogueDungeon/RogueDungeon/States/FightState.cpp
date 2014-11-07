@@ -29,43 +29,76 @@ void FightState::update() {
 
 void FightState::render() {}
 
-void FightState::step()
+void FightState::step(bool attack)
 {
+	step(attack, "");
+}
+void FightState::step(bool attack, string aditionalLine)
+{
+	lines = vector<string>();
 	Game::Instance()->cleanScreen();
-	InputHandler::Instance()->setCommandLine("Je bent in gevecht met:");
+	lines.push_back("Je bent in gevecht met:");
 	for (int i = 0; i < enemies.size(); i++)
 	{
 		stringstream line;
 
 		line << enemies[i]->name << " " << i + 1 << " " << enemies[i]->getDiscription();
-		InputHandler::Instance()->setCommandLine(line.str());
+		lines.push_back(line.str());
 	}
 
-	InputHandler::Instance()->setCommandLine("");
-	InputHandler::Instance()->setCommandLine("acties tegenstanders:");
-	for (int i = 0; i < enemies.size(); i++)
+	lines.push_back("");
+
+	if (attack)
 	{
-		stringstream line;
+		lines.push_back("acties tegenstanders:");
 
-		line << enemies[i]->name << " " << i + 1 << " doet " << enemies[i]->attack(player) << "shade";
-		InputHandler::Instance()->setCommandLine(line.str());
+		for (int i = 0; i < enemies.size(); i++)
+		{
+			stringstream line;
+
+			line << enemies[i]->name << " " << i + 1 << " doet " << enemies[i]->attack(player) << "shade";
+			lines.push_back(line.str());
+		}
+
+		lines.push_back("");
 	}
-
-	InputHandler::Instance()->setCommandLine("");
-
 	stringstream line;
 	line << "je hebt nog " << player->lifepoints << " van de " << player->maxLifepoints << " levenspunten over";
-	InputHandler::Instance()->setCommandLine(line.str());
+	lines.push_back(line.str());
 
-	InputHandler::Instance()->setCommandLine("");
-	InputHandler::Instance()->setCommandLine("wat doe je?");
+	lines.push_back("");
+	lines.push_back("wat doe je?");
 
-	InputHandler::Instance()->setCommandLine("");
-	TheInputHandler::Instance()->setCommandLine("[aanval:vlucht:gebruik item]");
+	lines.push_back("");
+	lines.push_back("[aanval:vlucht:gebruik item]");
 
-	InputHandler::Instance()->setCommandLine("");
-	InputHandler::Instance()->appendCommandLine(">");
+	lines.push_back("");
+	if (aditionalLine != "")
+	{
+		lines.push_back(aditionalLine);
+		lines.push_back("");
+	}
 
+	for (int i = 0; i < lines.size(); i++)
+	{
+		InputHandler::Instance()->setCommandLine(lines[i]);
+	}
+
+	bool allDead = true;
+	for (int i = 0; i < enemies.size(); i++)
+	{
+		if (!enemies[i]->isDead())
+		{
+			allDead = false;
+			break;
+		}
+	}
+
+	if (allDead)
+	{
+		Game::Instance()->getStateMachine()->popState();
+		InputHandler::Instance()->setCommandLine("alle vijanden zijn dood");
+	}
 }
 
 bool FightState::onEnter() {
@@ -73,7 +106,13 @@ bool FightState::onEnter() {
 	// 
 	//TheController::Instance()->txtFileController("Inputfiles/States/creditsstate.txt");
 
+	step(false);
 	//
+	return true;
+}
+
+bool FightState::onReEnter()
+{
 	return true;
 }
 
@@ -101,18 +140,25 @@ void FightState::OutputHandler(string input)
 		}
 		else
 		{
-			int i = atoi(input.c_str());
+			int i = atoi(input.c_str()) - 1;
 			if (InputHandler::Instance()->getLastOutput() == "aanval" && i < enemies.size() && i <= 0)
 			{
 				stringstream line;
-				step();
-				line << "je deed " << player->attack(enemies[i - 1]) << " shade";
-				InputHandler::Instance()->setCommandLine(line.str());
+				if (!enemies[i]->isDead())
+				{
+					line << "je deed " << player->attack(enemies[i]) << " shade";
+					step(true, line.str());
+				}
+				else
+				{
+					line << "vijand " << input << " is al dood";
+					InputHandler::Instance()->setCommandLine(line.str());
+				}
 			}
 			else if (InputHandler::Instance()->getLastOutput() == "gebruik item" && i < player->items.size() && i <= 0)
 			{
-				player->useItem(player->items[i - 1]);
-				step();
+				player->useItem(player->items[i]);
+				step(true);
 			}
 			else
 			{

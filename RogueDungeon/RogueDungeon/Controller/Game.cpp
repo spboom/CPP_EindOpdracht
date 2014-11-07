@@ -168,17 +168,17 @@ void Game::setWindowCenterScreen(int width, int height) {
 }
 
 void Game::goToPlay() {
-	getStateMachine()->changeState(new PlayState());
+	getStateMachine()->pushState(new PlayState());
 }
 
 void Game::goToMainMenu() {
-	getStateMachine()->changeState(new MainMenuState());
+	getStateMachine()->pushState(new MainMenuState());
 }
 
 void Game::goToCredits() {
-	getStateMachine()->changeState(new CreditsState());
+	getStateMachine()->pushState(new CreditsState());
 }
 
 void Game::goToFight(vector<Enemy*> enemies, Player* player) {
-	getStateMachine()->changeState(new FightState(enemies, player));
+	getStateMachine()->pushState(new FightState(enemies, player));
 }

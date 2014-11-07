@@ -45,6 +45,11 @@ bool PlayState::onEnter() {
 	return true;
 }
 
+bool PlayState::onReEnter()
+{
+	return true;
+}
+
 bool PlayState::onExit() {
 	GameState::onExit();
 	return true;
@@ -79,7 +84,7 @@ void PlayState::OutputHandler(string input)
 				TheInputHandler::Instance()->setCommandLine(player->location->getEnemy());
 				TheInputHandler::Instance()->setCommandLine(player->location->getGeneralDescription());
 				TheInputHandler::Instance()->setCommandLine(player->location->getGamePlayMenu());
-			}	
+			}
 		}
 		else if (input == "oost")
 		{

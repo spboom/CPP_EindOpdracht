@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <enemies>
-  <enemy name="Rat"           attack="50" level="10" hitpoints="50" description="kijkt je aan met bloedrode oogjes"/>
-  <enemy name="Slang"         attack="40" level="20" hitpoints="40" description=""/>
-  <enemy name="Beer"          attack="50" level="10" hitpoints="50" description=""/>
-  <enemy name="Spin"          attack="40" level="20" hitpoints="40" description=""/>
-  <enemy name="Vleermuis"     attack="50" level="10" hitpoints="50" description=""/>
-  <enemy name="Mug"           attack="40" level="20" hitpoints="40" description=""/>
-  <enemy name="Zwijn"         attack="50" level="10" hitpoints="50" description=""/>
-  <enemy name="Koe"           attack="40" level="20" hitpoints="40" description=""/>
-  <enemy name="Paard"         attack="50" level="10" hitpoints="50" description=""/>
-  <enemy name="Schorpion"     attack="40" level="20" hitpoints="150" boss="eindbaas" description=""/>
-  <enemy name="Tarantula"     attack="50" level="10" hitpoints="30" description=""/>
-  <enemy name="Python"        attack="40" level="20" hitpoints="50" description=""/>
-  <enemy name="Komodovaraan"  attack="50" level="10" hitpoints="20" description=""/>
-  <enemy name="Leeuw"         attack="40" level="20" hitpoints="30" description=""/>
-  <enemy name="Hippopotamus"  attack="50" level="10" hitpoints="35" description=""/>
-  <enemy name="Stier"         attack="40" level="20" hitpoints="45" description=""/>
-  <enemy name="Inlandtaipan"  attack="50" level="10" hitpoints="55" description=""/>
-  <enemy name="Krokodil"      attack="40" level="20" hitpoints="65" description=""/>
-  <enemy name="Kikker"        attack="50" level="10" hitpoints="50" description=""/>
-  <enemy name="Vulture"       attack="40" level="20" hitpoints="20" description=""/>
-  <enemy name="Hyena"         attack="50" level="10" hitpoints="10" description=""/>
-  <enemy name="Teek"          attack="40" level="20" hitpoints="45" description=""/>
-  <enemy name="Aap"           attack="50" level="10" hitpoints="35" description=""/>
-  <enemy name="Antiloop"      attack="40" level="20" hitpoints="15" description=""/>
-  <enemy name="Mier"          attack="50" level="10" hitpoints="5" description=""/>
-  <enemy name="Worm"          attack="40" level="20" hitpoints="5" description=""/>
-  <enemy name="Hond"          attack="50" level="10" hitpoints="30" description=""/>
-  <enemy name="Pitbull"       attack="40" level="20" hitpoints="100" boss="eindbaas" description=""/>
-  <enemy name="Kat"           attack="50" level="10" hitpoints="15" description=""/>
-  <enemy name="Zwarte kat"    attack="40" level="20" hitpoints="25" description=""/>
+  <enemy name="Rat"           attack="20" level="10" hitpoints="50" description="kijkt je aan met bloedrode oogjes"/>
+  <enemy name="Slang"         attack="30" level="20" hitpoints="40" description=""/>
+  <enemy name="Beer"          attack="20" level="10" hitpoints="50" description=""/>
+  <enemy name="Spin"          attack="30" level="20" hitpoints="40" description=""/>
+  <enemy name="Vleermuis"     attack="20" level="10" hitpoints="50" description=""/>
+  <enemy name="Mug"           attack="30" level="20" hitpoints="40" description=""/>
+  <enemy name="Zwijn"         attack="20" level="10" hitpoints="50" description=""/>
+  <enemy name="Koe"           attack="30" level="20" hitpoints="40" description=""/>
+  <enemy name="Paard"         attack="20" level="10" hitpoints="50" description=""/>
+  <enemy name="Schorpion"     attack="30" level="20" hitpoints="150" boss="eindbaas" description=""/>
+  <enemy name="Tarantula"     attack="20" level="10" hitpoints="30" description=""/>
+  <enemy name="Python"        attack="30" level="20" hitpoints="50" description=""/>
+  <enemy name="Komodovaraan"  attack="20" level="10" hitpoints="20" description=""/>
+  <enemy name="Leeuw"         attack="30" level="20" hitpoints="30" description=""/>
+  <enemy name="Hippopotamus"  attack="20" level="10" hitpoints="35" description=""/>
+  <enemy name="Stier"         attack="30" level="20" hitpoints="45" description=""/>
+  <enemy name="Inlandtaipan"  attack="20" level="10" hitpoints="55" description=""/>
+  <enemy name="Krokodil"      attack="30" level="20" hitpoints="65" description=""/>
+  <enemy name="Kikker"        attack="20" level="10" hitpoints="50" description=""/>
+  <enemy name="Vulture"       attack="30" level="20" hitpoints="20" description=""/>
+  <enemy name="Hyena"         attack="20" level="10" hitpoints="10" description=""/>
+  <enemy name="Teek"          attack="30" level="20" hitpoints="45" description=""/>
+  <enemy name="Aap"           attack="20" level="10" hitpoints="35" description=""/>
+  <enemy name="Antiloop"      attack="30" level="20" hitpoints="15" description=""/>
+  <enemy name="Mier"          attack="20" level="10" hitpoints="5" description=""/>
+  <enemy name="Worm"          attack="30" level="20" hitpoints="5" description=""/>
+  <enemy name="Hond"          attack="20" level="10" hitpoints="30" description=""/>
+  <enemy name="Pitbull"       attack="30" level="20" hitpoints="100" boss="eindbaas" description=""/>
+  <enemy name="Kat"           attack="20" level="10" hitpoints="15" description=""/>
+  <enemy name="Zwarte kat"    attack="30" level="20" hitpoints="25" description=""/>
 </enemies>

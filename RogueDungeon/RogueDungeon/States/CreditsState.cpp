@@ -62,3 +62,8 @@ void CreditsState::OutputHandler(string input)
 		}
 	}
 }
+
+bool CreditsState::onReEnter()
+{
+	return true;
+}

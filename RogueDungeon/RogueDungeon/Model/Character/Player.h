@@ -24,6 +24,8 @@ public:
 	bool move(Directions::Direction direction);
 	void addExp(float exp);
 	void useItem(Item* item);
+	int Player::attack(Character* enemy);
+	int getDefence();
 private:
 	float expNeededforLvlUp;
 	void levelUp();

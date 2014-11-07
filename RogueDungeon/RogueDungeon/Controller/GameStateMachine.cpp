@@ -20,6 +20,11 @@ void GameStateMachine::popState() {
 	if (!m_gameStates.empty()) {
 		if (m_gameStates.back()->onExit()) {
 			m_gameStates.pop_back();
+
+			if (!m_gameStates.empty())
+			{
+				m_gameStates.back()->onReEnter();
+			}
 		}
 	}
 }

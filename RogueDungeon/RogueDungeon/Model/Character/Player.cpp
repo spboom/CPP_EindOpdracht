@@ -19,11 +19,27 @@ Player::Player(StartRoom* room)
 {
 	location = room;
 	maxLifepoints = lifepoints = 100;
+	expNeededforLvlUp = 10;
 	attackPoints = 20;
 }
 
 Player::~Player()
 {
+}
+
+int Player::attack(Character* enemy)
+{
+	int damage = Character::attack(enemy);
+	if (enemy->isDead())
+	{
+		addExp(enemy->maxLifepoints);
+	}
+	return damage;
+}
+
+int Player::getDefence()
+{
+	return attackPoints *0.8f;
 }
 
 void Player::parseXMLElement(XMLElement *xmlelement)
@@ -36,6 +52,7 @@ void Player::levelUp()
 	experience_points -= expNeededforLvlUp;
 	expNeededforLvlUp *= 1.5;
 	MaxHp *= 1.5;
+	attackPoints * 2;
 	level++;
 }
 void Player::addExp(float exp)

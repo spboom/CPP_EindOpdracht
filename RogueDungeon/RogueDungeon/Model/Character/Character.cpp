@@ -38,12 +38,25 @@ void Character::parseXMLElement(XMLElement *xmlelement)
 
 int Character::attack(Character* enemy)
 {
-	return enemy->hit(attackPoints);
+	if (!isDead())
+	{
+		return enemy->hit(attackPoints);
+	}
+	return 0;
+}
+
+bool Character::isDead()
+{
+	return lifepoints <= 0;
 }
 
 string Character::getDiscription()
 {
-	if (lifepoints == maxLifepoints)
+	if (isDead())
+	{
+		return "dood";
+	}
+	else if (lifepoints == maxLifepoints)
 	{
 		return "ongeschonden";
 	}
@@ -51,13 +64,13 @@ string Character::getDiscription()
 	{
 		return "gewond";
 	}
-	else if (lifepoints < maxLifepoints < 8)
-	{
-		return "bijna dood";
-	}
 	else if (lifepoints < maxLifepoints / 4)
 	{
 		return "ernstig gewond";
+	}
+	else if (lifepoints < maxLifepoints < 8)
+	{
+		return "bijna dood";
 	}
 }
 
@@ -77,5 +90,5 @@ int Character::hit(int hitPoints)
 
 int Character::getDefence()
 {
-	return attackPoints *0.8f;
+	return attackPoints *0.5f;
 }
