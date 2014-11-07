@@ -45,75 +45,18 @@ void Player::addExp(float exp)
 	}
 }
 
+void Player::useItem(Item* item)
+{
+	//TODO
+}
+
 bool Player::move(Directions::Direction direction)
 {
-	vector<vector<Room*>> floor = dungeon->getFloor(location->getLevel());
-	for (int y = 0; y < floor.size(); y++)
+	Room* room = location->getRoomInDirection(direction);
+	if (room)
 	{
-		for (int x = 0; x < floor[y].size(); x++)
-		{
-			location = floor[y][x];
-			if (direction == Directions::Direction::North)
-			{
-				if (location->hasHallway(Directions::East))
-				{
-					
-				}
-				else if (location->hasHallway(Directions::South))
-				{
-
-				}
-				else if (location->hasHallway(Directions::West))
-				{
-
-				}
-			}
-			else if (direction == Directions::Direction::East)
-			{
-				if (location->hasHallway(Directions::North))
-				{
-
-				}
-				else if (location->hasHallway(Directions::South))
-				{
-
-				}
-				else if (location->hasHallway(Directions::West))
-				{
-
-				}
-			}
-			else if (direction == Directions::Direction::South)
-			{
-				if (location->hasHallway(Directions::North))
-				{
-
-				}
-				else if (location->hasHallway(Directions::East))
-				{
-
-				}
-				else if (location->hasHallway(Directions::West))
-				{
-
-				}
-			}
-			else if (direction == Directions::Direction::West)
-			{
-				if (location->hasHallway(Directions::North))
-				{
-
-				}
-				else if (location->hasHallway(Directions::East))
-				{
-
-				}
-				else if (location->hasHallway(Directions::South))
-				{
-
-				}
-			}
-		}
+		location = room;
+		return true;
 	}
-	return true;
+	return false;
 }

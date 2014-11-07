@@ -26,9 +26,29 @@ void Character::parseXMLElement(XMLElement *xmlelement)
 {
 	name = xmlelement->Attribute("name");
 
-	attack = atoi(xmlelement->Attribute("attack"));
+	attackPoints = atoi(xmlelement->Attribute("attack"));
 
 	level = atoi(xmlelement->Attribute("level"));
 
-	//cout << name + " " + std::to_string(level) + " " + std::to_string(attack) + "\n";
+	//cout << name + " " + std::to_string(level) + " " + std::to_string(attackPoints) + "\n";
+}
+
+
+int Character::attack(Character* enemy)
+{
+	return enemy->hit(attackPoints);
+}
+
+int Character::hit(int hitPoints)
+{
+	int damage = hitPoints - defencePoints;
+	if (damage > 0)
+	{
+		lifepoints -= damage;
+	}
+	else
+	{
+		damage = 0;
+	}
+	return damage;
 }

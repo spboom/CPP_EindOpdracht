@@ -26,13 +26,16 @@ public:
 	string name;
 	int level;
 	int lifepoints;
-	int attack;
-	int defence;
+	int attackPoints;
+	int defencePoints;
 	vector<Item*> items;
 
 	//
 	virtual void message() = 0;
 	virtual void parseXMLElement(XMLElement *xmlnode);
+
+	int hit(int attackPoints);
+	int attack(Character* character);
 
 private:
 };

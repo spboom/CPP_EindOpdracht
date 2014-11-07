@@ -33,6 +33,7 @@ public:
 	vector<Item*> parseXML(string xmlPath);
 	void fillRoom(Room* room);
 private:
+	vector<Item*> items;
 	static ItemFactory* s_pInstance;
 };
 typedef ItemFactory TheItemFactory;

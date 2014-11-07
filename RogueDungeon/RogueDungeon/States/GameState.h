@@ -9,7 +9,7 @@ class GameState
 public:
 	GameState();
 	virtual ~GameState();
-	virtual void update() = 0;
+	virtual void update();
 	virtual void render() = 0;
 	virtual bool onEnter() = 0;
 	virtual bool onExit() = 0;

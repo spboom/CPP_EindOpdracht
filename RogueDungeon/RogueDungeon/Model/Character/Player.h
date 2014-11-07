@@ -5,6 +5,7 @@
 #include "tinyxml2.h"
 #include "../Location/StartRoom.h"
 #include "../Dungeon.h"
+#include "Enemy\Enemy.h"
 
 //
 using namespace tinyxml2;
@@ -22,6 +23,7 @@ public:
 
 	bool move(Directions::Direction direction);
 	void addExp(float exp);
+	void useItem(Item* item);
 private:
 	float expNeededforLvlUp;
 	void levelUp();

@@ -20,6 +20,7 @@
 
 void PlayState::update() {
 	OutputHandler(TheInputHandler::Instance()->getOutput());
+	GameState::update();
 }
 
 void PlayState::render() {
@@ -67,19 +68,35 @@ void PlayState::OutputHandler(string input)
 		}
 		else if (input == "noord")
 		{
-			player->move(Directions::Direction::North);
+			if (player->move(Directions::Direction::North))
+			{
+				TheGame::Instance()->cleanScreen();
+				TheInputHandler::Instance()->setCommandLine(player->location->getDescription());
+			}	
 		}
 		else if (input == "oost")
 		{
-			player->move(Directions::Direction::East);
+			if (player->move(Directions::Direction::East))
+			{
+				TheGame::Instance()->cleanScreen();
+				TheInputHandler::Instance()->setCommandLine(player->location->getDescription());
+			}
 		}
 		else if (input == "zuid")
 		{
-			player->move(Directions::Direction::South);
+			if (player->move(Directions::Direction::South))
+			{
+				TheGame::Instance()->cleanScreen();
+				TheInputHandler::Instance()->setCommandLine(player->location->getDescription());
+			}
 		}
 		else if (input == "west")
 		{
-			player->move(Directions::Direction::West);
+			if (player->move(Directions::Direction::West))
+			{
+				TheGame::Instance()->cleanScreen();
+				TheInputHandler::Instance()->setCommandLine(player->location->getDescription());
+			}
 		}
 		else {
 			GameState::OutputHandler(input);

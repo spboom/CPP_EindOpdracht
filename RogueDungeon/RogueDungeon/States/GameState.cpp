@@ -27,6 +27,11 @@ bool GameState::onExit()
 	return true;
 }
 
+void GameState::update()
+{
+	//lastInput = InputHandler::Instance()->getOutput();
+}
+
 void GameState::OutputHandler(string input)
 {
 	if (input == "quit") {

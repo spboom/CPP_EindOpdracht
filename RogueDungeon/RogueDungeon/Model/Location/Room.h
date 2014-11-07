@@ -6,6 +6,7 @@
 #include "Hallway.h"
 #include "../Item/Item.h"
 #include "Directions.h"
+#include "../Character/Enemy/Enemy.h"
 #include <map>
 
 //
@@ -27,7 +28,8 @@ public:
 	void MoveHallwaysTo(Room* room);
 	Directions::Direction getDirection(Hallway* hallway);
 	int getLevel();
-
+	void setConnected();
+	Room* getRoomInDirection(Directions::Direction direction);
 	//
 	string characteristic;
 	string feature;
@@ -36,6 +38,7 @@ public:
 	string exit;
 	string getDescription();
 	string getExits();
+	vector<Enemy*> enemies;
 private:
 	int level;
 	map<Directions::Direction, Hallway*> Doors;

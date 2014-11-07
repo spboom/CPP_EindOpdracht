@@ -24,6 +24,7 @@
 #include "../States/MainMenuState.h"
 #include "../States/PlayState.h"
 #include "../States/CreditsState.h"
+#include "../States/FightState.h"
 #include "InputHandler.h"
 #include "Controller.h"
 #include "../Factory/MainFactory.h"
@@ -176,4 +177,8 @@ void Game::goToMainMenu() {
 
 void Game::goToCredits() {
 	getStateMachine()->changeState(new CreditsState());
+}
+
+void Game::goToFight(vector<Enemy*> enemies, Player* player) {
+	getStateMachine()->changeState(new FightState(enemies, player));
 }

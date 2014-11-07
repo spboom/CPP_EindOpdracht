@@ -24,7 +24,7 @@ LocationFactory* LocationFactory::s_pInstance;
 using namespace std;
 using namespace tinyxml2;
 
-LocationFactory::LocationFactory()
+LocationFactory::LocationFactory() : MainFactory()
 {
 	room_characteristics = vector<string>();
 	room_feature = vector<string>();
@@ -36,6 +36,10 @@ LocationFactory::LocationFactory()
 
 LocationFactory::~LocationFactory()
 {
+	for (int i = 0; i < location.size(); i++)
+	{
+		delete location[i];
+	}
 }
 
 vector<Location*> LocationFactory::parseXML(string xmlPath) {
