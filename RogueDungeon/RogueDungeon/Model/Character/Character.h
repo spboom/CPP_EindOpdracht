@@ -26,8 +26,8 @@ public:
 	string name;
 	int level;
 	int lifepoints;
+	int maxLifepoints;
 	int attackPoints;
-	int defencePoints;
 	vector<Item*> items;
 
 	//
@@ -36,7 +36,8 @@ public:
 
 	int hit(int attackPoints);
 	int attack(Character* character);
-
+	int getDefence();
+	string getDiscription();
 private:
 };
 #endif /* _CHARACTER_H_ */

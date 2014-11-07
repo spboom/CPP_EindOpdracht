@@ -16,6 +16,5 @@ public:
 	virtual std::string getStateID() const = 0;
 protected:
 	virtual void OutputHandler(string input);
-	string lastInput;
 };
 #endif /* GAMESTATE_H_ */

@@ -46,7 +46,6 @@ vector<Item*> ItemFactory::parseXML(string xmlPath) {
 	// Text is just another Node to TinyXML-2. The more
 	// general way to get to the XMLText:
 	XMLElement *node = doc.FirstChildElement("items")->FirstChildElement("item")->ToElement();
-	vector<Item*> items;
 	for (node; node; node = node->NextSiblingElement())
 	{
 		Item *item = NULL;
