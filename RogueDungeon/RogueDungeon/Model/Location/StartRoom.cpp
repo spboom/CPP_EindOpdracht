@@ -11,7 +11,9 @@
 using namespace std;
 
 StartRoom::StartRoom(int level) :Room(level)
-{}
+{
+	connected = true;
+}
 
 StartRoom::~StartRoom()
 {}

@@ -26,14 +26,17 @@ ItemFactory* ItemFactory::s_pInstance;
 using namespace std;
 using namespace tinyxml2;
 
-ItemFactory::ItemFactory()
+ItemFactory::ItemFactory() :MainFactory()
 {
 
 }
 
 ItemFactory::~ItemFactory()
 {
-
+	for (int i = 0; i < items.size(); i++)
+	{
+		delete items[i];
+	}
 }
 
 vector<Item*> ItemFactory::parseXML(string xmlPath) {

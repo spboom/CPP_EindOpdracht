@@ -27,6 +27,11 @@ bool GameState::onExit()
 	return true;
 }
 
+void GameState::update()
+{
+	lastInput = InputHandler::Instance()->getOutput();
+}
+
 void GameState::OutputHandler(string input)
 {
 	if (input == "quit") {
@@ -51,7 +56,4 @@ void GameState::OutputHandler(string input)
 	{
 		TheInputHandler::Instance()->setCommandLine("Caution! Wrong input!");
 	}
-
-	lastInput = input;
-
 }

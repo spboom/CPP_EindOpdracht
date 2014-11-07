@@ -32,7 +32,9 @@ public:
 	/*Factory Method*/
 	vector<Character*> parseXML(string xmlPath);
 	void fillRoom(Room* room);
+	Enemy* CharacterFactory::getRandomCharacter();
 private:
+	vector<Enemy*> characters;
 	static CharacterFactory* s_pInstance;
 };
 typedef CharacterFactory TheCharacterFactory;

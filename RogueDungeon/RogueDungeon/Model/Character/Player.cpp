@@ -47,6 +47,13 @@ void Player::addExp(float exp)
 }
 
 
+void Player::useItem(Item* item)
+{
+	//TODO
+}
+
+
+
 
 
 

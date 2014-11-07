@@ -23,6 +23,7 @@ MainFactory* MainFactory::s_pInstance;
 MainFactory::MainFactory()
 {
 	dre = default_random_engine(dev());
+	uniform_int_distribution<int>(0, 100);
 	characteristics = new vector<string>();
 }
 
@@ -94,7 +95,6 @@ vector<vector<Room*>> MainFactory::createDungeonFloor(int* entranceXpos, int* en
 	vector<vector<Room*>> floor;
 	floor.resize(width);
 
-	uniform_int_distribution<int>binair(0, 1);
 
 	int exitXpos;
 	int exitYpos;
@@ -114,46 +114,38 @@ vector<vector<Room*>> MainFactory::createDungeonFloor(int* entranceXpos, int* en
 		for (int x = 0; x < width; x++)
 		{
 			floor[y].push_back(new Room(level));
+			if (level == 0 && y == 0 && x == 0)
+			{
+				floor[y][x]->connected = true;
+			}
 		}
 	}
 
-	int xPos = *entranceXpos;
-	int yPos = *entranceYpos;
-	Directions::Direction direction;
+	createpath(&floor, *entranceXpos, *entranceYpos, exitXpos, exitYpos, false);
 
-	int tempX = xPos, tempY = yPos;
-	do
+
+	for (int y = 0; y < floor.size(); y++)
 	{
-		if (exitXpos == tempX)
+		for (int x = 0; x < floor[y].size(); x++)
 		{
-			direction = moveYOneToGoal(&tempY, exitYpos);
-		}
-		else if (exitYpos == tempY)
-		{
-			direction = moveXOneToGoal(&tempX, exitXpos);
-		}
-		else
-		{
-			if (binair(dre))
+			if (!floor[y][x]->connected)
 			{
-				direction = moveYOneToGoal(&tempY, exitYpos);
-			}
-			else
-			{
-				direction = moveXOneToGoal(&tempX, exitXpos);
+				int toX = 0;
+				do
+				{
+					toX = widthDist(dre);
+				} while (x == toX);
+
+				int toY = 0;
+				do
+				{
+					toY = heightDist(dre);
+				} while (y == toY);
+
+				createpath(&floor, x, y, toX, toY, true);
 			}
 		}
-		if (xPos != tempX || yPos != tempY)
-		{
-			new Hallway(floor[yPos][xPos], floor[tempY][tempX], direction);
-
-			xPos = tempX;
-			yPos = tempY;
-
-		}
-	} while (xPos != exitXpos || yPos != exitYpos);
-
-	//TODO fill floor Random!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	}
 
 	*entranceXpos = exitXpos;
 	*entranceYpos = exitYpos;
@@ -161,6 +153,53 @@ vector<vector<Room*>> MainFactory::createDungeonFloor(int* entranceXpos, int* en
 	return floor;
 
 }
+
+
+void MainFactory::createpath(vector<vector<Room*>>* floor, int fromX, int fromY, int toX, int toY, bool shouldBreak)
+{
+	Directions::Direction direction = (Directions::Direction)0;
+	uniform_int_distribution<int>binair(0, 1);
+
+	int tempX = fromX, tempY = fromY;
+	do
+	{
+		if (toX == tempX)
+		{
+			direction = moveYOneToGoal(&tempY, toY);
+		}
+		else if (toY == tempY)
+		{
+			direction = moveXOneToGoal(&tempX, toX);
+		}
+		else
+		{
+			if (binair(dre))
+			{
+				direction = moveYOneToGoal(&tempY, toY);
+			}
+			else
+			{
+				direction = moveXOneToGoal(&tempX, toX);
+			}
+		}
+		if (fromX != tempX || fromY != tempY)
+		{
+			if (!(*floor)[fromY][fromX]->getHallway(direction))
+			{
+				new Hallway((*floor)[fromY][fromX], (*floor)[tempY][tempX], direction);
+				if (shouldBreak && (*floor)[tempY][tempX]->connected)
+				{
+					break;
+				}
+			}
+			fromX = tempX;
+			fromY = tempY;
+
+		}
+	} while (fromX != toX || fromY != toY);
+}
+
+
 
 Dungeon* MainFactory::createDungeon(int width, int height, int depth)
 {
@@ -195,10 +234,10 @@ Dungeon* MainFactory::createDungeon(int width, int height, int depth)
 			rooms[z][startYPos][startXPos]->MoveHallwaysTo(startRoom);
 			delete rooms[z][startYPos][startXPos];
 			rooms[z][startYPos][startXPos] = startRoom;
+			startRoom->setConnected();
 		}
 		startYPos = ypos;
 		startXPos = xpos;
-
 	}
 
 	return new Dungeon(rooms, startRoom);

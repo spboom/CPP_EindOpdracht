@@ -18,10 +18,11 @@ public:
 	Hallway(Room* from, Room* to, Directions::Direction direction);
 	virtual ~Hallway();
 	void changeRoom(Room* from, Room* to);
-
+	Room* getOtherRoom(Room* from);
+	void connect();
 	//
 	string trap;
-	
+
 private:
 	Room* room1;
 	Room* room2;

@@ -9,10 +9,12 @@
 
 //
 #include "GameState.h"
+#include "../Model/Character/Enemy/Enemy.h"
+#include "../Model/Character/Player.h"
 
 class FightState : public GameState {
 public:
-	FightState();
+	FightState(vector<Enemy*> enemies, Player* player);
 	virtual ~FightState();
 	virtual void update();
 	virtual void render();
@@ -20,6 +22,8 @@ public:
 	virtual bool onExit();
 	virtual std::string getStateID() const { return "FIGHT"; };
 private:
+	vector<Enemy*> enemies;
+	Player* player;
 	void OutputHandler(string input);
 };
 #endif /* _FIGHTTSSTATE_H_ */

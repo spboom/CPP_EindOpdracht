@@ -20,6 +20,7 @@
 
 void PlayState::update() {
 	OutputHandler(TheInputHandler::Instance()->getOutput());
+	GameState::update();
 }
 
 void PlayState::render() {

@@ -35,6 +35,7 @@ using namespace std;
 
 void MainMenuState::update() {
 	OutputHandler(TheInputHandler::Instance()->getOutput());
+	GameState::update();
 }
 
 void MainMenuState::render() {
@@ -49,9 +50,9 @@ bool MainMenuState::onEnter() {
 	TheInputHandler::Instance()->setCommandLine("SELECT FROM MENU");
 
 	//
-	characters = TheCharacterFactory::Instance()->parseXML("Inputfiles/Character/Enemy/enemy.xml");
-	items =  TheItemFactory::Instance()->parseXML("Inputfiles/Item/item.xml");
-	location = TheLocationFactory::Instance()->parseXML("Inputfiles/Location/location.xml");
+	TheCharacterFactory::Instance()->parseXML("Inputfiles/Character/Enemy/enemy.xml");
+	TheItemFactory::Instance()->parseXML("Inputfiles/Item/item.xml");
+	TheLocationFactory::Instance()->parseXML("Inputfiles/Location/location.xml");
 
 	return true;
 }
@@ -65,18 +66,6 @@ MainMenuState::MainMenuState() {}
 
 MainMenuState::~MainMenuState()
 {
-	for (int i = 0; i < characters.size(); i++)
-	{
-		delete characters[i];
-	}
-	for (int i = 0; i < items.size(); i++)
-	{
-		delete items[i];
-	}
-	for (int i = 0; i < location.size(); i++)
-	{
-		delete location[i];
-	}
 }
 
 void MainMenuState::OutputHandler(string input)
@@ -91,6 +80,11 @@ void MainMenuState::OutputHandler(string input)
 		else if (input == "credits") {
 			TheGame::Instance()->cleanScreen();
 			TheGame::Instance()->goToCredits();
+		}
+		else if (input == "fight") {
+			TheGame::Instance()->cleanScreen();
+			StartRoom* room = new StartRoom(0);
+			TheGame::Instance()->goToFight(room->enemies, new Player(room));
 		}
 
 		else {

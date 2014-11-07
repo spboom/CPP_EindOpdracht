@@ -48,6 +48,7 @@ public:
 	void fillRoom(Room* room);
 	void fillHallway(Hallway* hallway);
 private:
+	vector<Location*> location;
 	static LocationFactory* s_pInstance;
 };
 typedef LocationFactory TheLocationFactory;

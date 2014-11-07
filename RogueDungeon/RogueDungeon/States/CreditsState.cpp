@@ -22,6 +22,7 @@ CreditsState::~CreditsState() {}
 
 void CreditsState::update() {
 	OutputHandler(TheInputHandler::Instance()->getOutput());
+	GameState::update();
 }
 
 void CreditsState::render() {

@@ -31,6 +31,8 @@ Hallway::Hallway(Room* from, Room* to, Directions::Direction direction)
 	direction = static_cast<Directions::Direction>(dir + dif);
 
 	to->addHallway(this, direction);
+
+	connect();
 }
 
 bool Hallway::connectedToVisited()
@@ -56,5 +58,27 @@ void Hallway::changeRoom(Room* from, Room* to)
 	{
 		room2 = to;
 		to->addHallway(this, direction);
+	}
+}
+
+Room* Hallway::getOtherRoom(Room* from)
+{
+	if (from == room1)
+	{
+		return room2;
+	}
+	else if (from == room2)
+	{
+		return room1;
+	}
+	return NULL;
+}
+
+void Hallway::connect()
+{
+	if (room1->connected || room2->connected)
+	{
+		room1->setConnected();
+		room2->setConnected();
 	}
 }

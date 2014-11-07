@@ -22,13 +22,17 @@ CharacterFactory* CharacterFactory::s_pInstance;
 using namespace std;
 using namespace tinyxml2;
 
-CharacterFactory::CharacterFactory()
+CharacterFactory::CharacterFactory() :MainFactory()
 {
 
 }
 
 CharacterFactory::~CharacterFactory()
 {
+	for (int i = 0; i < characters.size(); i++)
+	{
+		delete characters[i];
+	}
 }
 
 vector<Character*> CharacterFactory::parseXML(string xmlPath) {
@@ -50,5 +54,16 @@ vector<Character*> CharacterFactory::parseXML(string xmlPath) {
 
 void CharacterFactory::fillRoom(Room* room)
 {
+	if (chanse(dre) < 101)
+	{
+		room->enemies.push_back(getRandomCharacter());
+	}
+}
+
+Enemy* CharacterFactory::getRandomCharacter()
+{
+	uniform_int_distribution<int> lengthDist(0, characters.size() - 1);
+	return characters[lengthDist(dre)];
+
 
 }

@@ -130,3 +130,27 @@ int Room::getLevel()
 {
 	return level;
 }
+
+Room* Room::getRoomInDirection(Directions::Direction direction)
+{
+	for (auto iterator = Doors.begin(); iterator != Doors.end(); iterator++)
+	{
+		if (iterator->first == direction)
+		{
+			return iterator->second->getOtherRoom(this);
+		}
+	}
+}
+
+void Room::setConnected()
+{
+	connected = true;
+	for (auto iterator = Doors.begin(); iterator != Doors.end(); iterator++)
+	{
+		Room* other = iterator->second->getOtherRoom(this);
+		if (!other->connected)
+		{
+			other->setConnected();
+		}
+	}
+}

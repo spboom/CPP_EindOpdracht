@@ -42,6 +42,7 @@ private:
 	int moveOneToGoal(int* current, int goal);
 	Directions::Direction moveXOneToGoal(int* current, int goal);
 	Directions::Direction moveYOneToGoal(int* current, int goal);
+	void createpath(vector<vector<Room*>>* floor, int fromX, int fromY, int toX, int toY, bool shouldBreak);
 
 	random_device dev;
 	uniform_int_distribution<int> widthDist;
@@ -49,6 +50,8 @@ private:
 	uniform_int_distribution<int> depthDist;
 
 	vector<string>* characteristics;
+protected:
+	uniform_int_distribution<int> chanse = uniform_int_distribution<int>(0, 100);
 };
 typedef MainFactory TheFactory;
 #endif /* _MAINFACTORY_H_ */

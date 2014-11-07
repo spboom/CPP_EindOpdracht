@@ -6,6 +6,8 @@
 
 //
 #include "GameStateMachine.h"
+#include "../Model/Character/Player.h"
+#include "../Model/Character/Enemy/Enemy.h"
 
 //
 using namespace std;
@@ -34,6 +36,8 @@ public:
 	void goToPlay();
 	void goToMainMenu();
 	void goToCredits();
+	void goToFight(vector<Enemy*> enemies, Player* player);
+
 	// a function to access the private running variable
 	bool running() { return m_bRunning; }
 private:
