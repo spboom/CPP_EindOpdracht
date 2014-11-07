@@ -74,11 +74,13 @@ void PlayState::OutputHandler(string input)
 			if (player->move(Directions::Direction::North))
 			{
 				TheGame::Instance()->cleanScreen();
+				TheController::Instance()->txtFileController("Inputfiles/State/state_play.txt");
 				TheInputHandler::Instance()->setCommandLine(player->location->getDescription());
 				TheInputHandler::Instance()->setCommandLine(player->location->getExits());
 				TheInputHandler::Instance()->setCommandLine(player->location->getEnemy());
 				TheInputHandler::Instance()->setCommandLine(player->location->getGeneralDescription());
 				TheInputHandler::Instance()->setCommandLine(player->location->getGamePlayMenu());
+				TheInputHandler::Instance()->setNoordInput(input);
 			}	
 		}
 		else if (input == "oost")
@@ -86,7 +88,12 @@ void PlayState::OutputHandler(string input)
 			if (player->move(Directions::Direction::East))
 			{
 				TheGame::Instance()->cleanScreen();
+				TheController::Instance()->txtFileController("Inputfiles/State/state_play.txt");
 				TheInputHandler::Instance()->setCommandLine(player->location->getDescription());
+				TheInputHandler::Instance()->setCommandLine(player->location->getExits());
+				TheInputHandler::Instance()->setCommandLine(player->location->getEnemy());
+				TheInputHandler::Instance()->setCommandLine(player->location->getGeneralDescription());
+				TheInputHandler::Instance()->setCommandLine(player->location->getGamePlayMenu());
 			}
 		}
 		else if (input == "zuid")
@@ -94,7 +101,12 @@ void PlayState::OutputHandler(string input)
 			if (player->move(Directions::Direction::South))
 			{
 				TheGame::Instance()->cleanScreen();
+				TheController::Instance()->txtFileController("Inputfiles/State/state_play.txt");
 				TheInputHandler::Instance()->setCommandLine(player->location->getDescription());
+				TheInputHandler::Instance()->setCommandLine(player->location->getExits());
+				TheInputHandler::Instance()->setCommandLine(player->location->getEnemy());
+				TheInputHandler::Instance()->setCommandLine(player->location->getGeneralDescription());
+				TheInputHandler::Instance()->setCommandLine(player->location->getGamePlayMenu());
 			}
 		}
 		else if (input == "west")
@@ -102,12 +114,40 @@ void PlayState::OutputHandler(string input)
 			if (player->move(Directions::Direction::West))
 			{
 				TheGame::Instance()->cleanScreen();
+				TheController::Instance()->txtFileController("Inputfiles/State/state_play.txt");
 				TheInputHandler::Instance()->setCommandLine(player->location->getDescription());
+				TheInputHandler::Instance()->setCommandLine(player->location->getExits());
+				TheInputHandler::Instance()->setCommandLine(player->location->getEnemy());
+				TheInputHandler::Instance()->setCommandLine(player->location->getGeneralDescription());
+				TheInputHandler::Instance()->setCommandLine(player->location->getGamePlayMenu());
 			}
+		}
+		else if (input == "vecht")
+		{
+
 		}
 		else if (input == "vlucht")
 		{
+			TheInputHandler::Instance()->setCommandLine("Welke richting?");
+		}
+		else if (input == "zoek")
+		{
 
+		}
+		else if (input == "rust uit")
+		{
+
+		}
+		else if (input == "bekijk spullen")
+		{
+
+		}
+		else if (input == "terug")
+		{
+			if (TheInputHandler::Instance()->getNoordInput() == "noord")
+			{
+				player->move(Directions::Direction::North);
+			}
 		}
 		else {
 			GameState::OutputHandler(input);
@@ -168,4 +208,8 @@ void PlayState::drawMap()
 	InputHandler::Instance()->setCommandLine("L  : Trap omlaag");
 	InputHandler::Instance()->setCommandLine("H  : Trap omhoog");
 	InputHandler::Instance()->setCommandLine(".  : Niet bezocht");
+	InputHandler::Instance()->setCommandLine("");
+	InputHandler::Instance()->setCommandLine("[terug]");
+	InputHandler::Instance()->setCommandLine("");
+
 }

@@ -93,3 +93,4 @@ string Hallway::getDescription()
 
 	return exits.str();
 }
+

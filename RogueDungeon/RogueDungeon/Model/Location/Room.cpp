@@ -158,7 +158,7 @@ string Room::getGeneralDescription()
 string Room::getGamePlayMenu()
 {
 	stringstream enemy;
-	enemy << "[ bekijk kaart | vlucht ]" << "\n" << "Actie: ";
+	enemy << "[vecht|vlucht|zoek|rust uit|bekijk spullen|bekijk kaart]" << "\n\n" << "Actie: ";
 	return enemy.str();
 }
 

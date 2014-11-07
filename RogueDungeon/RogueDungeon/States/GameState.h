@@ -2,8 +2,13 @@
 #define GAMESTATE_H_
 
 //
+
+//
 #include <string>
+
+//
 using namespace std;
+
 class GameState
 {
 public:
