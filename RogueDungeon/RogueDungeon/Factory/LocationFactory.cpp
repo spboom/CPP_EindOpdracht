@@ -90,26 +90,39 @@ vector<Location*> LocationFactory::parseXML(string xmlPath) {
 void LocationFactory::fillRoom(Room* room)
 {
 	uniform_int_distribution<int> arrayDist(0, room_characteristics.size() - 1);
-	room->characteristic = room_characteristics[arrayDist(TheFactory::Instance()->dre)];
+	room->characteristic = room_characteristics[arrayDist(dre)];
 
 	arrayDist = uniform_int_distribution<int>(0, room_feature.size() - 1);
-	room->feature = room_feature[arrayDist(TheFactory::Instance()->dre)];
+	room->feature = room_feature[arrayDist(dre)];
 
 	arrayDist = uniform_int_distribution<int>(0, room_state.size() - 1);
-	room->state = room_state[arrayDist(TheFactory::Instance()->dre)];
+	room->state = room_state[arrayDist(dre)];
 
 	arrayDist = uniform_int_distribution<int>(0, room_items.size() - 1);
-	room->object = room_items[arrayDist(TheFactory::Instance()->dre)];
+	room->object = room_items[arrayDist(dre)];
 
 	arrayDist = uniform_int_distribution<int>(0, room_exits.size() - 1);
-	room->exit = room_exits[arrayDist(TheFactory::Instance()->dre)];
+	room->exit = room_exits[arrayDist(dre)];
+
+	if (chance(dre) < 25)
+	{
+		room->trap = new Trap(*getRandomTrap());
+	}
 }
 
-void LocationFactory::fillHallway(Hallway* room)
+void LocationFactory::fillHallway(Hallway* hallway)
 {
-	uniform_int_distribution<int> arrayDist(0, room_trap.size() - 1);
-	room->trap = room_trap[arrayDist(TheFactory::Instance()->dre)];
+	if (chance(dre) < 25)
+	{
+		hallway->trap = new Trap(*getRandomTrap());
+	}
 
-	arrayDist = uniform_int_distribution<int>(0, room_exits.size() - 1);
-	room->discription = room_exits[arrayDist(dre)];
+	uniform_int_distribution<int> arrayDist(0, room_exits.size() - 1);
+	hallway->discription = room_exits[arrayDist(dre)];
+}
+
+Trap* LocationFactory::getRandomTrap()
+{
+	uniform_int_distribution<int> lengthDist(0, traps.size() - 1);
+	return traps[lengthDist(dre)];
 }

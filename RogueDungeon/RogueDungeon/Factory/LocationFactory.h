@@ -47,8 +47,10 @@ public:
 	vector<Location*> parseXML(string xmlPath);
 	void fillRoom(Room* room);
 	void fillHallway(Hallway* hallway);
+	Trap* getRandomTrap();
 private:
 	vector<Location*> locations;
+	vector<Trap*> traps;
 	static LocationFactory* s_pInstance;
 };
 typedef LocationFactory TheLocationFactory;

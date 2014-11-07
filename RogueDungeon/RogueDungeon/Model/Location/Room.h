@@ -5,6 +5,7 @@
 #include "Location.h"
 #include "Hallway.h"
 #include "../Item/Item.h"
+#include "../../Model/Location/Trap.h"
 #include "Directions.h"
 #include "../Character/Enemy/Enemy.h"
 #include <map>
@@ -44,9 +45,10 @@ public:
 	string getGeneralDescription();
 	string getGamePlayMenu();
 	vector<Enemy*> enemies;
+	vector<Item*> items;
+	Trap* trap;
 private:
 	int level;
 	map<Directions::Direction, Hallway*> Doors;
-	Item* Items;
 };
 #endif /* defined(_ROOM_H_) */

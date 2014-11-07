@@ -4,6 +4,7 @@
 //
 #include "Location.h"
 #include "Directions.h"
+#include "Trap.h"
 
 //
 
@@ -23,7 +24,7 @@ public:
 	string getDescription();
 	string discription;
 	//
-	string trap;
+	Trap* trap;
 
 private:
 	Room* room1;

@@ -26,7 +26,7 @@ ItemFactory* ItemFactory::s_pInstance;
 using namespace std;
 using namespace tinyxml2;
 
-ItemFactory::ItemFactory() :MainFactory()
+ItemFactory::ItemFactory() : MainFactory()
 {
 
 }
@@ -80,5 +80,14 @@ vector<Item*> ItemFactory::parseXML(string xmlPath) {
 
 void TheItemFactory::fillRoom(Room* room)
 {
+	if (chance(dre) < 101)
+	{
+		room->items.push_back(new Item(*getRandomItem()));
+	}
+}
 
+Item* TheItemFactory::getRandomItem()
+{
+	uniform_int_distribution<int> lengthDist(0, items.size() - 1);
+	return items[lengthDist(dre)];
 }

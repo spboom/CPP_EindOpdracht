@@ -32,6 +32,7 @@ public:
 	/*Factory Method*/
 	vector<Item*> parseXML(string xmlPath);
 	void fillRoom(Room* room);
+	Item* getRandomItem();
 private:
 	vector<Item*> items;
 	static ItemFactory* s_pInstance;

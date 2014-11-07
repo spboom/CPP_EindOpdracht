@@ -33,8 +33,7 @@ public:
 	Dungeon* createDungeon(int width, int height, int depth);
 	void clean();
 	void fillRoom(Room* room);
-	default_random_engine dre;
-
+	
 private:
 	static MainFactory* s_pInstance;
 
@@ -51,6 +50,7 @@ private:
 
 	vector<string>* characteristics;
 protected:
+	default_random_engine dre;
 	uniform_int_distribution<int> chance = uniform_int_distribution<int>(0, 100);
 };
 typedef MainFactory TheFactory;

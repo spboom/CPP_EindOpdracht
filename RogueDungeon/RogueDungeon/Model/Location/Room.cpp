@@ -24,11 +24,6 @@ Room::Room(int level)
 	this->level = level;
 }
 
-void Room::setItems(Item *items)
-{
-	Items = items;
-}
-
 Room::~Room()
 {
 
