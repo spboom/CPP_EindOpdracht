@@ -20,6 +20,8 @@ public:
 	void changeRoom(Room* from, Room* to);
 	Room* getOtherRoom(Room* from);
 	void connect();
+	string getDescription();
+
 	//
 	string trap;
 

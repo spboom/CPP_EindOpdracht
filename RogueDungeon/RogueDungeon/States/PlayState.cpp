@@ -32,12 +32,15 @@ bool PlayState::onEnter() {
 	// 
 	TheController::Instance()->txtFileController("Inputfiles/State/state_play.txt");
 
-	//
-	TheInputHandler::Instance()->setCommandLine("SELECT FROM MENU");
-
 	dungeon = TheFactory::Instance()->createDungeon(10, 10, 2);
 	level = 0;
 	player = new Player(dungeon->getStart());
+
+	TheInputHandler::Instance()->setCommandLine(player->location->getDescription());
+	TheInputHandler::Instance()->setCommandLine(player->location->getExits());
+	TheInputHandler::Instance()->setCommandLine(player->location->getEnemy());
+	TheInputHandler::Instance()->setCommandLine(player->location->getGeneralDescription());
+	TheInputHandler::Instance()->setCommandLine(player->location->getGamePlayMenu());
 
 	return true;
 }
@@ -72,6 +75,10 @@ void PlayState::OutputHandler(string input)
 			{
 				TheGame::Instance()->cleanScreen();
 				TheInputHandler::Instance()->setCommandLine(player->location->getDescription());
+				TheInputHandler::Instance()->setCommandLine(player->location->getExits());
+				TheInputHandler::Instance()->setCommandLine(player->location->getEnemy());
+				TheInputHandler::Instance()->setCommandLine(player->location->getGeneralDescription());
+				TheInputHandler::Instance()->setCommandLine(player->location->getGamePlayMenu());
 			}	
 		}
 		else if (input == "oost")
@@ -97,6 +104,10 @@ void PlayState::OutputHandler(string input)
 				TheGame::Instance()->cleanScreen();
 				TheInputHandler::Instance()->setCommandLine(player->location->getDescription());
 			}
+		}
+		else if (input == "vlucht")
+		{
+
 		}
 		else {
 			GameState::OutputHandler(input);

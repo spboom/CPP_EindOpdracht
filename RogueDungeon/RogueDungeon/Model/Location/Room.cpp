@@ -10,6 +10,7 @@
 #include <map>
 #include <string>
 #include <sstream>
+#include <iostream>
 #include "../../Factory/MainFactory.h"
 
 //
@@ -117,22 +118,48 @@ Directions::Direction Room::getDirection(Hallway* hallway)
 	return (Directions::Direction)0;
 }
 
+map<Directions::Direction, Hallway*> Room::getDoors()
+{
+	return Doors;
+}
+
 string Room::getDescription()
 {
 	stringstream description;
-
-	description << "Beschrijving: Je staat in een " << characteristic << " " << state << " kamer met in het midden een " << object << ". Het wordt verlicht door een " << feature;
-
+	description << "Beschrijving: Je staat in een " << characteristic << " " << state << " kamer met in het midden een " << object << ". De kamer wordt verlicht door een " << feature + "\n";
 	return description.str();
 }
 
 string Room::getExits()
 {
 	stringstream exits;
-
-	exits << "Uitgangen: ";
-
+	exits << "Uitgangen: " << + "\n";
+	for (auto iterator = Doors.begin(); iterator != Doors.end(); iterator++) 
+	{
+		exits << iterator->second->getDescription();
+	}
 	return exits.str();
+}
+
+string Room::getEnemy()
+{
+	stringstream enemy;
+	enemy << "Aanwezig: " << +"\n";
+	return enemy.str();
+}
+
+string Room::getGeneralDescription()
+{
+	stringstream enemy;
+	enemy << "Wat doe je?" << +"\n";
+	return enemy.str();
+}
+
+string Room::getGamePlayMenu()
+{
+	stringstream enemy;
+	enemy << "[ bekijk kaart | vlucht ]" << "\n" << "Actie: ";
+	return enemy.str();
 }
 
 int Room::getLevel()

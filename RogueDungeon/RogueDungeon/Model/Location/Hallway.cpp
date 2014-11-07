@@ -10,6 +10,8 @@
 #include "Hallway.h"
 #include  "Room.h"
 #include "../../Factory/LocationFactory.h"
+#include <string>
+#include <sstream>
 
 //
 Hallway::Hallway(Room* from, Room* to, Directions::Direction direction)
@@ -81,4 +83,13 @@ void Hallway::connect()
 		room1->setConnected();
 		room2->setConnected();
 	}
+}
+
+string Hallway::getDescription()
+{
+	stringstream exits;
+
+	exits << "";
+
+	return exits.str();
 }

@@ -29,6 +29,7 @@ public:
 	Directions::Direction getDirection(Hallway* hallway);
 	int getLevel();
 	void setConnected();
+	map<Directions::Direction, Hallway*> getDoors();
 	Room* getRoomInDirection(Directions::Direction direction);
 	//
 	string characteristic;
@@ -36,8 +37,12 @@ public:
 	string state;
 	string object;
 	string exit;
+	string enemy;
 	string getDescription();
 	string getExits();
+	string getEnemy();
+	string getGeneralDescription();
+	string getGamePlayMenu();
 	vector<Enemy*> enemies;
 private:
 	int level;

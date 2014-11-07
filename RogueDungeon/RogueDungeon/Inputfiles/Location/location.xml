@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <locations>
-	<location type="characteristic" name="groot"/>
-	<location type="characteristic" name="gemiddeld"/>
-	<location type="characteristic" name="klein"/>
+	<location type="characteristic" name="grote"/>
+	<location type="characteristic" name="gemiddelde"/>
+	<location type="characteristic" name="kleine"/>
 	<location type="feature" name="kaars"/>
 	<location type="feature" name="fakkel"/>
 	<location type="feature" name="haardvuur"/>
-	<location type="state" name="opgeruimd"/>
-	<location type="state" name="netjes"/>
+	<location type="state" name="opgeruimde"/>
+	<location type="state" name="nette"/>
 	<location type="trap" name="scherpe naalden"/>
 	<location type="trap" name="gifgas"/>
 	<location type="trap" name="open luik"/>
