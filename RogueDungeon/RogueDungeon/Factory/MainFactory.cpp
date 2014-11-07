@@ -36,7 +36,7 @@ void MainFactory::fillRoom(Room* room)
 {
 	TheLocationFactory::Instance()->fillRoom(room);
 	TheCharacterFactory::Instance()->fillRoom(room);
-	//TheItemFactory::Instance()->fillRoom(room);
+	TheItemFactory::Instance()->fillRoom(room);
 }
 
 string MainFactory::getRandomVectorItems(vector<string> *random)

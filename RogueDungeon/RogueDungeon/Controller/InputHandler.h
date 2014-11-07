@@ -27,7 +27,11 @@ public:
 	void setCommandLine(string input);
 	void appendCommandLine(string input);
 	string getOutput();
+	string getLastOutput();
 private:
+	string user_output;
+	string last_user_output;
+
 	InputHandler();
 	virtual ~InputHandler();
 	static InputHandler* s_pInstance;

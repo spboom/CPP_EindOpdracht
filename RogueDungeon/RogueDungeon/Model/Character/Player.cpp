@@ -18,6 +18,8 @@ using namespace std;
 Player::Player(StartRoom* room)
 {
 	location = room;
+	maxLifepoints = lifepoints = 100;
+	attackPoints = 20;
 }
 
 Player::~Player()

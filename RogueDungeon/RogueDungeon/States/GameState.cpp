@@ -29,7 +29,6 @@ bool GameState::onExit()
 
 void GameState::update()
 {
-	//lastInput = InputHandler::Instance()->getOutput();
 }
 
 void GameState::OutputHandler(string input)
@@ -38,7 +37,7 @@ void GameState::OutputHandler(string input)
 		TheInputHandler::Instance()->setCommandLine("Are you sure? Yes or No!");
 	}
 	else if (input == "yes") {
-		if (lastInput == "quit")
+		if (InputHandler::Instance()->getLastOutput() == "quit")
 		{
 			TheInputHandler::Instance()->setCommandLine("Thank you for playing Rogue and Dungeon!");
 			TheGame::Instance()->quitGame(0);
@@ -53,5 +52,4 @@ void GameState::OutputHandler(string input)
 	{
 		TheInputHandler::Instance()->setCommandLine("Caution! Wrong input!");
 	}
-	lastInput = input;
 }

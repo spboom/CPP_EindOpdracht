@@ -22,6 +22,7 @@ public:
 	virtual bool onExit();
 	virtual std::string getStateID() const { return "FIGHT"; };
 private:
+	void step();
 	vector<Enemy*> enemies;
 	Player* player;
 	void OutputHandler(string input);

@@ -35,17 +35,16 @@ CharacterFactory::~CharacterFactory()
 	}
 }
 
-vector<Character*> CharacterFactory::parseXML(string xmlPath) {
+vector<Enemy*> CharacterFactory::parseXML(string xmlPath) {
 	// Read from file
 	XMLDocument doc;
 	doc.LoadFile(xmlPath.c_str());
 	// Text is just another Node to TinyXML-2. The more
 	// general way to get to the XMLText:
 	XMLElement *node = doc.FirstChildElement("enemies")->FirstChildElement("enemy")->ToElement();
-	vector<Character*> characters;
 	for (node; node; node = node->NextSiblingElement())
 	{
-		Character *character = new Enemy();
+		Enemy* character = new Enemy();
 		character->parseXMLElement(node);
 		characters.push_back(character);
 	}
@@ -56,7 +55,7 @@ void CharacterFactory::fillRoom(Room* room)
 {
 	if (chance(dre) < 101)
 	{
-		//room->enemies.push_back(getRandomCharacter());
+		room->enemies.push_back(getRandomCharacter());
 	}
 }
 

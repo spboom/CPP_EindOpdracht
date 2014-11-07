@@ -27,7 +27,45 @@ void FightState::update() {
 	GameState::update();
 }
 
-void FightState::render() {
+void FightState::render() {}
+
+void FightState::step()
+{
+	Game::Instance()->cleanScreen();
+	InputHandler::Instance()->setCommandLine("Je bent in gevecht met:");
+	for (int i = 0; i < enemies.size(); i++)
+	{
+		stringstream line;
+
+		line << enemies[i]->name << " " << i + 1 << " " << enemies[i]->getDiscription();
+		InputHandler::Instance()->setCommandLine(line.str());
+	}
+
+	InputHandler::Instance()->setCommandLine("");
+	InputHandler::Instance()->setCommandLine("acties tegenstanders:");
+	for (int i = 0; i < enemies.size(); i++)
+	{
+		stringstream line;
+
+		line << enemies[i]->name << " " << i + 1 << " doet " << enemies[i]->attack(player) << "shade";
+		InputHandler::Instance()->setCommandLine(line.str());
+	}
+
+	InputHandler::Instance()->setCommandLine("");
+
+	stringstream line;
+	line << "je hebt nog " << player->lifepoints << " van de " << player->maxLifepoints << " levenspunten over";
+	InputHandler::Instance()->setCommandLine(line.str());
+
+	InputHandler::Instance()->setCommandLine("");
+	InputHandler::Instance()->setCommandLine("wat doe je?");
+
+	InputHandler::Instance()->setCommandLine("");
+	TheInputHandler::Instance()->setCommandLine("[aanval:vlucht:gebruik item]");
+
+	InputHandler::Instance()->setCommandLine("");
+	InputHandler::Instance()->appendCommandLine(">");
+
 }
 
 bool FightState::onEnter() {
@@ -36,11 +74,6 @@ bool FightState::onEnter() {
 	//TheController::Instance()->txtFileController("Inputfiles/States/creditsstate.txt");
 
 	//
-	TheInputHandler::Instance()->setCommandLine("SELECT FROM MENU");
-	TheInputHandler::Instance()->setCommandLine("");
-	TheInputHandler::Instance()->setCommandLine("[aanval:vlucht:gebruik item]");
-	TheInputHandler::Instance()->appendCommandLine(">");
-
 	return true;
 }
 
@@ -69,15 +102,22 @@ void FightState::OutputHandler(string input)
 		else
 		{
 			int i = atoi(input.c_str());
-			if (lastInput == "aanval" && i < enemies.size())
+			if (InputHandler::Instance()->getLastOutput() == "aanval" && i < enemies.size() && i <= 0)
 			{
-				player->attack(enemies[i]);
+				stringstream line;
+				step();
+				line << "je deed " << player->attack(enemies[i - 1]) << " shade";
+				InputHandler::Instance()->setCommandLine(line.str());
 			}
-			else if (lastInput == "gebruik item"&& i < player->items.size())
+			else if (InputHandler::Instance()->getLastOutput() == "gebruik item" && i < player->items.size() && i <= 0)
 			{
-				player->useItem(player->items[i]);
+				player->useItem(player->items[i - 1]);
+				step();
 			}
-			GameState::OutputHandler(input);
+			else
+			{
+				GameState::OutputHandler(input);
+			}
 		}
 	}
 

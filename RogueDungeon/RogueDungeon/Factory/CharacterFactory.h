@@ -30,7 +30,7 @@ public:
 	}
 
 	/*Factory Method*/
-	vector<Character*> parseXML(string xmlPath);
+	vector<Enemy*> parseXML(string xmlPath);
 	void fillRoom(Room* room);
 	Enemy* CharacterFactory::getRandomCharacter();
 private:

@@ -19,7 +19,6 @@
 //
 InputHandler* InputHandler::s_pInstance;
 using namespace std;
-string user_output;
 
 InputHandler::InputHandler() {}
 
@@ -41,6 +40,7 @@ void InputHandler::readLine()
 		input[i] = tolower(input[i]);
 		++i;
 	}
+	last_user_output = user_output;
 	user_output = input;
 }
 
@@ -55,3 +55,9 @@ void InputHandler::appendCommandLine(string input) {
 string InputHandler::getOutput() {
 	return user_output;
 }
+
+string InputHandler::getLastOutput()
+{
+	return last_user_output;
+}
+

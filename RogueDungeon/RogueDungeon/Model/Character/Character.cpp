@@ -30,6 +30,8 @@ void Character::parseXMLElement(XMLElement *xmlelement)
 
 	level = atoi(xmlelement->Attribute("level"));
 
+	maxLifepoints = lifepoints = atoi(xmlelement->Attribute("hitpoints"));
+
 	//cout << name + " " + std::to_string(level) + " " + std::to_string(attackPoints) + "\n";
 }
 
@@ -39,9 +41,29 @@ int Character::attack(Character* enemy)
 	return enemy->hit(attackPoints);
 }
 
+string Character::getDiscription()
+{
+	if (lifepoints == maxLifepoints)
+	{
+		return "ongeschonden";
+	}
+	else  if (lifepoints > maxLifepoints / 2)
+	{
+		return "gewond";
+	}
+	else if (lifepoints < maxLifepoints < 8)
+	{
+		return "bijna dood";
+	}
+	else if (lifepoints < maxLifepoints / 4)
+	{
+		return "ernstig gewond";
+	}
+}
+
 int Character::hit(int hitPoints)
 {
-	int damage = hitPoints - defencePoints;
+	int damage = hitPoints - getDefence();
 	if (damage > 0)
 	{
 		lifepoints -= damage;
@@ -51,4 +73,9 @@ int Character::hit(int hitPoints)
 		damage = 0;
 	}
 	return damage;
+}
+
+int Character::getDefence()
+{
+	return attackPoints *0.8f;
 }

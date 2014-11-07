@@ -36,9 +36,9 @@ LocationFactory::LocationFactory() : MainFactory()
 
 LocationFactory::~LocationFactory()
 {
-	for (int i = 0; i < location.size(); i++)
+	for (int i = 0; i < locations.size(); i++)
 	{
-		delete location[i];
+		delete locations[i];
 	}
 }
 
@@ -49,7 +49,6 @@ vector<Location*> LocationFactory::parseXML(string xmlPath) {
 	// Text is just another Node to TinyXML-2. The more
 	// general way to get to the XMLText:
 	XMLElement *node = doc.FirstChildElement("locations")->FirstChildElement("location")->ToElement();
-	vector<Location*> locations;
 	for (node; node; node = node->NextSiblingElement())
 	{
 		Location *location = new Location();
