@@ -24,6 +24,7 @@ public:
 	virtual std::string getStateID() const { return "PLAY"; };
 	PlayState();
 	virtual ~PlayState();
+	void setText();
 private:
 	void drawMap();
 	void OutputHandler(string input);

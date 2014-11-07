@@ -21,7 +21,7 @@ public:
 	Room* getOtherRoom(Room* from);
 	void connect();
 	string getDescription();
-
+	string discription;
 	//
 	string trap;
 

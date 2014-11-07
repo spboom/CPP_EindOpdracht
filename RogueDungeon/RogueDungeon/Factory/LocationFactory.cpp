@@ -109,4 +109,7 @@ void LocationFactory::fillHallway(Hallway* room)
 {
 	uniform_int_distribution<int> arrayDist(0, room_trap.size() - 1);
 	room->trap = room_trap[arrayDist(TheFactory::Instance()->dre)];
+
+	arrayDist = uniform_int_distribution<int>(0, room_exits.size() - 1);
+	room->discription = room_exits[arrayDist(dre)];
 }

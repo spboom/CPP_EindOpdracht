@@ -133,11 +133,12 @@ string Room::getDescription()
 string Room::getExits()
 {
 	stringstream exits;
-	exits << "Uitgangen: " << + "\n";
-	for (auto iterator = Doors.begin(); iterator != Doors.end(); iterator++) 
+	exits << "Uitgangen: " << +"\n";
+	for (auto iterator = Doors.begin(); iterator != Doors.end(); iterator++)
 	{
-		exits << iterator->second->getDescription();
+		exits << Directions::ToString(iterator->first) << " " << iterator->second->getDescription() << endl;
 	}
+	exits << endl;
 	return exits.str();
 }
 

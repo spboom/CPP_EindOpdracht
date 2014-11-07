@@ -89,7 +89,7 @@ string Hallway::getDescription()
 {
 	stringstream exits;
 
-	exits << "";
+	exits << discription;
 
 	return exits.str();
 }
