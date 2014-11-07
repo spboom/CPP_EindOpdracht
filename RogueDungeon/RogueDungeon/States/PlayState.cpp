@@ -23,6 +23,7 @@ void PlayState::update() {
 }
 
 void PlayState::render() {
+	//player->location->getDescription();
 }
 
 bool PlayState::onEnter() {
@@ -47,17 +48,39 @@ bool PlayState::onExit() {
 
 void PlayState::OutputHandler(string input)
 {
-	// MENU
 	if (input != "")
 	{
 		if (input == "kaart" || input == "bekijk kaart") {
 			TheGame::Instance()->cleanScreen();
 			drawMap();
 		}
+		else if (input == "main menu") {
+			TheGame::Instance()->cleanScreen();
+			TheGame::Instance()->goToMainMenu();
+		}
+		else if (input == "credits") {
+			TheGame::Instance()->cleanScreen();
+			TheGame::Instance()->goToCredits();
+		}
 		else if (input == "") {
 			TheGame::Instance()->cleanScreen();
 		}
-
+		else if (input == "noord")
+		{
+			player->move(Directions::Direction::North);
+		}
+		else if (input == "oost")
+		{
+			player->move(Directions::Direction::East);
+		}
+		else if (input == "zuid")
+		{
+			player->move(Directions::Direction::South);
+		}
+		else if (input == "west")
+		{
+			player->move(Directions::Direction::West);
+		}
 		else {
 			GameState::OutputHandler(input);
 		}

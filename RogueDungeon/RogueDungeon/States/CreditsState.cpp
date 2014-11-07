@@ -56,8 +56,6 @@ void CreditsState::OutputHandler(string input)
 			TheGame::Instance()->cleanScreen();
 			TheGame::Instance()->goToPlay();
 		}
-
-
 		else {
 			GameState::OutputHandler(input);
 		}

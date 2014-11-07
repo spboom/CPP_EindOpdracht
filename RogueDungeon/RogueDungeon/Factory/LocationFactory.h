@@ -36,7 +36,7 @@ public:
 	vector<string> room_feature;
 	vector<string> room_state;
 	vector<string> room_trap;
-	vector<string> exits;
+	vector<string> room_exits;
 	vector<string> room_items;
 
 	//

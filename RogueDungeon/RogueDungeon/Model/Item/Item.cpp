@@ -26,5 +26,5 @@ void Item::parseXMLElement(XMLElement *xmlelement)
 
 	type = xmlelement->Attribute("type");
 
-	cout << name + " " + type + "\n";
+	//cout << name + " " + type + "\n";
 }

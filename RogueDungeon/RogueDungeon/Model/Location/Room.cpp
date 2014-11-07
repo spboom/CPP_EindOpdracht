@@ -126,6 +126,15 @@ string Room::getDescription()
 	return description.str();
 }
 
+string Room::getExits()
+{
+	stringstream exits;
+
+	exits << "Uitgangen: ";
+
+	return exits.str();
+}
+
 int Room::getLevel()
 {
 	return level;

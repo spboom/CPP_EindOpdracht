@@ -33,7 +33,9 @@ public:
 	string feature;
 	string state;
 	string object;
+	string exit;
 	string getDescription();
+	string getExits();
 private:
 	int level;
 	map<Directions::Direction, Hallway*> Doors;

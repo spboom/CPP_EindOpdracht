@@ -4,6 +4,7 @@
 #include "Character.h"
 #include "tinyxml2.h"
 #include "../Location/StartRoom.h"
+#include "../Dungeon.h"
 
 //
 using namespace tinyxml2;
@@ -17,8 +18,9 @@ public:
 	virtual void message() { };
 	void parseXMLElement(XMLElement *xmlelement);
 	Room* location;
+	Dungeon* dungeon;
 
-	void move(Directions::Direction direction);
+	bool move(Directions::Direction direction);
 	void addExp(float exp);
 private:
 	float expNeededforLvlUp;

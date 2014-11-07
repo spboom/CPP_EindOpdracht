@@ -30,5 +30,5 @@ void Character::parseXMLElement(XMLElement *xmlelement)
 
 	level = atoi(xmlelement->Attribute("level"));
 
-	cout << name + " " + std::to_string(level) + " " + std::to_string(attack) + "\n";
+	//cout << name + " " + std::to_string(level) + " " + std::to_string(attack) + "\n";
 }

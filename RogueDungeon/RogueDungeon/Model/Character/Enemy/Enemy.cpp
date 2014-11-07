@@ -32,7 +32,7 @@ void Enemy::parseXMLElement(XMLElement *xmlelement)
 		endboss = true;
 	}
 
-	cout << boss;
+	//cout << boss;
 
 	Character::parseXMLElement(xmlelement);
 }

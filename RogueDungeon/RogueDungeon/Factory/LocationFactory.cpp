@@ -30,7 +30,7 @@ LocationFactory::LocationFactory()
 	room_feature = vector<string>();
 	room_state = vector<string>();
 	room_trap = vector<string>();
-	exits = vector<string>();
+	room_exits = vector<string>();
 	room_items = vector<string>();
 }
 
@@ -71,7 +71,7 @@ vector<Location*> LocationFactory::parseXML(string xmlPath) {
 		}
 		else if ("exit" == type)
 		{
-			exits.push_back(name);
+			room_exits.push_back(name);
 		}
 		else if ("item" == type)
 		{
@@ -97,6 +97,9 @@ void LocationFactory::fillRoom(Room* room)
 
 	arrayDist = uniform_int_distribution<int>(0, room_items.size() - 1);
 	room->object = room_items[arrayDist(TheFactory::Instance()->dre)];
+
+	arrayDist = uniform_int_distribution<int>(0, room_exits.size() - 1);
+	room->exit = room_exits[arrayDist(TheFactory::Instance()->dre)];
 }
 
 void LocationFactory::fillHallway(Hallway* room)

@@ -42,16 +42,11 @@ void GameState::OutputHandler(string input)
 		{
 			TheInputHandler::Instance()->setCommandLine("yes what?");
 		}
-
 	}
-
 	else if (input == "no") {}
-
 	else
 	{
 		TheInputHandler::Instance()->setCommandLine("Caution! Wrong input!");
 	}
-
 	lastInput = input;
-
 }
