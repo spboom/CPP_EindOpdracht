@@ -91,12 +91,6 @@ void MainMenuState::OutputHandler(string input)
 			TheGame::Instance()->cleanScreen();
 			TheGame::Instance()->goToCredits();
 		}
-		else if (input == "fight") {
-			TheGame::Instance()->cleanScreen();
-			StartRoom* room = new StartRoom(0);
-			TheGame::Instance()->goToFight(room->enemies, new Player(room));
-		}
-
 		else {
 			GameState::OutputHandler(input);
 		}

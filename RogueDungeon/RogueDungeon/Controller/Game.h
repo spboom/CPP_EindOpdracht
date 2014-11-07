@@ -33,6 +33,7 @@ public:
 	void clean();
 	void cleanScreen();
 	GameStateMachine* getStateMachine();
+	void GameOver();
 	void goToPlay();
 	void goToMainMenu();
 	void goToCredits();

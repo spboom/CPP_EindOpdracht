@@ -19,6 +19,7 @@ public:
 	void render();
 	GameStateMachine();
 	virtual ~GameStateMachine();
+	void backToMenu();
 private:
 	std::vector<GameState*> m_gameStates;
 };

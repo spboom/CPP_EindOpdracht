@@ -94,6 +94,11 @@ void FightState::step(bool attack, string aditionalLine)
 		}
 	}
 
+	if (player->isDead())
+	{
+		Game::Instance()->GameOver();
+	}
+
 	if (allDead)
 	{
 		Game::Instance()->getStateMachine()->popState();

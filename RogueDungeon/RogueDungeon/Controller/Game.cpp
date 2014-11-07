@@ -167,6 +167,14 @@ void Game::setWindowCenterScreen(int width, int height) {
 	SetWindowPos(ConsoleWindow, NULL, ConsolePosX, ConsolePosY, Width, Height, SWP_SHOWWINDOW || SWP_NOSIZE);
 }
 
+void Game::GameOver()
+{
+	InputHandler::Instance()->setCommandLine("GAME OVER");
+	InputHandler::Instance()->readLine();
+
+	getStateMachine()->backToMenu();
+}
+
 void Game::goToPlay() {
 	getStateMachine()->pushState(new PlayState());
 }

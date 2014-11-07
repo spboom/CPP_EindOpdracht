@@ -53,3 +53,4 @@ void GameState::OutputHandler(string input)
 		TheInputHandler::Instance()->setCommandLine("Caution! Wrong input!");
 	}
 }
+

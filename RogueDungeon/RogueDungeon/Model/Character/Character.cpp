@@ -80,6 +80,10 @@ int Character::hit(int hitPoints)
 	if (damage > 0)
 	{
 		lifepoints -= damage;
+		if (lifepoints < 0)
+		{
+			lifepoints = 0;
+		}
 	}
 	else
 	{

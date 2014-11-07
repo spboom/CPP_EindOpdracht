@@ -10,6 +10,7 @@
 
 //
 #include "GameStateMachine.h"
+#include "../States/MainMenuState.h"
 
 void GameStateMachine::pushState(GameState *pState) {
 	m_gameStates.push_back(pState);
@@ -55,6 +56,15 @@ void GameStateMachine::render() {
 	if (!m_gameStates.empty()) {
 		m_gameStates.back()->render();
 	}
+}
+
+void GameStateMachine::backToMenu()
+{
+	while (!m_gameStates.empty())
+	{
+		popState();
+	}
+	pushState(new MainMenuState());
 }
 
 GameStateMachine::GameStateMachine() {}
